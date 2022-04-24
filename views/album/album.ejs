@@ -1,0 +1,28 @@
+<%- include("../partials/header.ejs") %>
+    
+        
+     
+<div class="col py-4">
+    <div class="album py-4">
+        <div class="container-fluid">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
+            <% album.forEach(function(album){ %>
+              <div class="col">
+                <div class="card shadow-lg">
+                  <div class="card-body">
+                    <a class="text-decoration-none" href="#">
+                      <img class="album--img" src="<%= album.image %>">
+                      <p class="album--name text-white">
+                        <%= album.name %>
+                      </p>
+                      <p class="album--artist d-inline">
+                        Artist
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+          </div>
+        </div>
+<%- include("../partials/footer.ejs") %>

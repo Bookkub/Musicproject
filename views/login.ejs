@@ -1,0 +1,26 @@
+<%- include("partials/login.ejs") %>
+<form action="/login" method="POST">
+    <div class="container">
+        <div class="text-white">
+            <div class="login--form">
+                <a class="login--form__back" href="/">
+                    <img src="/image/icons/back.png" width="30vh">
+                </a>
+                <div class="login--form__logo">
+                    <img src="/image/icons/webicon.png" width="10%">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-info">Sign in</button>
+                <a href="/register">No account yet?</a>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("partials/footer.ejs") %>

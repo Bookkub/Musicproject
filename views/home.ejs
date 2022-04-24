@@ -1,0 +1,53 @@
+<%- include("partials/header.ejs") %>
+<div class="col py-4">
+  <div class="album">
+    <div class="container-fluid">
+      <h1 class="category">RECOMMENDED</h1>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
+        <% recommend.slice(0,6).forEach(function(recommend){ %>
+          <div class="col">
+            <div class="card shadow-lg">
+              <div class="card-body">
+                <a class="text-decoration-none" href="/song/<%= recommend._id %>">
+                  <img class="song--img" src="<%= recommend.image %>">
+                  <p class="song--name text-white">
+                    <%= recommend.name %>
+                  </p>
+                  <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
+                    <%= recommend.artist.name %>
+                  </a>
+                </a>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+    <div class="album py-4">
+      <div class="container-fluid">
+        <div class="d-flex">
+           <h1 class="category">ARTISTS</h1>
+           <a class="seeall" href="/artist">see all</a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
+          <% artist.forEach(function(artist){ %>
+            <div class="col">
+              <div class="card shadow-lg">
+                <div class="card-body">
+                  <a class="text-decoration-none" href="/artist/<%= artist._id %>">
+                    <img class="album--img" src="<%= artist.image %>">
+                    <p class="album--name text-white">
+                      <%= artist.name %>
+                    </p>
+                    <p class="album--artist d-inline">
+                      Artist
+                    </p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,25 @@
+<%- include("../partials/header.ejs") %>
+<div class="col px-0">
+    <div class="container-fluid px-0 bg-dark">
+        <div class="d-flex px-5 py-5">
+            <img class="songinfo--img" src="<%= songinfo.image %>">
+            <div class="songkit">
+                <div class="songkit--up mt-2">
+                    <p class="songkit--up__name text-white mb-0"><%= songinfo.name %></p>
+                    <a class="songkit--up__artist" href="/artist/<%= songinfo.artist.id %>"><%= songinfo.artist.name %></a>
+                </div>
+                <div class="songkit--down mt-3">
+                    <a class="mt-3 d-flex" href="#">
+                        <img class="playbtn" src="/image/icons/play.png">
+                        <img class="favbtn" src="/image/icons/fav.png">
+                        <img class="addbtn" src="/image/icons/add.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer.ejs") %>

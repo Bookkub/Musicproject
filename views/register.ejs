@@ -1,0 +1,34 @@
+<%- include("partials/register.ejs") %>
+<form action="/register " method="POST">
+    <div class="container">
+        <div class="text-white">
+            <div class="register--form">
+                <a class="register--form__back" href="/">
+                    <img src="/image/icons/back.png" width="30vh">
+                </a>
+                <div class="register--form__logo">
+                    <img src="/image/icons/webicon.png" width="10%">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Enter your password" required>
+                </div>
+                <!-- <div class="mb-3">
+                    <label class="form-label">Re-Enter Password</label>
+                    <input type="password" class="form-control" name="re-password" placeholder="Enter your password again" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Profile Name</label>
+                    <input type="text" class="form-control" name="profilename" placeholder="Enter your profile name" required>
+                </div> -->
+                <button type="submit" class="btn btn-info">Sign up</button>
+                <a href="/login">Have an account?</a>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("partials/footer.ejs") %>
