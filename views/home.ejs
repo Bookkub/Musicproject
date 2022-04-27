@@ -23,6 +23,34 @@
           <% }) %>
       </div>
     </div>
+
+    <div class="album py-4">
+      <div class="container-fluid">
+        <div class="d-flex">
+           <h1 class="category">ALBUMS</h1>
+           <a class="seeall" href="/album">see all</a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
+          <% album.forEach(function(album){ %>
+            <div class="col">
+              <div class="card shadow-lg">
+                <div class="card-body">
+                  <a class="text-decoration-none" href="/album/<%= album._id %>">
+                    <img class="album--img" src="<%= album.image %>">
+                    <p class="album--name text-white">
+                      <%= album.name %>
+                    </p>
+                    <a class="album--album d-inline" href="/artist/<%= album.artist.id %>">
+                      <%= album.artist.name %>
+                    </a>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+
     <div class="album py-4">
       <div class="container-fluid">
         <div class="d-flex">
@@ -35,11 +63,11 @@
               <div class="card shadow-lg">
                 <div class="card-body">
                   <a class="text-decoration-none" href="/artist/<%= artist._id %>">
-                    <img class="album--img" src="<%= artist.image %>">
-                    <p class="album--name text-white">
+                    <img class="artist--img" src="<%= artist.image %>">
+                    <p class="artist--name text-white">
                       <%= artist.name %>
                     </p>
-                    <p class="album--artist d-inline">
+                    <p class="artist--artist d-inline">
                       Artist
                     </p>
                   </a>
@@ -49,5 +77,6 @@
             <% }) %>
         </div>
       </div>
+      
 
 <%- include("partials/footer.ejs") %>

@@ -18,8 +18,82 @@
             </div>
         </div>
     </div>
-</div>
+    <div class="container-fluid row g-5 py-3">
+        <div class="col-md-8">
+            <table class="table text-white">
+                <tbody>
+                  <tr>
+                    <th>
+                        <span class="lyric-head">Lyrics</span>
+                        <div class="lyric d-flex">
+                          <%= songinfo.lyric %>
+                        </div>
+                    </th>
+                  </tr> 
+                </tbody>
+              </table>
+        </div>
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+              <div class="py-5 mb-3 rounded">
+                  <div class="d-flex justify-content-between">
+                      <h4 class="px-4 text-white">Other Song</h4>
+                  </div>
+                <table class="table text-white">
+                  <tbody>
+              <% othersong.forEach(function(othersong){ %>
+                    <tr>
+                      <th>
+                          <div class="d-flex">
+                              <img class="songimg" src="<%= othersong.image %>">
+                              <div class="pt-4">
+                                  <%= othersong.name %><%= othersong.artist.name %>
+                              </div>
+                          </div>
+                      </th>
+                    </tr>
+              <% }) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+    </div>
 
+
+
+        <!-- <div class="container-fluid row g-5 py-5">
+            <div class="col-md-8">
+                <table class="table text-white">
+                    <tbody>
+                <% //artistsong.forEach(function(artistsong){ %>
+                      <tr>
+                        <th>
+                            <div class="d-flex">
+                                <span class="songorder d-block pt-4"><%= //count %></span>
+                                <% //count++ %>
+                                <img class="songimg" src="<%= //artistsong.image %>">
+                                <div class="pt-4">
+                                    <%= //artistsong.name %>
+                                </div>
+                            </div>
+                        </th>
+                        <td>
+                            <div class="option">
+                                <img class="p-2" src="/image/icons/play-button.png"  width="40px">  
+                                <img class="p-2" src="/image/icons/fav.png"  width="40px">
+                                <img class="p-2" src="/image/icons/plus.png"  width="40px">
+                            </div>
+                        </td>
+                      </tr>
+                <% //}) %>
+                    </tbody>
+                  </table>
+            </div> -->
+        
+      
 
 
 <%- include("../partials/footer.ejs") %>

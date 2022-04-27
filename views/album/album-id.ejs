@@ -1,0 +1,51 @@
+<%- include("../partials/header.ejs") %>
+<% let count=1 %>
+<div class="col px-0">
+    <div class="container-fluid px-0 bg-dark">
+        <div class="d-flex px-5 py-4">
+            <img class="albuminfo--img" src="<%= album.image %>">
+            <div class="songkit">
+                <div class="artistkit--up">
+                    <p class="artistkit--up__name text-white mb-0"><%= album.name %></p>
+                    <p class="artistkit--up__artist m-0">Album</p>
+                    <p class="songcount"><%= albumsong.length %> songs</p>
+                </div>
+                <div class="songkit--down mt-3">
+                    <a href="#">
+                        <img class="playbtn" src="/image/icons/play.png">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid my-3 px-5">
+        <table class="table text-white">
+            <tbody>
+                <% albumsong.forEach(function(albumsong){ %>
+                      <tr>
+                        <th>
+                            <div class="d-flex">
+                                <span class="songorder d-block pt-4"><%= count %></span>
+                                <% count++ %>
+                                <img class="songimg" src="<%= albumsong.image %>">
+                                <a class="pt-4 text-white text-decoration-none" href="/album/<%= albumsong.id %>">
+                                    <%= albumsong.name %>
+                                </a>
+                            </div>
+                        </th>
+                        <td>
+                            <div class="option">
+                                <img class="p-2" src="/image/icons/play-button.png"  width="40px">  
+                                <img class="p-2" src="/image/icons/fav.png"  width="40px">
+                                <img class="p-2" src="/image/icons/plus.png"  width="40px">
+                            </div>
+                        </td>
+                      </tr>
+                <% }) %>
+                    </tbody>
+          </table>
+    </div>
+
+<%- include("../partials/footer.ejs") %>

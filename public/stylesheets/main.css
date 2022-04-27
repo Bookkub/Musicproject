@@ -11,9 +11,6 @@
     color: white;
     text-decoration: none;
 }
-.navbar--search{
-   display: flex;
-}
 .navbar--btn__login{
     text-decoration: none;
     border-radius: 50px;
@@ -90,7 +87,7 @@
 .card-body{
     padding: 0;
 }
-.songinfo--img{
+.songinfo--img,.albuminfo--img{
     height: 9rem;
     object-fit: scale-down;
 }
@@ -99,7 +96,7 @@
     border-radius: 50%;
     object-fit: scale-down;
 }
-.song--img,.artist--img{
+.song--img,.album--img{
     width: 100%;
     height: 9vw;
     object-fit: scale-down;
@@ -111,11 +108,32 @@
 }
 .album--img{
     width: 100%;
+    height: 9vw;
+    object-fit: scale-down;
+}
+.album--name{
+    font-size: 2.1vh;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap; 
+    width: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    color: #ffffff;
+}
+.album--artist{
+    text-decoration: none;
+    font-size: 1.6vh;
+    font-weight: bold;
+    color: #B6B6B6;
+}
+.artist--img{
+    width: 100%;
     border-radius: 100%;
     height: 9vw;
     object-fit: scale-down;
 }
-.song--name, .album--name{
+.song--name, .artist--name,.album--name{
     font-size: 2.1vh;
     font-weight: bold;
     margin: 0;
@@ -125,13 +143,13 @@
     text-overflow: ellipsis; 
     color: #ffffff;
 } 
-.song--artist, .album--artist{
+.song--artist, .artist--artist, .album--album{
     text-decoration: none;
     font-size: 1.6vh;
     font-weight: bold;
     color: #B6B6B6;
 }
-.song--artist:hover{
+.song--artist:hover, .album--album:hover{
     text-decoration: underline;
     font-size: 1.6vh;
     font-weight: bold;
@@ -201,14 +219,41 @@
 .home:hover{
     animation: glow 20s ease-in-out infinite alternate;
 }
-.table {
-    margin: 0;
-    border: none;
-    border-style: none;
-  }
 tbody, td, tfoot, th, thead, tr{
       border-style: none;
   }
+.line {
+    border-bottom: 2px solid black;
+    width: 50%;
+    margin-left: 25%;
+  }
+.artist-song{
+    margin-left: 35%;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    left: 40%;
+}
+.artist-song:hover{
+    display: inline-block;
+    text-decoration: none;
+    color: #00FFFF;
+    left: 40%;
+}
+.artist-album{
+    margin-left: 20%;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    left: 60%;
+}
+.artist-album:hover{
+
+    display: inline-block;
+    text-decoration: underline;
+    color: white;
+    left: 60%;
+}
 .option{
     padding-top: 7%;
     padding-left: 20%;
@@ -220,7 +265,20 @@ tbody, td, tfoot, th, thead, tr{
 .songorder{
     width: 1rem;
 }
-
+.dropdown-item:hover{
+    color: black;
+}
+.lyric{
+    white-space:pre-line;
+    font-size: 20px;
+}
+.lyric-head{
+    font-size: 40px;
+    font-weight: bold;
+}
+.dropdown-item:hover{
+    background-color: gray;
+}
 @keyframes glow {
     from{
       text-shadow: 0 0 10px rgb(42, 226, 233), 0 0 20px rgb(42, 226, 233), 0 0 30px rgb(42, 226, 233), 0 0 40px rgb(42, 226, 233),0 0 50px rgb(42, 226, 233);
@@ -230,43 +288,6 @@ tbody, td, tfoot, th, thead, tr{
     }
   
   }
-
-  .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown a:hover {background-color: #ddd;}
  body{
     background-image: linear-gradient(90deg,#283048 0%, rgb(71, 97, 107)  100%);
     height: 100%;
