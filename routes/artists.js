@@ -5,6 +5,10 @@ const   express     =   require('express'),
         artist      =   require('../models/artist'),
         middlewareObj   =   require('../middleware');
 
+router.get("/new", function(req, res){
+    res.render("artist/new.ejs"); 
+});
+
 router.get("/", function(req, res){
     artist.find({}).exec(function(err, artist){
         if(err){
@@ -15,7 +19,20 @@ router.get("/", function(req, res){
     });
 });
 
-router.get("/:id", function(req, res){
+// router.post("/", function(req, res){
+//     let artistname = req.body.artistname;
+//     let image = req.body.image;
+//     let newArtist = {name:artistname, image:image};
+//     artist.create(newArtist, function(err, req){
+//         if(err){
+//             console.log(err);
+//         } else {
+           
+//         }
+//     });
+// });
+
+router.get("/:id", middlewareObj.isLoggedIn, function(req, res){
     artist.findById(req.params.id).exec(function(err, artists){
         if(err){
             console.log(err);

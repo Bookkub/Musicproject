@@ -15,7 +15,7 @@ router.get("/", function(req, res){
     });
 });
 
-router.get("/:id", function(req, res){
+router.get("/:id", middlewareObj.isLoggedIn, function(req, res){
     album.findById(req.params.id).exec(function(err, album){
         if(err){
             console.log(err);
@@ -24,7 +24,6 @@ router.get("/:id", function(req, res){
                 if(err){
                     console.log(err);
                 } else {
-                    console.log(albumsong);
                     res.render("album/album-id.ejs",{album:album,albumsong:albumsong}); 
                 }
             });

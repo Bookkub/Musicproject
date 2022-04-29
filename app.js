@@ -4,22 +4,22 @@ const   express     =   require('express'),
         mongoose    =   require('mongoose'),
         passport    =   require('passport'),
         LocalStrategy   =   require('passport-local'),
-        song        =   require('./models/song'),
-        artist      =   require('./models/artist'),
-        album       =   require('./models/album'),
+        flash       =   require('connect-flash'),
         user        =   require('./models/user'),
         seedDB      =   require('./seeds.js');
 
 const indexRoutes   =   require('./routes/index'),
-      artistRoutes   =   require('./routes/artists'),
+      artistRoutes  =   require('./routes/artists'),
       albumRoutes   =   require('./routes/albums'),
-      songRoutes   =   require('./routes/songs'),
-      searchRoutes   =   require('./routes/search');
+      songRoutes    =   require('./routes/songs'),
+      searchRoutes  =   require('./routes/search'),
+      adminRoutes   =   require('./routes/admin');
 
 mongoose.connect('mongodb://localhost/Lifemusic');
 app.set("view engine","ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({extened: true}));
+app.use(flash());
 // seedDB();
 
 app.use(require('express-session')({
@@ -36,8 +36,11 @@ passport.deserializeUser(user.deserializeUser());
 
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
+
 
 // app.get("/profile", function(req, res){
 //     res.render("profile/user.ejs");
@@ -49,6 +52,7 @@ app.use('/song', songRoutes);
 app.use('/artist', artistRoutes);
 app.use('/album', albumRoutes);
 app.use('/search', searchRoutes);
+app.use('/admin', adminRoutes);
 
 app.listen(3000, function(){
     console.log("Activated");

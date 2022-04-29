@@ -1,0 +1,42 @@
+<%- include("../partials/header.ejs") %>
+<div class="col">
+    <div class="container-fluid py-4">
+        <h1 class="text-white">Add New Song</h1>
+        <form action="/song" method="POST">
+            <div class="mb-3">
+                <label  class="form-label text-white">Song Name</label>
+                <input type="text" class="form-control" name="songname" placeholder="Song Name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Lyric</label>
+                <textarea type="text" class="form-control" name="lyric" placeholder="Lyrics" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Artist</label>
+                <input type="text" list="artist" class="form-control" name="artist" placeholder="Artist Name" required>
+                <datalist id="artist">
+                    <% allartist.forEach(function(allartist){ %>
+                    <option class="list-group-item"><%= allartist.name %></option>
+                    <% }) %>
+                </datalist>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Album</label>
+                <input type="text" list="album" class="form-control" name="album" placeholder="Album Name">
+                <datalist id="album">
+                    <% allalbum.forEach(function(allalbum){ %>
+                    <option class="list-group-item"><%= allalbum.name %></option>
+                    <% }) %>
+                </datalist>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Image</label>
+                <input type="text" class="form-control" name="image" placeholder="Image URL" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="#">Go back</a>
+        </form>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

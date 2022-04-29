@@ -1,0 +1,20 @@
+<%- include("../partials/header.ejs") %>
+<div class="col">
+    <div class="container-fluid py-4">
+        <h1 class="text-white">Add New Artist</h1>
+        <form action="/artist" method="POST">
+            <div class="mb-3">
+                <label  class="form-label text-white">Artist Name</label>
+                <input type="text" class="form-control" name="artistname" placeholder="Artist Name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label text-white">Image</label>
+                <input type="text" class="form-control" name="image" placeholder="Image URL" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="#">Go back</a>
+        </form>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

@@ -4,46 +4,6 @@ const   mongoose    =   require('mongoose'),
         Album      =   require('./models/album'),
         User      =   require('./models/user');
 
-function setartist(artistcode, artistname) {
-    Song.find({'artistcode': artistcode.toString()},function(err, code){
-        if(err){
-            console.log(err);
-        } else {
-            code.forEach(element => {
-                Artist.findOne({'name': artistname.toString()},function(err, artistname){
-                    if(err){
-                        console.log(err);
-                    } else {
-                        element.artist.id = artistname._id;
-                        element.artist.image = artistname.image;
-                        element.artist.name = artistname.name;
-                        element.save();
-                    }
-                })
-            });
-        }
-    });
-}
-function setalbumartist(albumcode, artistname) {
-    Album.find({'albumcode': albumcode.toString()},function(err, code){
-        if(err){
-            console.log(err);
-        } else {
-            code.forEach(element => {
-            Artist.findOne({'name': artistname.toString()},function(err, artistname){
-                if(err){
-                    console.log(err);
-                } else {
-                    element.artist.id = artistname._id;
-                    element.artist.image = artistname.image;
-                    element.artist.name = artistname.name;
-                    element.save();
-                 }
-                })
-            });
-        }
-    });
-}
 const albumdatabase = [
     {
         artistcode:"0",
@@ -797,6 +757,66 @@ const artistdatabase = [
     }
 ]
 
+function artisttosong(artistcode, artistname) {
+    Song.find({'artistcode': artistcode.toString()},function(err, code){
+        if(err){
+            console.log(err);
+        } else {
+            code.forEach(element => {
+                Artist.findOne({'name': artistname.toString()},function(err, artistname){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        element.artist.id = artistname._id;
+                        element.artist.image = artistname.image;
+                        element.artist.name = artistname.name;
+                        element.save();
+                    }
+                })
+            });
+        }
+    });
+}
+function albumtosong(albumcode, albumname) {
+    Song.find({'albumcode': albumcode.toString()},function(err, code){
+        if(err){
+            console.log(err);
+        } else {
+            code.forEach(element => {
+                Album.findOne({'name': albumname.toString()},function(err, albumname){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        element.album.id = albumname._id;
+                        element.album.image = albumname.image;
+                        element.album.name = albumname.name;
+                        element.save();
+                    }
+                })
+            });
+        }
+    });
+}
+function artisttoalbum(albumcode, artistname) {
+    Album.find({'albumcode': albumcode.toString()},function(err, code){
+        if(err){
+            console.log(err);
+        } else {
+            code.forEach(element => {
+            Artist.findOne({'name': artistname.toString()},function(err, name){
+                if(err){
+                    console.log(err);
+                } else {
+                    element.artist.id = name._id;
+                    element.artist.image = name.image;
+                    element.artist.name = name.name;
+                    element.save();
+                 }
+                })
+            });
+        }
+    });
+}
 function seedDB(){
     // User.remove({},function(err){
     //     if(err){
@@ -828,8 +848,8 @@ function seedDB(){
                     if(err){
                         console.log(err);
                     } else {
-                        setartist('0','AVICII'); 
-                        setartist('1','The Vamps');         
+                        artisttosong('0','AVICII'); 
+                        artisttosong('1','The Vamps');         
                     }
                 });
             });
@@ -845,8 +865,10 @@ function seedDB(){
                     if(err){
                       console.log(err);
                     } else {
-                        setalbumartist('0','AVICII');
-                        setalbumartist('1','The Vamps');
+                        artisttoalbum('0','AVICII');
+                        artisttoalbum('1','The Vamps');
+                        albumtosong('0','FOREVER');
+                        albumtosong('1','Meet The Vamps');
                     }
                 });
             });

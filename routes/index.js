@@ -21,7 +21,6 @@ router.get("/", function(req, res){
                         if(err){
                             console.log(err);
                         } else {
-                            console.log(album);
                              res.render("home.ejs",{recommend:allSong,artist:artist,album:album});
                         }
                     });
@@ -40,10 +39,11 @@ router.post('/register', function(req,res){
     let newUser = new user({username: req.body.username});
     user.register(newUser, req.body.password, function(err, user){
         if(err){
-            console.log(err);
+            req.flash('error', err.message);
             return res.redirect('/register');
         } else {
             passport.authenticate('local')(req, res, function(){
+                req.flash('success', user.username + ', Welcome to new Life');
                 res.redirect('/');
             });
         }
@@ -57,12 +57,17 @@ router.get("/login", function(req, res){
 router.post('/login', passport.authenticate('local',
     {
         successRedirect: '/',
-        failureRedirect: '/login'
+        failureRedirect: '/login',
+        successFlash: true,
+        failureFlash: true,
+        successFlash: 'Successfully login',
+        failureFlash: 'Invalid username or password'
     }), function(req,res){
 });
 
 router.get('/logout', function(req,res){
     req.logOut();
+    req.flash('success','Log out successfully');
     res.redirect('/');
 });
 

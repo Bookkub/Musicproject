@@ -7,8 +7,8 @@
             <div class="songkit">
                 <div class="artistkit--up">
                     <p class="artistkit--up__name text-white mb-0"><%= album.name %></p>
-                    <p class="artistkit--up__artist m-0">Album</p>
-                    <p class="songcount"><%= albumsong.length %> songs</p>
+                    <p class="artistkit--up__artist m-0">Album by <%= album.artist.name %></p>
+                    <p class="songcount m-0 p-0"><%= albumsong.length %> songs</p>
                 </div>
                 <div class="songkit--down mt-3">
                     <a href="#">
@@ -30,7 +30,7 @@
                                 <span class="songorder d-block pt-4"><%= count %></span>
                                 <% count++ %>
                                 <img class="songimg" src="<%= albumsong.image %>">
-                                <a class="pt-4 text-white text-decoration-none" href="/album/<%= albumsong.id %>">
+                                <a class="pt-4 text-white text-decoration-none" href="#">
                                     <%= albumsong.name %>
                                 </a>
                             </div>

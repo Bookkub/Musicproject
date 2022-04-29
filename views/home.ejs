@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %>
-<div class="col py-4">
-  <div class="album">
+<div class="col">
+  <div class="album py-4">
     <div class="container-fluid">
       <h1 class="category">RECOMMENDED</h1>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
@@ -31,7 +31,7 @@
            <a class="seeall" href="/album">see all</a>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
-          <% album.forEach(function(album){ %>
+          <% album.slice(0,6).forEach(function(album){ %>
             <div class="col">
               <div class="card shadow-lg">
                 <div class="card-body">
@@ -58,7 +58,7 @@
            <a class="seeall" href="/artist">see all</a>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
-          <% artist.forEach(function(artist){ %>
+          <% artist.slice(0,6).forEach(function(artist){ %>
             <div class="col">
               <div class="card shadow-lg">
                 <div class="card-body">
@@ -77,6 +77,8 @@
             <% }) %>
         </div>
       </div>
+</div>
+</div>
       
 
 <%- include("partials/footer.ejs") %>
