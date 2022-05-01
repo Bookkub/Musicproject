@@ -49,8 +49,15 @@
         
         <div class="album py-4">
             <div class="container-fluid">
+              <h1 class="text-white text-center">
+                <% if(count === 1){ %>
+                  Artist has no song record
+                <% } %>
+                </h1>
               <div class="d-flex">
+                <% if(count > 1){ %>
                  <h1 class="category">Album by <%= artist.name %></h1>
+                 <% } %>  
               </div>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
                 <% album.forEach(function(album){ %>

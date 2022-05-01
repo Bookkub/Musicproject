@@ -1,0 +1,40 @@
+<%- include("../partials/header.ejs") %>
+<% let count=1 %>
+<div class="col pt-4">
+    <div class="container-fluid">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="/song/remove">Songs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/artist/remove">Artists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/album/remove">Albums</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/remove">User</a>
+            </li>
+        </ul>
+        <table class="table text-white mt-4">
+          <tbody>
+              <% allAlbum.forEach(function(allAlbum){ %>
+                    <tr>
+                      <th>
+                          <div class="d-flex">
+                              <span class="songorder d-block pt-4"><%= count %></span>
+                              <% count++ %>
+                              <img class="songimg" src="<%= allAlbum.image %>">
+                              <a class="pt-4 text-white text-decoration-none" href="#">
+                                  <%= allAlbum.name %>
+                              </a>
+                          </div>
+                      </th>
+                    </tr>
+              <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

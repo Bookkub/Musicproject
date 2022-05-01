@@ -1,8 +1,8 @@
 .alert{
     margin: 0;
 }
-.nav{
-    display: block;
+.navbar{
+    background-color: black;
 }
 .navbar--brand{
     font-family: 'Concert One', cursive;
@@ -84,21 +84,33 @@
 }
 .songinfo--img,.albuminfo--img{
     height: 9rem;
-    object-fit: scale-down;
+    object-fit:cover;
+    aspect-ratio: 1/1;
 }
 .artistinfo--img{
-    height: 9rem;
-    border-radius: 50%;
-    object-fit: scale-down;
+    width: 9rem;
+    border-radius: 100%;
+    object-fit: cover;
 }
 .song--img,.album--img{
     width: 100%;
-    object-fit: scale-down;
+    object-fit:cover;
+    aspect-ratio: 1/1;
 }
 .songimg{
     height: 4.5rem;
     margin-left: 2rem;
     margin-right: 2rem;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+.artistimg{
+    height: 4.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
 }
 .album--name{
     font-size: 2.1vh;
@@ -118,8 +130,9 @@
 }
 .artist--img{
     width: 100%;
+    object-fit:cover;
     border-radius: 100%;
-    object-fit: scale-down;
+    aspect-ratio: 1/1;
 }
 .song--name, .artist--name,.album--name{
     font-size: 2.1vh;
@@ -267,6 +280,9 @@ tbody, td, tfoot, th, thead, tr{
 .dropdown-item:hover{
     background-color: gray;
 }
+.choice{
+    width: 100%;
+}
 @keyframes glow {
     from{
       text-shadow: 0 0 10px rgb(42, 226, 233), 0 0 20px rgb(42, 226, 233), 0 0 30px rgb(42, 226, 233), 0 0 40px rgb(42, 226, 233),0 0 50px rgb(42, 226, 233);
@@ -285,7 +301,4 @@ tbody, td, tfoot, th, thead, tr{
 a span{
     color: white;
     font-family: 'Roboto', sans-serif;
-}
-nav{
-    background-color: black;
 }

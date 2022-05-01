@@ -1,4 +1,5 @@
 <%- include("partials/header.ejs") %>
+<% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
 <div class="col">
   <div class="album py-4">
     <div class="container-fluid">
@@ -50,7 +51,6 @@
             <% }) %>
         </div>
       </div>
-
     <div class="album py-4">
       <div class="container-fluid">
         <div class="d-flex">
@@ -79,6 +79,58 @@
       </div>
 </div>
 </div>
-      
+<% } %>
+<% if(currentUser && currentUser.isAdmin){ %>
+  <div class="col pt-4">
+    <div class="container-fluid">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Songs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/artist/new">Artists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/album/new">Albums</a>
+        </li>
+      </ul>
+      <h1 class="text-white pt-4">Add New Song</h1>
+      <form action="/" method="POST">
+          <div class="mb-3">
+              <label  class="form-label text-white">Song Name</label>
+              <input type="text" class="form-control" name="songname" placeholder="Song Name" required>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white">Lyric</label>
+              <textarea type="text" class="form-control" name="lyric" placeholder="Lyrics" required></textarea>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white">Artist</label>
+              <input type="text" list="artist" class="form-control" name="artist" placeholder="Artist Name" autocomplete="off" required>
+              <datalist id="artist">
+                  <% artist.forEach(function(artist){ %>
+                  <option class="list-group-item"><%= artist.name %></option>
+                  <% }) %>
+              </datalist>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white">Album</label>
+              <input type="text" list="album" class="form-control" name="album" placeholder="Album Name" autocomplete="off">
+              <datalist id="album">
+                  <% album.forEach(function(album){ %>
+                  <option class="list-group-item"><%= album.name %></option>
+                  <% }) %>
+              </datalist>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white">Image</label>
+              <input type="text" class="form-control" name="image" placeholder="Image URL" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+ 
+<% } %>
 
 <%- include("partials/footer.ejs") %>

@@ -6,14 +6,6 @@ const songSchema = new mongoose.Schema({
     image: String,
     name: String,
     lyric: String,
-    album:{
-        id:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Album'
-        },
-        image:String,
-        name:String
-    },
     artist: {
         id:{
             type: mongoose.Schema.Types.ObjectId,
@@ -22,6 +14,15 @@ const songSchema = new mongoose.Schema({
         image:String,
         name:String
     },
+    album:{
+        id:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Album'
+        },
+        image:String,
+        name:String
+    },
+
     favourite: Number
 });
 

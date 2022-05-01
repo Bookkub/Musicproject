@@ -13,7 +13,7 @@ const indexRoutes   =   require('./routes/index'),
       albumRoutes   =   require('./routes/albums'),
       songRoutes    =   require('./routes/songs'),
       searchRoutes  =   require('./routes/search'),
-      adminRoutes   =   require('./routes/admin');
+      userRoutes    =   require('./routes/user');
 
 mongoose.connect('mongodb://localhost/Lifemusic');
 app.set("view engine","ejs");
@@ -52,7 +52,7 @@ app.use('/song', songRoutes);
 app.use('/artist', artistRoutes);
 app.use('/album', albumRoutes);
 app.use('/search', searchRoutes);
-app.use('/admin', adminRoutes);
+app.use('/user', userRoutes);
 
 app.listen(3000, function(){
     console.log("Activated");

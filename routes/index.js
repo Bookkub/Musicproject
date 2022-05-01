@@ -31,12 +31,58 @@ router.get("/", function(req, res){
     });
 });
 
+router.post("/", function(req, res){
+    let name = req.body.songname;
+    let lyric = req.body.lyric;
+    let artistname = req.body.artist;
+    let albumname = req.body.album;
+    let image = req.body.image;
+    let newSong = {name:name, lyric:lyric, image:image};
+    artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
+        if(err)
+        {
+            console.log(err)
+        } else {
+            album.findOne().where('name').equals(albumname).exec(function(err, foundAlbum){
+                if(err)
+                {
+                    console.log(err)
+                } else {
+                    song.create(newSong, function(err, song){
+                        if(err){
+                            console.log(err);
+                        } else {
+                            song.artistcode = foundArtist.artistcode;
+                            song.artist.id  = foundArtist._id;
+                            song.artist.image = foundArtist.image;
+                            song.artist.name = foundArtist.name;
+                            if(albumname){
+                                song.albumcode = foundAlbum.albumcode;
+                                song.albumcode = foundAlbum.albumcode;
+                                song.album.id  = foundAlbum._id;
+                                song.album.image = foundAlbum.image;
+                                song.album.name = foundAlbum.name;
+                            }
+                            song.save();
+                            console.log("New Song Added");
+                            res.redirect("back");
+                        }
+                    });            
+                }
+            });
+        }
+    });
+});
+
 router.get("/register", function(req, res){
     res.render("register.ejs")
 });
 
 router.post('/register', function(req,res){
     let newUser = new user({username: req.body.username});
+    if(req.body.adminCode === 'topsecret'){
+        newUser.isAdmin = true;
+    }
     user.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash('error', err.message);
@@ -44,6 +90,13 @@ router.post('/register', function(req,res){
         } else {
             passport.authenticate('local')(req, res, function(){
                 req.flash('success', user.username + ', Welcome to new Life');
+                if(newUser.isAdmin === true)
+                {
+                   x = 1;
+                }
+                else {
+                    x = 0;
+                }
                 res.redirect('/');
             });
         }

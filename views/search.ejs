@@ -1,3 +1,31 @@
 <%- include("partials/header.ejs") %>
+<% let count=1 %>
+<div class="col pt-3">
+    <div class="container-fluid">
+          <h1 class="text-white">Songs</h1>
+          <table class="table text-white">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Album</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% searchsong.forEach(function(searchsong){ %>
+                <tr>
+                  <th scope="row"><%= count %></th>
+                  <% count++ %>
+                  <td>
+                    <img class="songimg" src="<%= searchsong.image %>">
+                    <%= searchsong.name %>
+                  </td>
+                </tr>
+             
+              <% }) %>
+            </tbody>
+          </table>
+    </div>
+</div>
 
 <%- include("partials/footer.ejs") %>

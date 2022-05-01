@@ -832,7 +832,7 @@ function seedDB(){
                     if(err){
                         console.log(err);
                     } else {
-                        console.log('Artist data added!');   
+                        // console.log('Artist data added!');   
                     }
                 });
             });

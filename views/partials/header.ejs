@@ -14,6 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="/routes/search.js"></script> -->
 </head>
 <body>
     <nav class="sticky-top navbar navbar-expand-lg navbar-black bg-black">
@@ -22,9 +23,11 @@
                 <img src="/image/icons/webicon.png" alt="icons" width="25">
                 Life
             </a>
-            <form action="/search" method="post">
-                <input onkeyup="updateResult(this.value)" class="form-control me-2 search navbar--search__size" type="search" name="keyword" placeholder="Artists, Song">
+            <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
+            <form action="/search" method="post" >
+                <input class="form-control me-2 search navbar--search__size" type="search" name="keyword" placeholder="Artists, Song" required>
             </form>
+            <% } %>
             <% if(!currentUser) { %>
             <div class="navbar--btn">
                 <a href="/login" class="navbar--btn__login">Login</a>
@@ -38,7 +41,7 @@
                             <%= currentUser.username %>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end bg-black">
-                          <li><a class="dropdown-item text-white" href="/profile">Your Profile</a></li>
+                          <li><a class="dropdown-item text-white" href="/user">Your Profile</a></li>
                           <li><a class="dropdown-item text-white" href="/logout">Log Out</a></li>
                         </ul>
                       </div>
@@ -60,34 +63,52 @@
                 <div class="col-auto bg-black">
                     <div class="text-white min-vh-100">
                         <ul class="nav flex-column mb-0 align-items-sm-start">
-                            <li>
-                                <a href="/" class="home nav-link align-middle">
-                                    <img src="/image/icons/home.png" width="25rem">
-                                    <span class="d-none d-sm-inline">HOME</span>
-                                </a> 
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link align-middle">
-                                    <img src="/image/icons/playlist.png" width="25rem">
-                                    <span class="d-none d-sm-inline">PLAYLISTS</span>
+                            <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
+                                <a href="/" class="choice home nav-link align-middle">
+                                    <li>
+                                        <img src="/image/icons/home.png" width="25rem">
+                                        <span class="d-none d-sm-inline">HOME</span>
+                                     </li>
+                                 </a>
+                                 <a href="#" class="choice nav-link align-middle">
+                                     <li>
+                                        <img src="/image/icons/playlist.png" width="25rem">
+                                        <span class="d-none d-sm-inline">PLAYLISTS</span>
+                                     </li>
+                                 </a>
+                                 <a href="/album" class="choice nav-link align-middle">
+                                     <li>
+                                        <img src="/image/icons/album.png" width="25rem">
+                                        <span class="d-none d-sm-inline">ALBUMS</span> 
+                                     </li>
+                                 </a>
+                                 <a href="/artist" class="choice nav-link align-middle">
+                                     <li>
+                                        <img src="/image/icons/artist.png" width="25rem">
+                                        <span class="d-none d-sm-inline">ARTISTS</span> 
+                                     </li>
+                                 </a>
+                            <% } %>
+                            <% if(currentUser && currentUser.isAdmin){ %>
+                                <a href="/" class="choice nav-link align-middle">
+                                    <li>
+                                        <img src="/image/icons/addmin.png" width="25rem">
+                                        <span class="d-none d-sm-inline">ADD</span> 
+                                    </li>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="/album" class="nav-link align-middle">
-                                    <img src="/image/icons/album.png" width="25rem">
-                                    <span class="d-none d-sm-inline">ALBUMS</span> 
+                                <a href="/song/remove" class="choice nav-link align-middle">
+                                    <li>
+                                        <img src="/image/icons/remove.png" width="25rem">
+                                        <span class="d-none d-sm-inline">REMOVE</span> 
+                                    </li>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="/artist" class="nav-link align-middle">
-                                    <img src="/image/icons/artist.png" width="25rem">
-                                    <span class="d-none d-sm-inline">ARTISTS</span> 
-                                </a>
-                            </li>
+                            <% } %>
                         </ul> 
                     </div>
                 </div>
                 
+                
+        
           
                    
                 

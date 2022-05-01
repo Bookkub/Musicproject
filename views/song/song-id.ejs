@@ -46,14 +46,13 @@
                       <th class="card">
                             <div class="d-flex">
                                 <a class=" text-decoration-none" href="/song/<%= othersong._id %>">
-                                <img class="songimg" src="<%= othersong.image %>">
-                                <div class="pt-2">
-                                    <span class="song--name d-block"><%= othersong.name %></span>
-                                    <a class="song--artist" href="/artist/<%= songinfo.artist.id %>"><%= othersong.artist.name %></a>
-                                </div>
-                            </a>
+                                    <img class="songimg" src="<%= othersong.image %>">
+                                    <div class="pt-2">
+                                        <span class="song--name d-block"><%= othersong.name %></span>
+                                        <a class="song--artist" href="/artist/<%= songinfo.artist.id %>"><%= othersong.artist.name %></a>
+                                    </div>
+                                </a>
                             </div>
-                          
                       </th>
                     </tr>
               <% }) %>
@@ -68,12 +67,12 @@
                     <tbody>
                 <% otherartist.forEach(function(otherartist){ %>
                       <tr>
-                        <th>
+                        <th  class="card">
                             <div class="d-flex">
-                                <img class="songimg" src="<%= otherartist.image %>">
-                                <div class="pt-4">
-                                    <%= otherartist.name %>
-                                </div>
+                                <a class=" text-decoration-none" href="/artist/<%= otherartist._id %>">
+                                    <img class="artistimg" src="<%= otherartist.image %>">
+                                    <span class="artist--name"><%= otherartist.name %></span>
+                                </a>
                             </div>
                         </th>
                       </tr>
