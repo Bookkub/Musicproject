@@ -95,10 +95,10 @@
         </li>
       </ul>
       <h1 class="text-white pt-4">Add New Song</h1>
-      <form action="/" method="POST">
+      <form action="/" method="POST" enctype="multipart/form-data">
           <div class="mb-3">
               <label  class="form-label text-white">Song Name</label>
-              <input type="text" class="form-control" name="songname" placeholder="Song Name" required>
+              <input type="text" class="form-control" name="name" placeholder="Song Name" required>
           </div>
           <div class="mb-3">
               <label class="form-label text-white">Lyric</label>
@@ -124,7 +124,7 @@
           </div>
           <div class="mb-3">
               <label class="form-label text-white">Image</label>
-              <input type="text" class="form-control" name="image" placeholder="Image URL" required>
+              <input type="file" class="form-control" name="image" accept='image/*' required>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>

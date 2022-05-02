@@ -16,23 +16,43 @@
                 <a class="nav-link" href="/user/remove">User</a>
             </li>
         </ul>
-        <table class="table text-white mt-4">
+        <table class="table text-white pt-4 text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
           <tbody>
-              <% allAlbum.forEach(function(allAlbum){ %>
-                    <tr>
-                      <th>
-                          <div class="d-flex">
-                              <span class="songorder d-block pt-4"><%= count %></span>
-                              <% count++ %>
-                              <img class="songimg" src="<%= allAlbum.image %>">
-                              <a class="pt-4 text-white text-decoration-none" href="#">
-                                  <%= allAlbum.name %>
-                              </a>
-                          </div>
-                      </th>
-                    </tr>
-              <% }) %>
-            </tbody>
+            <% allAlbum.forEach(function(allAlbum){ %>
+              <tr class="shadow-bg">
+                <th class="pt-4"><%= count %></th>
+                <% count++ %>
+                <td>
+                  <div class="d-flex">
+                    <img class="songimg-admin" src="<%= allAlbum.image %>">
+                    <p class="pt-4 mx-4 text-white text-decoration-none">
+                      <%= allAlbum.name %>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="pt-4 mx-4 text-white text-decoration-none">
+                    <%= allAlbum.artist.name %>
+                  </p>
+                </td>
+                <td>
+                  <div class="d-flex justify-content-between align-items-center pt-4">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-info">Edit</button>
+                      <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
         </table>
     </div>
 </div>

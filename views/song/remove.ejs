@@ -16,23 +16,56 @@
                 <a class="nav-link" href="/user/remove">User</a>
             </li>
         </ul>
-        <table class="table text-white mt-4">
+      
+        <table class="table text-white pt-4 text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Artist</th>
+              <th>Album</th>
+              <th>Like</th>
+            </tr>
+          </thead>
           <tbody>
-              <% allSong.forEach(function(allSong){ %>
-                    <tr class="">
-                      <th>
-                          <div class="d-flex">
-                              <span class="songorder d-block pt-4"><%= count %></span>
-                              <% count++ %>
-                              <img class="songimg" src="<%= allSong.image %>">
-                              <a class="pt-4 text-white text-decoration-none" href="#">
-                                  <%= allSong.name %>
-                              </a>
-                          </div>
-                      </th>
-                    </tr>
-              <% }) %>
-            </tbody>
+            <% allSong.forEach(function(allSong){ %>
+              <tr class="shadow-bg">
+                <th class="pt-4"><%= count %></th>
+                <% count++ %>
+                <td>
+                  <div class="d-flex">
+                    <img class="songimg-admin" src="<%= allSong.image %>">
+                    <p class="pt-4 mx-4 text-white text-decoration-none">
+                      <%= allSong.name %>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <%= allSong.artist.name %>
+                  </p>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <%= allSong.album.name %>
+                  </p>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <%= allSong.favourite %>
+                  </p>
+                </td>
+                <td>
+                  <div class="d-flex justify-content-between align-items-center pt-4">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-info">Edit</button>
+                      <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
         </table>
     </div>
 </div>

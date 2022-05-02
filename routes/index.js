@@ -1,5 +1,22 @@
 const   express     =   require('express'),
         router      =   express.Router(),
+        multer      =   require('multer'),
+        path        =   require('path'),
+        storage     =   multer.diskStorage({
+                        destination: function(req, file, callback){
+                            callback(null, './public/upload/');
+                        },
+                        filename: function(req, file, callback){
+                            callback(null, file.fieldname + '-' + Date.now()+ path.extname(file.originalname));
+                        }
+        }),
+        imageFilter = function(req, file, callback){
+            if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)){
+                return callback(new Error('Only jpg, jpeg, png and gif.'), false);
+            }
+            callback(null, true);
+        },
+        upload = multer({storage: storage, fileFilter: imageFilter}), 
         song        =   require('../models/song'),
         artist      =   require('../models/artist'),
         album      =   require('../models/album'),
@@ -31,12 +48,14 @@ router.get("/", function(req, res){
     });
 });
 
-router.post("/", function(req, res){
-    let name = req.body.songname;
+router.post("/", upload.single('image') ,function(req, res){
+    // req.body.song.image = '/upload' + req.file.filename;
+    let name = req.body.name;
     let lyric = req.body.lyric;
     let artistname = req.body.artist;
     let albumname = req.body.album;
-    let image = req.body.image;
+    let image = '/upload/' + req.file.filename;
+    // let image = req.body.image;
     let newSong = {name:name, lyric:lyric, image:image};
     artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
         if(err)

@@ -264,7 +264,7 @@ tbody, td, tfoot, th, thead, tr{
     width: 100%;
 }
 .songorder{
-    width: 1rem;
+    width: 3rem;
 }
 .dropdown-item:hover{
     color: black;
@@ -282,6 +282,22 @@ tbody, td, tfoot, th, thead, tr{
 }
 .choice{
     width: 100%;
+}
+.songimg-admin{
+    height: 4.5rem;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+.artistimg-admin{
+    height: 4.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+.shadow-bg:hover{
+    background-color: transparent;
+    background-color: rgba(164, 164, 164, 0.3);
+    border: none;
 }
 @keyframes glow {
     from{

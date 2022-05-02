@@ -5,6 +5,7 @@ const   express     =   require('express'),
         passport    =   require('passport'),
         LocalStrategy   =   require('passport-local'),
         flash       =   require('connect-flash'),
+        methodOverride = require('method-override'),
         user        =   require('./models/user'),
         seedDB      =   require('./seeds.js');
 
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://localhost/Lifemusic');
 app.set("view engine","ejs");
 app.use(express.static("./public"));
 app.use(bodyParser.urlencoded({extened: true}));
+app.use(methodOverride('_method'));
 app.use(flash());
 // seedDB();
 
