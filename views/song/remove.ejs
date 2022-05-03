@@ -1,24 +1,24 @@
 <%- include("../partials/header.ejs") %>
-<% let count=1 %>
-<div class="col pt-4">
-    <div class="container-fluid">
+  <% let count=1 %>
+    <div class="col pt-4">
+      <div class="container-fluid">
         <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/song/remove">Songs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/artist/remove">Artists</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/album/remove">Albums</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/user/remove">User</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/song/remove">Songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/artist/remove">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/album/remove">Albums</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/remove">User</a>
+          </li>
         </ul>
-      
-        <table class="table text-white pt-4 text-center">
-          <thead>
+
+        <table class="table text-white pt-4">
+          <thead class="text-center">
             <tr>
               <th>#</th>
               <th>Name</th>
@@ -29,45 +29,137 @@
           </thead>
           <tbody>
             <% allSong.forEach(function(allSong){ %>
-              <tr class="shadow-bg">
-                <th class="pt-4"><%= count %></th>
+              <tr class="shadow-bg text-center">
+                <th class="pt-4">
+                  <%= count %>
+                </th>
                 <% count++ %>
-                <td>
-                  <div class="d-flex">
-                    <img class="songimg-admin" src="<%= allSong.image %>">
-                    <p class="pt-4 mx-4 text-white text-decoration-none">
-                      <%= allSong.name %>
-                    </p>
-                  </div>
-                </td>
-                <td>
-                  <p class="pt-4 text-white text-decoration-none">
-                    <%= allSong.artist.name %>
-                  </p>
-                </td>
-                <td>
-                  <p class="pt-4 text-white text-decoration-none">
-                    <%= allSong.album.name %>
-                  </p>
-                </td>
-                <td>
-                  <p class="pt-4 text-white text-decoration-none">
-                    <%= allSong.favourite %>
-                  </p>
-                </td>
-                <td>
-                  <div class="d-flex justify-content-between align-items-center pt-4">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-info">Edit</button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                  <td>
+                    <div class="d-flex">
+                      <img class="songimg-admin" src="<%= allSong.image %>">
+                      <p class="pt-4 mx-4 text-white text-decoration-none">
+                        <%= allSong.name %>
+                      </p>
                     </div>
-                  </div>
-                </td>
+                  </td>
+                  <td>
+                    <p class="pt-4 text-white text-decoration-none">
+                      <%= allSong.artist.name %>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="pt-4 text-white text-decoration-none">
+                      <%= allSong.album.name %>
+                    </p>
+                  </td>
+                  <td>
+                    <p class="pt-4 text-white text-decoration-none">
+                      <%= allSong.favourite %>
+                    </p>
+                  </td>
+                  <td>
+                    <div class="pt-4 text-black">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal<%= count %>">
+                        Edit
+                      </button>
+                      <!-- Modal -->
+                      <div class="modal fade text-start" id="exampleModal<%= count %>" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                          <div class="modal-content">
+                            <div class="modal-header bg-info">
+                              <h5 class="modal-title text-black" id="exampleModalLabel">Edit your song</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-black text-left">
+                              <form action="/song/<%= allSong._id %>?_method=PUT" method="POST"
+                                enctype="multipart/form-data">
+                                <div class="mb-3">
+                                  <label class="form-label">Song Name</label>
+                                  <input type="text" class="form-control" name="name" placeholder="<%= allSong.name %>"
+                                    value="<%= allSong.name %>">
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">Lyric</label>
+                                  <textarea type="text" class="form-control" name="lyric"
+                                    placeholder="<%= allSong.lyric %>"><%= allSong.lyric %></textarea>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">Artist</label>
+                                  <input type="text" list="artist" class="form-control" name="artist"
+                                    placeholder="<%= allSong.artist.name %>" value="<%= allSong.artist.name %>"
+                                    autocomplete="off">
+                                  <datalist id="artist">
+                                    <% allArtist.forEach(function(allArtist){ %>
+                                      <option class="list-group-item">
+                                        <%= allArtist.name %>
+                                      </option>
+                                      <% }) %>
+                                  </datalist>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">Album</label>
+                                  <input type="text" list="album" class="form-control" name="album"
+                                    placeholder="<%= allSong.album.name %>" value="<%= allSong.album.name %>"
+                                    autocomplete="off">
+                                  <datalist id="album">
+                                    <% allAlbum.forEach(function(allAlbum){ %>
+                                      <option class="list-group-item">
+                                        <%= allAlbum.name %>
+                                      </option>
+                                      <% }) %>
+                                  </datalist>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label">Image</label>
+                                  <img src="<%= allSong.image %>" height="100px">
+                                  <input type="file" class="form-control" name="image" accept='image/*'>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#song<%= count %>">
+                        Delete
+                      </button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="song<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this song?</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <form action="/song/<%= allSong._id %>?_method=DELETE" method="post">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </td>
               </tr>
-            <% }) %>
+              <% }) %>
           </tbody>
         </table>
+      </div>
     </div>
-</div>
 
-<%- include("../partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>

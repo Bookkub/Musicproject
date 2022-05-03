@@ -21,13 +21,7 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
-    <!-- <script src="/routes/search.js"></script> -->
-    <script>
-      $( "#Formid" ).submit(function( event ) {
-  alert( "Handler for .submit() called." );
-  event.preventDefault();
-});
-    </script>
+    <!-- <script src="style.js" defer></script> -->
 </head>
 
 <body>
@@ -38,11 +32,10 @@
                 Life
             </a>
             <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
-                <!-- <form action="/search" id="Formid" method="post" class="form-anticlear">
+                <form action="/search" id="Formid" method="post" class="form-anticlear">
                     <input onkeyup="this.form.submit()" class="form-control me-2 search navbar--search__size"
                         type="search" name="keyword" placeholder="Artists, Song" required>
-                </form> -->
-               
+                </form>
                 <% } %>
                     <% if(!currentUser) { %>
                         <div class="navbar--btn">

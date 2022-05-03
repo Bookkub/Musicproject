@@ -19,10 +19,6 @@
                 <input type="text" class="form-control" name="album" placeholder="Album Name" required>
             </div>
             <div class="mb-3">
-                <label class="form-label text-white">Image</label>
-                <input type="file" class="form-control" name="image" accept='image/*' required>
-            </div>
-            <div class="mb-3">
                 <label class="form-label text-white">Artist Name</label>
                 <input type="text" list="artist" class="form-control" name="artist" placeholder="Artist Name" autocomplete="off" required>
                 <datalist id="artist">
@@ -31,6 +27,10 @@
                   <% }) %>
               </datalist>
             </div>
+            <div class="mb-3">
+              <label class="form-label text-white">Image</label>
+              <input type="file" class="form-control" name="image" accept='image/*' required>
+          </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
