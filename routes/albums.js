@@ -37,7 +37,61 @@ router.get("/remove", function(req, res){
         if(err) {
             console.log(err);
         } else {
-            res.render("album/remove.ejs",{allAlbum:allAlbum});
+            artist.find({}).exec(function(err, allArtist){
+                if(err){
+                    console.log(err);
+                } else {
+                    song.find({}).exec(function(err, allSong){
+                        if(err){
+                            console.log(err);
+                        } else {
+                            res.render("album/remove.ejs",{allAlbum:allAlbum,allArtist:allArtist,allSong:allSong});
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+router.put('/:id', upload.single('image'),function(req, res){
+    let name = req.body.name;
+    let artistname = req.body.artist;
+    let image;
+    if(req.file){
+        image = '/upload/' + req.file.filename;
+    }
+    let newAlbuminfo = {name:name, artistname:artistname, image:image};
+    artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
+        if(err)
+        {
+            console.log(err)
+        } else {
+            let readartist = {};
+            readartist.id = foundArtist._id;
+            readartist.name = foundArtist.name;
+            readartist.image = foundArtist.image;
+            newAlbuminfo.artist = readartist;
+            album.findByIdAndUpdate(req.params.id, newAlbuminfo, function(err, updatealbum){
+                if(err){
+                    console.log(err);
+                    res.redirect('back');
+                } else {
+                    console.log(newAlbuminfo);
+                    res.redirect('/album/remove');
+                }
+            });
+        }
+    });
+});
+
+router.delete('/:id', function(req,res){
+    album.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+            res.redirect('back');
+        } else {
+            res.redirect('/album/remove');
         }
     });
 });
@@ -95,6 +149,7 @@ router.post("/", upload.single('image') , function(req, res){
                                 album.artist.image = foundArtist.image;
                                 album.artist.name = foundArtist.name;
                                 album.save();
+                                
                                 res.redirect("/");
                             }
                         });
