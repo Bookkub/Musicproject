@@ -1,5 +1,6 @@
 <%- include("../partials/header.ejs") %>
 <% let count=1 %>
+<% let countsong=0 %>
 <div class="col pt-4">
     <div class="container-fluid">
         <ul class="nav nav-tabs">
@@ -22,6 +23,7 @@
               <th>#</th>
               <th>Name</th>
               <th>Artist</th>
+              <th>Number of songs</th>
             </tr>
           </thead>
           <tbody>
@@ -42,20 +44,32 @@
                     <%= allAlbum.artist.name %>
                   </p>
                 </td>
+                
+                <td>
+                  <p class="pt-4 mx-4 text-white text-decoration-none">
+                    <% allSong.forEach(function(allSong){ %>
+                  <% if(allAlbum.name === allSong.album.name){ %>
+                    <% countsong++ %>
+                    <% } %>
+                  <% }) %>
+                  <%= countsong %>
+                  <% countsong=0 %>
+                  </p>
+                </td>
                 <td> 
                   <div class="pt-4 text-black">
                      <!-- Button trigger modal -->
                      <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                     data-bs-target="#exampleModal<%= count %>">
+                     data-bs-target="#edit<%= count %>">
                      Edit
                    </button>
                    <!-- Modal -->
-                   <div class="modal fade text-start" id="exampleModal<%= count %>" tabindex="-1"
+                   <div class="modal fade text-start" id="edit<%= count %>" tabindex="-1"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-xl">
                        <div class="modal-content">
                          <div class="modal-header bg-info">
-                           <h5 class="modal-title text-black" id="exampleModalLabel">Edit your album</h5>
+                           <h5 class="modal-title text-black" id="exampleModalLabel">Edit Album</h5>
                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                              aria-label="Close"></button>
                          </div>
@@ -96,17 +110,17 @@
                    </div>
                    <!-- Button trigger modal -->
                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                     data-bs-target="#album<%= count %>">
+                     data-bs-target="#delete<%= count %>">
                      Delete
                    </button>
 
                    <!-- Modal -->
-                   <div class="modal fade" id="album<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                   <div class="modal fade" id="delete<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
                      <div class="modal-dialog">
                        <div class="modal-content">
                          <div class="modal-header">
-                           <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this song?</h5>
+                           <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this album?</h5>
                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                              aria-label="Close"></button>
                          </div>

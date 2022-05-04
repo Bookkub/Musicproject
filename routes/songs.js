@@ -54,13 +54,14 @@ router.put('/:id', upload.single('image'),function(req, res){
         if(req.file){
             image = '/upload/' + req.file.filename;
         }
-        let newSonginfo = {name:name, lyric:lyric, artistname:artistname, albumname:albumname, image:image};
-        artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
+        let newSonginfo = {name:name, lyric:lyric, image:image};
+        artist.findOne().where('name').equals(artistname.trim()).exec(function(err, foundArtist){
             if(err)
             {
                 console.log(err)
             } else {
                 let readartist = {};
+                newSonginfo.artistcode = foundArtist.artistcode;
                 readartist.id = foundArtist._id;
                 readartist.name = foundArtist.name;
                 readartist.image = foundArtist.image;
@@ -72,22 +73,41 @@ router.put('/:id', upload.single('image'),function(req, res){
                             console.log(err)
                         } else {
                             let readalbum = {};
+                            newSonginfo.albumcode = foundAlbum.albumcode;
                             readalbum.id = foundAlbum._id;
                             readalbum.name = foundAlbum.name;
                             readalbum.image = foundAlbum.image;
                             newSonginfo.album = readalbum;
+                            console.log(newSonginfo);
                             song.findByIdAndUpdate(req.params.id, newSonginfo, function(err, updateSong){
                                 if(err){
                                     console.log(err);
                                     res.redirect('back');
                                 } else {
-                                    console.log(newSonginfo);
+                                    req.flash('success', "Song had been edit.");
                                     res.redirect('/song/remove');
                                 }
                             });
                         }
                     });
-                }
+                } else{
+                    song.findByIdAndUpdate(req.params.id, {
+                        artistcode : newSonginfo.artistcode,
+                            image: req.body.image,
+                            name:  req.body.name,
+                            lyric:  req.body.lyric,
+                            artist : newSonginfo.artist,
+                            $unset: {album:"", albumcode:""}
+                    }, function(err, updateSong){
+                        if(err){
+                            console.log(err);
+                            res.redirect('back');
+                        } else {
+                            req.flash('success', "Song had been edit.");
+                            res.redirect('/song/remove');
+                        }
+                    });
+                } 
             }
         });
 });
@@ -98,19 +118,11 @@ router.delete('/:id', function(req,res){
             console.log(err);
             res.redirect('back');
         } else {
+            req.flash('success', "Song had been remove.");
             res.redirect('/song/remove');
         }
     });
 });
-// router.get("/:id/edit", function(req, res){
-//     song.findById(req.params.id, function(err, foundsong){
-//         if(err) {
-//             console.log(err);
-//         } else {
-//             res.render('song/edit.ejs',{foundsong:foundsong});
-//         }
-//     });
-// });
 
 router.get("/:id", middlewareObj.isLoggedIn, function(req, res){
     song.findById(req.params.id).populate('artist').exec(function(err, foundsong){

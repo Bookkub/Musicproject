@@ -83,7 +83,7 @@ router.post("/", upload.single('image') ,function(req, res){
                                 song.album.name = foundAlbum.name;
                             }
                             song.save();
-                            console.log("New Song Added");
+                            req.flash('success', "New song have already added.");
                             res.redirect("back");
                         }
                     });            

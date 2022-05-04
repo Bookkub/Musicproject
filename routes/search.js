@@ -20,7 +20,7 @@ router.get("/:keyword", function(req, res){
 
 router.post("/", function(req, res, next){
    const keyword = req.body.keyword;
-   res.redirect("/search/" + keyword);
+   // res.redirect("/search/" + keyword);
    console.log(keyword);
 });
 

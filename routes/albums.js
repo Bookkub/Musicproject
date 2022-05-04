@@ -77,7 +77,7 @@ router.put('/:id', upload.single('image'),function(req, res){
                     console.log(err);
                     res.redirect('back');
                 } else {
-                    console.log(newAlbuminfo);
+                    req.flash('success', "Album had been edit.");
                     res.redirect('/album/remove');
                 }
             });
@@ -91,6 +91,7 @@ router.delete('/:id', function(req,res){
             console.log(err);
             res.redirect('back');
         } else {
+            req.flash('success', "Album had been remove.");
             res.redirect('/album/remove');
         }
     });
@@ -149,7 +150,7 @@ router.post("/", upload.single('image') , function(req, res){
                                 album.artist.image = foundArtist.image;
                                 album.artist.name = foundArtist.name;
                                 album.save();
-                                
+                                req.flash('success', "New album have already added.");
                                 res.redirect("/");
                             }
                         });

@@ -1,5 +1,6 @@
 <%- include("../partials/header.ejs") %>
 <% let count=1 %>
+<% let countsong=0 %>
 <div class="col pt-4">
     <div class="container-fluid">
         <ul class="nav nav-tabs">
@@ -21,6 +22,7 @@
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Number of Songs</th>
             </tr>
           </thead>
           <tbody>
@@ -37,9 +39,78 @@
                   </div>
                 </td>
                 <td>
-                    <div class="btn-group pt-4">
-                      <button type="button" class="btn btn-sm btn-outline-info">Edit</button>
-                      <button type="button" class="btn btn-sm btn-outline-danger">Delete</button>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <% allSong.forEach(function(allSong){ %>
+                      <% if(allArtist.name === allSong.artist.name){ %>
+                        <% countsong++ %>
+                      <% }%>
+                    <% }) %>
+                      <%= countsong %>
+                      <% countsong=0 %>
+                  </p>
+                </td>
+                <td>
+                  <div class="pt-4 text-black">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal<%= count %>">
+                      Edit
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade text-start" id="exampleModal<%= count %>" tabindex="-1"
+                      aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header bg-info">
+                            <h5 class="modal-title text-black" id="exampleModalLabel">Edit Artist</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body text-black text-left">
+                            <form action="/artist/<%= allArtist._id %>?_method=PUT" method="POST"
+                              enctype="multipart/form-data">
+                              <div class="mb-3">
+                                <label class="form-label">Artist Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="<%= allArtist.name %>"
+                                  value="<%= allArtist.name %>">
+                              </div>
+                              <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <img src="<%= allArtist.image %>" height="100px" class="mb-3">
+                                <input type="file" class="form-control" name="image" accept='image/*'>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                      data-bs-target="#delete<%= count %>">
+                      Delete
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this artist?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="/artist/<%= allArtist._id %>?_method=DELETE" method="post">
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 </td>
               </tr>

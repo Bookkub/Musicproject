@@ -61,16 +61,16 @@
                     <div class="pt-4 text-black">
                       <!-- Button trigger modal -->
                       <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal<%= count %>">
+                        data-bs-target="#edit<%= count %>">
                         Edit
                       </button>
                       <!-- Modal -->
-                      <div class="modal fade text-start" id="exampleModal<%= count %>" tabindex="-1"
+                      <div class="modal fade text-start" id="edit<%= count %>" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-xl">
                           <div class="modal-content">
                             <div class="modal-header bg-info">
-                              <h5 class="modal-title text-black" id="exampleModalLabel">Edit your song</h5>
+                              <h5 class="modal-title text-black" id="exampleModalLabel">Edit Song</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                             </div>
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="mb-3">
                                   <label class="form-label">Image</label>
-                                  <img src="<%= allSong.image %>" height="100px">
+                                  <img src="<%= allSong.image %>" height="100px" class="mb-3">
                                   <input type="file" class="form-control" name="image" accept='image/*'>
                                 </div>
                                 <div class="modal-footer">
@@ -129,12 +129,12 @@
                       </div>
                       <!-- Button trigger modal -->
                       <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                        data-bs-target="#song<%= count %>">
+                        data-bs-target="#delete<%= count %>">
                         Delete
                       </button>
 
                       <!-- Modal -->
-                      <div class="modal fade" id="song<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      <div class="modal fade" id="delete<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
