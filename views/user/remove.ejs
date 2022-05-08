@@ -1,4 +1,5 @@
 <%- include("../partials/header.ejs") %>
+<% let count = 1 %>
 <div class="col pt-4">
     <div class="container-fluid">
         <ul class="nav nav-tabs">
@@ -15,6 +16,81 @@
                 <a class="nav-link active" aria-current="page" href="/user/remove">User</a>
             </li>
         </ul>
+        <table class="table text-white pt-4 text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% foundUser.forEach(function(foundUser){ %>
+              <tr class="shadows">
+                <th class="pt-4"><%= count %></th>
+                <% count++ %>
+                <td>
+                  <div class="d-flex">
+                    <img class="artistimg-admin" src="<%= foundUser.image %>">
+                    <p class="pt-4 mx-4 text-white text-decoration-none">
+                      <%= foundUser.username %>
+                    </p>
+                  </div>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <%= foundUser.firstname + " " + foundUser.lastname %>
+                  </p>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <%= foundUser.email %>
+                  </p>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    
+                    <% if(foundUser.isAdmin === true){ %>
+                       Admin 
+                    <% } %>
+                    <% if(foundUser.isAdmin !== true){ %>
+                        User 
+                    <% } %>
+                  </p>
+                </td>
+                <td>
+                  <div class="pt-4 text-black">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                      data-bs-target="#delete<%= count %>">
+                      Delete
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this User?</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <form action="/user/<%= foundUser._id %>?_method=DELETE" method="post">
+                              <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
     </div>
 </div>
 

@@ -16,6 +16,24 @@ const albumdatabase = [
         albumcode:"1",
         image:"https://i.scdn.co/image/ab67616d0000b2734749d18ed005d880c6dc5001",
         name:"Meet The Vamps"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        image:"https://s.isanook.com/jo/0/rp/r/w700/ya0xa0m1w0/aHR0cDovL2ltYWdlLmpvb3guY29tL0pPT1hjb3Zlci8wL2VjODQzYTQ5NjBjZWE1ODAvMTAwMC5qcGc=.jpg",
+        name:"These Two Windows"
+    },
+    {
+        artistcode:"3",
+        albumcode:"3",
+        image:"http://38.media.tumblr.com/tumblr_luzq8wnCrR1qby38so1_1321845735_cover.jpg",
+        name:"Up All Night"
+    },
+    {
+        artistcode:"0",
+        albumcode:"4",
+        image:"https://s.isanook.com/jo/0/rp/r/w300/ya0xa0m1w0/aHR0cDovL2ltYWdlLmpvb3guY29tL0pPT1hjb3Zlci8wLzFmNDk3OTBjOTBhN2Y3ODgvNjQwLmpwZw==.jpg",
+        name:"TRUE"
     }
 ]
 
@@ -173,7 +191,7 @@ const songdatabase = [
     },
     {
         artistcode:"0",
-        albumcode:"0",
+        albumcode:"4",
         image:"https://i1.sndcdn.com/artworks-ZECkxYMI1izCVSsa-e3gh4A-t500x500.jpg",
         name:"Addicted To You",
         lyric:`I don't know just how it happened,
@@ -222,6 +240,7 @@ const songdatabase = [
     },
     {
         artistcode:"0",
+        albumcode:"4",
         image:"https://upload.wikimedia.org/wikipedia/en/a/a8/SilhouettesAvicii.jpg",
         name:"Silhouettes",
         lyric:`Press play, fast forward
@@ -264,6 +283,7 @@ const songdatabase = [
     },
     {
         artistcode:"0",
+        albumcode:"4",
         image:"https://s.isanook.com/jo/0/rp/r/w700/ya0xa0m1w0/aHR0cDovL2ltYWdlLmpvb3guY29tL0pPT1hjb3Zlci8wLzRkNGM0ODM3OGZlYTRiYzQvMTAwMC5qcGc=.jpg",
         name:"SOS",
         lyric:`Can you hear me, S.O.S.?
@@ -302,6 +322,7 @@ const songdatabase = [
     },
     {
         artistcode:"0",
+        albumcode:"4",
         image:"https://i1.sndcdn.com/artworks-JBKgmTXjijZBg6Wq-L0zVmw-t500x500.jpg",
         name:"Superlove",
         lyric:`I want you
@@ -742,6 +763,821 @@ const songdatabase = [
         But I'd like to skip the small talk and romance, girl.
         That's all I have to say so, baby, can we dance?`,
         favourite:"14"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        name:"Mind Is A Prison",
+        image:"https://i1.sndcdn.com/artworks-000650792818-n4jktb-t500x500.jpg",
+        lyric:`I don't live in California, I'll inform you, that's not where I reside
+        I'm just a tenant, paying rent inside this body and I
+        Got two windows and those windows, well I'll call them my eyes
+        I'm just going where the wind blows, I don't get to decide
+        
+        Sometimes I think too much, yeah, I get so caught up
+        I'm always stuck in my head
+        I wish I could escape, I tried to yesterday
+        Took all the sheets off my bed
+        
+        Then I tied up my linen with five strips of ribbon I found
+        Scaled the side of the building
+        I ran to the hills till they found me
+        And they put me back in my cell
+        All by myself, alone with my thoughts again
+        Guess my mind is a prison and I'm never gonna get out
+        
+        So they tranquilized me, analyzed me, threw me back in my cage
+        Then they tied me to an IV, told me I was insane
+        I'm a prisoner, a visitor inside of my brain
+        And no matter what I do, they try to keep me in chains
+        
+        Sometimes I think too much, yeah, I get so caught up
+        I'm always stuck in my head
+        I wish I could escape, I tried to yesterday
+        Took all the sheets off my bed
+        
+        Then I tied up my linen with five strips of ribbon I found
+        Scaled the side of the building
+        I ran to the hills till they found me
+        And they put me back in my cell
+        All by myself, alone with my thoughts again
+        Guess my mind is a prison and I'm never gonna get out
+        
+        Said even if it's true, no matter what I do
+        I'm never gonna escape
+        I won't give up on hope, secure another rope
+        And try for another day
+        Said even if it's true, no matter what I do
+        I'm never gonna escape
+        I won't give up on hope, secure another rope
+        And try for another day
+        
+        Then I tied up my linen with five strips of ribbon I found
+        Scaled the side of the building
+        I ran to the hills till they found me
+        And they put me back in my cell
+        All by myself, alone with my thoughts again
+        Guess my mind is a prison and I'm never gonna get out`,
+        favourite:"22"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        name:"Demons",
+        image:"https://media.thehypemagazine.com/wp-content/uploads/2020/01/Alec-Benjamin.jpg",
+        lyric:`I've got all these demons hiding underneath
+        Nobody can see them, nobody but me, and you're the reason
+        The only thing that keeps me from diving off the deep end
+        Because I've got all these demons, demons, demons, hmm-hmm
+        
+        Well, at first I thought I'd have to bear this weight by myself
+        But when my knees were getting weak and I was in need of help
+        You were there to take away the pain that I felt, hmm
+        You're the only one that gave me hope
+        You're the only one who really knows
+        
+        I've got all these demons hiding underneath
+        Nobody can see them, nobody but me, and you're the reason
+        The only thing that keeps me from diving off the deep end
+        Because I've got all these demons, demons, demons, hmm-hmm
+        
+        For a moment I thought maybe I was doing alright
+        So I took your love for granted and I left you behind
+        And I just didn't understand, you kept me alive, hmm
+        You forgave me and you gave me hope
+        Still you're the only one who really knows
+        
+        I've got all these demons hiding underneath
+        Nobody can see them, nobody but me, and you're the reason
+        The only thing that keeps me from diving off the deep end
+        Because I've got all these demons, demons, demons, hmm-hmm
+        
+        It's you, you pull me through it on the days when I have doubts
+        Even when I turn my back on you, you never let me down
+        And even when I hit the bottom, no, you didn't let me drown
+        No, oh
+        
+        I've got all these demons hiding underneath
+        Nobody can see them, nobody but me, and you're the reason
+        The only thing that keeps me from diving off the deep end
+        Because I've got all these demons, demons, demons, hmm-hmm
+        Because I've got all these demons, demons, demons, hmm-hmm`,
+        favourite:"10"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        name:"Oh My God",
+        image:"https://www.educatepark.com/wp-content/uploads/2020/02/omg.jpg",
+        lyric:`Looking at the pictures I keep on my shelf
+        'Cause it's been so long since I've looked like myself
+        Burn another candle down
+        Burn another candle down
+        Running low on patience, running low on fumes
+        I'm never gonna make it halfway to the moon
+        But it's too late to turn around
+        But it's too late to turn around
+        
+        I'm running out of oxygen
+        I'll never be the same again now
+        Same again now
+        
+        Oh my god, I can't remember
+        Who I was just last December
+        What have I done, how did I get here?
+        What have I done?
+        Oh my god, look in the mirror
+        I was young, nothing to fear once
+        What have I done, how did I get here?
+        What have I done?
+        
+        Maybe I was foolish, I guess I was naive
+        I didn't know what I had, and I thought I had to leave
+        I wish that I was homeward bound
+        I wish that I was homeward bound
+        I'm searching for a signal, holding out my phone
+        Have I gone too far, am I on my own?
+        No one here to hold me now
+        No one here to hold me now
+        
+        I'm running out of oxygen
+        Can't help but wish I'd stayed
+        I'm lost just like Will Robinson
+        Or rocket man in space
+        
+        Oh my god, I can't remember
+        Who I was just last December
+        What have I done, how did I get here?
+        What have I done?
+        Oh my god, look in the mirror
+        I was young, nothing to fear once
+        What have I done, how did I get here?
+        What have I done?
+        Mmm, mmm
+        Mmm, mmm
+        
+        Oh my god, I can't remember
+        Who I was just last December
+        Who I was just last December
+        Oh my god
+        
+        Oh my god, look in the mirror
+        I was young, nothing to fear once
+        What have I done, how did I get here?
+        What have I done?
+        Mmm, mmm
+        Mmm, mmm`,
+        favourite:"16"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        name:"The Book of You & I",
+        image:"https://image.joox.com/JOOXcover/0/cc30d33befb801c3/300",
+        lyric:`Well, it all began in the back of her car
+        I was just 16 but I fell so hard
+        Well, the years went by and she held my heart
+        But her love ran dry and we fell apart
+        
+        I felt her growing distant
+        I knew her love was shifting
+        And all that I could say was
+        
+        Don't tell me that it's over
+        The book of you and I
+        Now you've scribbled out my name
+        And you've erased my favorite lines
+        There were so many chapters that we never got to write
+        Like cereal for dinner
+        And staying up all night
+        
+        I remember where we started
+        I remember how you looked but now
+        I'm missing bits and pieces from the pages that you took
+        You didn't give a reason, I'll forever wonder why
+        We never got to finish the book of you and I
+        
+        Well, I bought a pen and I turned the page
+        Then I wrote about how I wish you'd stayed
+        I said all the things that I never got to say
+        Maybe when it's done I will feel okay
+        
+        That she had grown so distant
+        I knew her love had shifted
+        I wish she felt the same
+        
+        Don't tell me that it's over
+        The book of you and I
+        Now you've scribbled out my name
+        And you've erased my favorite lines
+        There were so many chapters that we never got to write
+        Like cereal for dinner
+        And staying up all night
+        
+        I remember where we started
+        I remember how you looked but now
+        I'm missing bits and pieces from the pages that you took
+        You never gave a reason, I'll forever wonder why
+        We never got to finish the book of you and I
+        
+        Don't tell me
+        Tell me that you're leaving me
+        My belly hurts and my heart is hardly beating right
+        I hate to beg but I'll try one last time
+        
+        Don't tell me that it's over
+        The book of you and I
+        Now you've scribbled out my name
+        And you've erased my favorite lines
+        There were so many chapters that we never got to write
+        Like cereal for dinner
+        And staying up all night
+        
+        I remember where we started
+        I remember how you looked but now
+        I'm missing bits and pieces from the pages that you took
+        You never gave a reason, I'll forever wonder why
+        We never got to finish the book of you and I`,
+        favourite:"14"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        name:"Match In The Rain",
+        image:"https://i1.sndcdn.com/artworks-67BU4OHp6e6yvfgt-GtsXCQ-t500x500.jpg",
+        lyric:`Seems you've been changing lately
+        I can feel the distance in your touch
+        There's two people in this hallway
+        But there's only one of us
+        That's tryna keep this fire going
+        Should I just give up?
+        I sense trouble on the horizon
+        I'm afraid our time is up
+        
+        The clouds are rolling in, I feel you drifting away
+        And though my intuition tells me that it's too late
+        That in these conditions tryna bring back the flame is like
+        Tryna light a match in the rain
+        I still want to make you love me, make you love me again
+        Even though my intuition tells me that it's the end
+        That in these conditions tryna bring back the flame is like
+        Tryna light a match in the rain
+        
+        Yeah, I can taste it, it's the end
+        This love's impossible to save
+        Though you embrace it, I can't face it
+        So I look the other way
+        There's trouble in your eyes
+        But I pretend that we're okay
+        I wish that we could compromise
+        But there's just nothing left to say
+        
+        The clouds are rolling in, I feel you drifting away
+        And though my intuition tells me that it's too late
+        That in these conditions tryna bring back the flame is like
+        Tryna light a match in the rain
+        I still want to make you love me, make you love me again
+        Even though my intuition tells me that it's the end
+        That in these conditions tryna bring back the flame is like
+        Tryna light a match in the rain
+        
+        Trying to light a match in the rain
+        Like flying a kite in a hurricane
+        Like riding a bike with no air or chain
+        On a broken road, it's a losing game
+        Trying to light a match in the rain
+        Like flying a kite in a hurricane
+        Like riding a bike with no air or chain
+        On a broken road, it's a losing game
+        
+        The clouds are rolling in, I feel you drifting away
+        And though my intuition tells me that it's too late
+        That in these conditions tryna bring back the flame is like
+        Tryna light a match in the rain
+        I still want to make you love me, make you love me again
+        Even though my intuition tells me that it's the end
+        That in these conditions tryna bring back the flame is like
+        Tryna light a match in the rain`,
+        favourite:"7"
+    },
+    {
+        artistcode:"2",
+        albumcode:"2",
+        name:"Jesus In LA",
+        image:"https://i.ytimg.com/vi/5_EXWS7UNs4/maxresdefault.jpg",
+        lyric:`Well, I shook hands with the devil
+        Down on the south side
+        And he bought us both a drink
+        With a pad and a pencil sat by his side
+        I said, "Tell me what you think"
+        
+        I've been looking for my savior, looking for my truth
+        I even asked my shrink
+        He brought me down to his level
+        Said, "Son, you're not special
+        You won't find him where you think"
+        
+        You won't find him down on Sunset
+        Or at a party in the hills
+        At the bottom of the bottle
+        Or when you're tripping on some pills
+        When they sold you the dream you were just 16
+        Packed a bag and ran away
+        And it's a crying shame you came all this way
+        'Cause you won't find Jesus in LA
+        And it's a crying shame you came all this way
+        'Cause you won't find Jesus in LA
+        
+        Took a sip of his whiskey
+        Said, "Now that you're with me
+        Well, I think that you should stay"
+        Yeah, I know you've been busy
+        Searching through the city
+        So let me share the way
+        
+        I know I'm not your savior
+        Know I'm not your truth
+        But I think we could be friends
+        He said "Come down to my level
+        Hang out with the devil
+        Let me tell you, in the end...
+        
+        You won't find him down on sunset
+        Or at a party in the hills
+        At the bottom of the bottle
+        Or when you're tripping on some pills
+        When they sold you the dream you were just 16
+        Packed a bag and ran away
+        And it's a crying shame you came all this way
+        'Cause you won't find Jesus in LA
+        And it's a crying shame you came all this way
+        'Cause you won't find Jesus in LA"
+        
+        And that is when I knew that it was time to go home
+        And that is when I realized that I was alone
+        And all the vibrant colors from the lights fade away
+        And I don't care what they say
+        
+        You won't find him down on sunset
+        Or at a party in the hills
+        At the bottom of the bottle
+        Or when you're tripping on some pills
+        When they sold you the dream you were just 16
+        Packed a bag and ran away
+        And it's a crying shame you came all this way
+        'Cause you won't find Jesus in LA
+        I won't find him down on sunset
+        Or at a party in the hills
+        At the bottom of the bottle
+        Or when I'm tripping on some pills
+        When they sold me the dream I was just 16
+        Packed my bag and ran away
+        And it's a crying shame I came all this way
+        'Cause I won't find Jesus in LA
+        And it's a crying shame I came all this way
+        'Cause I won't find Jesus in LA`,
+        favourite:"6"
+    },
+    {
+        artistcode:"3",
+        albumcode:"3",
+        name:"What Makes You Beautiful",
+        image:"https://media.teroradio.com/pix/single/4979.jpg",
+        lyric:`[Liam:]
+        You're insecure
+        Don't know what for
+        You're turning heads when you walk through the door
+        Don't need make-up
+        To cover up
+        Being the way that you are is enough
+        
+        [Harry:]
+        Everyone else in the room can see it
+        Everyone else but you
+        
+        [All:]
+        Baby you light up my world like nobody else
+        The way that you flip your hair gets me overwhelmed
+        But when you smile at the ground it ain't hard to tell
+        You don't know
+        Oh, oh
+        You don't know you're beautiful
+        If only you saw what I can see
+        You'd understand why I want you so desperately
+        Right now I'm looking at you and I can't believe
+        You don't know
+        Oh, oh
+        You don't know you're beautiful
+        Oh, oh
+        That's what makes you beautiful
+        
+        [Zayn:]
+        So c-come on
+        You got it wrong
+        To prove I'm right
+        I put it in a song
+        I don't know why
+        You're being shy
+        And turn away when I look into your eye-eye-eyes
+        
+        [Harry]
+        Everyone else in the room can see it
+        Everyone else but you
+        
+        [All:]
+        Baby you light up my world like nobody else
+        The way that you flip your hair gets me overwhelmed
+        But when you smile at the ground it ain't hard to tell
+        You don't know
+        Oh oh
+        You don't know you're beautiful
+        If only you saw what I can see
+        You'll understand why I want you so desperately
+        Right now I'm looking at you and I can't believe
+        You don't know
+        Oh oh
+        You don't know you're beautiful
+        Oh oh
+        
+        [Harry:]
+        That's what makes you beautiful
+        
+        Nana nana nana nana
+        Nana nana nana nana
+        Nana nana nana nana
+        
+        [Harry:]
+        Baby you light up my world like nobody else
+        The way that you flip your hair gets me overwhelmed
+        But when you smile at the ground it ain't hard to tell
+        
+        [All:]
+        You don't know
+        Oh oh
+        You don't know you're beautiful
+        
+        Baby, you light up my world like nobody else
+        The way that you flip your hair gets me overwhelmed
+        But when you smile at the ground it ain't hard to tell
+        You don't know
+        Oh oh
+        You don't know you're beautiful (Oh)
+        If only you saw what I can see
+        You'll understand why I want you so desperately
+        ([Harry:] desperately)
+        Right now I'm looking at you and I can't believe
+        You don't know
+        Oh oh
+        You don't know you're beautiful
+        Oh oh
+        You don't know you're beautiful
+        Oh oh
+        
+        [Harry:]
+        That's what makes you beautiful`,
+        favourite:"22"
+    },
+    {
+        artistcode:"3",
+        albumcode:"3",
+        name:"One Thing",
+        image:"https://images.genius.com/a08bf035cb649eeb4cd31aeb680741c6.600x600x1.jpg",
+        lyric:`[Liam:]
+        I've tried playing it cool
+        But when I'm looking at you
+        I can't ever be brave
+        'Cause you make my heart race
+        
+        [Harry:]
+        Shot me out of the sky
+        You're my kryptonite
+        You keep making me weak
+        Yeah, frozen and can't breathe
+        
+        [Zayn:]
+        Something's gotta give now
+        'Cause I'm dying just to make you see
+        That I need you here with me now
+        'Cause you've got that one thing
+        
+        [Chorus:]
+        So get out, get out, get out of my head
+        And fall into my arms instead
+        I don't, I don't, don't know what it is
+        But I need that one thing
+        And you've got that one thing
+        
+        [Niall:]
+        Now I'm climbing the walls
+        But you don't notice at all
+        That I'm going out of my mind
+        All day and all night
+        
+        [Louis:]
+        Something's gotta give now
+        'Cause I'm dying just to know your name
+        And I need you here with me now
+        'Cause you've got that one thing
+        
+        [Chorus:]
+        So get out, get out, get out of my head
+        And fall into my arms instead
+        I don't, I don't, don't know what it is
+        But I need that one thing
+        
+        So get out, get out, get out of my mind
+        And come on, come into my life
+        I don't, I don't, don't know what it is
+        But I need that one thing
+        And you've got that one thing
+        
+        Woah-oh-oh-oh
+        Woah-oh-oh-oh
+        Woah-oh-oh-oh
+        
+        [Harry:]
+        You've got that one thing
+        
+        [Liam:]
+        Get out, get out, get out of my head
+        And fall into my arms instead
+        
+        [Chorus:]
+        So get out, get out, get out of my head
+        And fall into my arms instead
+        I don't, I don't, don't know what it is
+        But I need that one thing
+        
+        So get out, get out, get out of my mind (out of my mind)
+        And come on, come into my life
+        I don't, I don't, don't know what it is
+        But I need that one thing
+        Yeah, you've got that one thing`,
+        favourite:"13"
+    },
+    {
+        artistcode:"3",
+        albumcode:"3",
+        name:"Up All Night",
+        image:"https://i.scdn.co/image/ab67616d0000b2734a5584795dc73860653a9a3e",
+        lyric:`[Liam:]
+        It feels like we've been livin' in fast forward
+        Another moment passing by
+        (Up up up all night)
+        The party's ending but it's now or never
+        Nobody's going home tonight
+        (Up up up all night)
+        
+        [Harry:]
+        Katy Perry's on replay
+        She's on replay
+        DJ got the floor to shake, the floor to shake
+        People going all the way
+        Yeah, all the way
+        I'm still wide awake
+        
+        [All:]
+        I wanna stay up all night
+        And jump around until we see the sun
+        I wanna stay up all night
+        And find a girl and tell her she's the one
+        Hold on to the feeling
+        And don't let it go
+        'Cause we got the floor now
+        Get out of control
+        I wanna stay up all night
+        And do it all with you
+        
+        Up all night
+        Like this, all night, hey
+        Up all night
+        Like this, all night, hey
+        Up all night
+        
+        [Zayn:]
+        Don't even care about the table breaking
+        We only wanna have a laugh
+        (Up up up all night)
+        I'm only thinking 'bout this girl I'm seeing
+        I hope she'll wanna kiss me back
+        (Up up up all night)
+        
+        [Harry:]
+        Katy Perry's on replay
+        She's on replay
+        DJ got the floor to shake, the floor to shake
+        People going all the way
+        Yeah, all the way
+        I'm still wide awake
+        
+        [All:]
+        I wanna stay up all night
+        And jump around until we see the sun
+        I wanna stay up all night
+        And find a girl and tell her she's the one
+        Hold on to the feeling
+        And don't let it go
+        'Cause we got the floor now
+        Get out of control
+        I wanna stay up all night
+        And do it all with you
+        
+        Up all night
+        Like this, all night, hey
+        Up all night
+        Like this, all night, hey
+        Up all night
+        
+        [Harry:]
+        Katy Perry's on replay
+        (Up all night)
+        She's on replay
+        (We're gonna wanna stay up all night)
+        DJ got the floor to shake, the floor to shake
+        (We're gonna wanna stay up all night)
+        Up all night, up all night
+        (We're gonna wanna stay up all night)
+        
+        [All:]
+        I wanna stay up all night
+        And jump around until we see the sun
+        I wanna stay up all night
+        And find a girl and tell her she's the one (she's the one)
+        Hold on to the feeling
+        And don't let it go
+        'Cause we got the floor now
+        Get out of control
+        I wanna stay up all night
+        And do it all with you (do it all with you)
+        Up all night
+        Like this, all night, hey
+        Up all night
+        Like this, all night, hey
+        Up all night`,
+        favourite:"10"
+    },
+    {
+        artistcode:"3",
+        albumcode:"3",
+        name:"TELL ME A LIE",
+        image:"https://i1.sndcdn.com/artworks-000126453480-0z0rg5-t500x500.jpg",
+        lyric:`[Liam]
+        Can't ever get it right
+        No matter how hard I try
+        And I've tried
+        
+        [Zayn]
+        Well, I put up a good fight
+        But your words cut like knives
+        And I'm tired
+        
+        As you break my heart again this time
+        
+        [Chorus:]
+        Tell me I'm a screwed up mess
+        That I never listen, listen
+        Tell me you don't want my kiss
+        That you need your distance, distance
+        Tell me anything but don't you say he’s what you're missing, baby
+        If he's the reason that you’re leaving me tonight
+        Spare me what you think and...
+        
+        [Liam] tell me a lie
+        
+        [Liam]
+        Well you're the charming type
+        That little twinkle in your eye
+        Gets me every time.
+        
+        [Harry]
+        And well there must've been a time
+        I was the reason for that smile
+        So keep in mind
+        
+        [Liam]
+        As you take what's left of you and I
+        
+        [Chorus:]
+        Tell me I'm a screwed up mess
+        That I never listen, listen
+        Tell me you don't want my kiss
+        That you need your distance, distance
+        Tell me anything but don't you say he's what you're missing, baby
+        If he's the reason that you’re leaving me tonight
+        Spare me what you think and...
+        
+        Tell me a lie
+        
+        (Oh, oh, oh)
+        Tell me a lie
+        (Oh, oh, oh)
+        Tell me a lie
+        (Oh, oh, oh)
+        Tell me a lie!
+        
+        [Chorus:]
+        Tell me I'm a screwed up mess (mess)
+        That I never listen, listen
+        Tell me you don't want my kiss (kiss)
+        That you need your distance, distance
+        Tell me anything but don't you say he's what you're missing, baby
+        If he's the reason that you’re leaving me tonight
+        Spare me what you think and tell me a lie
+        
+        Tell me a lie!
+        Tell me a lie!
+        Tell me a lie!
+        Tell me a lie!`,
+        favourite:"4"
+    },
+    {
+        artistcode:"3",
+        albumcode:"3",
+        name:"Best Song Ever",
+        image:"https://i1.sndcdn.com/artworks-000057206282-kmqz41-t500x500.jpg",
+        lyric:`[Harry:]
+        Maybe it's the way she walked (wow)
+        Straight into my heart and stole it
+        Through the doors and passed the guards (wow)
+        Just like she already owned it
+        
+        [Zayn:]
+        I said, "Can you give it back to me?"
+        She said, "Never in your wildest dreams."
+        
+        [All:]
+        And we danced all night to the best song ever
+        We knew every line
+        Now I can't remember
+        How it goes but I know
+        That I won't forget her
+        'Cause we danced all night to the best song ever
+        
+        I think it went oh, oh, oh
+        I think it went yeah, yeah, yeah
+        I think it goes...
+        
+        [Liam:]
+        Said her name was Georgia Rose (wow)
+        And her daddy was a dentist
+        
+        [Harry:]
+        Said I had a dirty mouth (I got a dirty mouth)
+        But she kissed me like she meant it
+        
+        [Niall:]
+        I said, "Can I take you home with me?"
+        She said, "Never in your wildest dreams."
+        
+        [All:]
+        And we danced all night to the best song ever
+        We knew every line
+        Now I can't remember
+        How it goes but I know
+        That I won't forget her
+        'Cause we danced all night to the best song ever
+        
+        I think it went oh, oh, oh
+        I think it went yeah, yeah, yeah
+        I think it goes...
+        
+        [Louis:]
+        You know, I know, you know I'll remember you
+        And I know, you know, I know you'll remember me
+        
+        (oh, oh, oh
+        Yeah, yeah, yeah)
+        
+        [Zayn:]
+        You know, I know, you know I'll remember you
+        And I know, you know, I hope you remember how we danced
+        How we danced
+        1, 2, 1, 2, 3
+        
+        [All:]
+        How we danced all night to the best song ever
+        We knew every line
+        Now I can't remember
+        How it goes but I know
+        That I won't forget her
+        'Cause we danced all night to the best song ever
+        (we danced, we danced, it goes something like, yeah)
+        Danced all night to the best song ever
+        We knew every line
+        Now I can't remember
+        How it goes but I know
+        That I won't forget her
+        'Cause we danced all night to the best song ever
+        
+        I think it went oh, oh, oh
+        I think it went yeah, yeah, yeah
+        I think it goes...
+        
+        [Zayn:]
+        Best song ever
+        It was the best song ever
+        It was the best song ever`,
+        favourite:"14"
     }
 ]
 const artistdatabase = [
@@ -754,6 +1590,16 @@ const artistdatabase = [
         artistcode:"1",
         image:"https://lastfm.freetls.fastly.net/i/u/770x0/1a9350dcb3cdb52342d4a6547eb2689f.jpg",
         name:"The Vamps"
+    },
+    {
+        artistcode:"2",
+        image:"https://www.printingnewsth.com/wp-content/uploads/2021/05/Alec-Benjamin-640x360.jpg",
+        name:"Alec Benjamin"
+    },
+    {
+        artistcode:"3",
+        image:"https://files.vogue.co.th/uploads/IMG_20200415_090523_987.jpg",
+        name:"One Direction"
     }
 ]
 
@@ -849,7 +1695,9 @@ function seedDB(){
                         console.log(err);
                     } else {
                         artisttosong('0','AVICII'); 
-                        artisttosong('1','The Vamps');         
+                        artisttosong('1','The Vamps');   
+                        artisttosong('2','Alec Benjamin');    
+                        artisttosong('3','One Direction');  
                     }
                 });
             });
@@ -867,8 +1715,14 @@ function seedDB(){
                     } else {
                         artisttoalbum('0','AVICII');
                         artisttoalbum('1','The Vamps');
+                        artisttoalbum('2','Alec Benjamin');
+                        artisttoalbum('3','One Direction');
+                        artisttoalbum('4','AVICII');
                         albumtosong('0','FOREVER');
                         albumtosong('1','Meet The Vamps');
+                        albumtosong('2','These Two Windows');
+                        albumtosong('3','Up All Night');
+                        albumtosong('4','TRUE');
                     }
                 });
             });

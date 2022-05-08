@@ -78,7 +78,6 @@ router.put('/:id', upload.single('image'),function(req, res){
                             readalbum.name = foundAlbum.name;
                             readalbum.image = foundAlbum.image;
                             newSonginfo.album = readalbum;
-                            console.log(newSonginfo);
                             song.findByIdAndUpdate(req.params.id, newSonginfo, function(err, updateSong){
                                 if(err){
                                     console.log(err);

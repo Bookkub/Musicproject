@@ -35,7 +35,13 @@ router.get("/remove", function (req, res) {
                 if (err) {
                     console.log(err);
                 } else {
-                    res.render("artist/remove.ejs", { allArtist: allArtist, allSong: allSong });
+                    album.find({}).exec(function(err, allAlbum){
+                        if(err) {
+                            console.log(err);
+                        } else {
+                            res.render("artist/remove.ejs", { allArtist: allArtist, allSong: allSong, allAlbum:allAlbum });
+                        }
+                    });
                 }
             });
         }
@@ -86,8 +92,14 @@ router.delete('/:id', function (req, res) {
                     console.log(err);
                 }
                 else {
-                    req.flash('success', "Artist had been remove.");
-                    res.redirect('/artist/remove');
+                    album.deleteMany().where('artist.id').equals(req.params.id).exec(function (err){
+                        if(err) {
+                            console.log(err);
+                        } else {
+                            req.flash('success', "Artist had been remove.");
+                            res.redirect('/artist/remove');
+                        }
+                    });
                 }
             });
         }

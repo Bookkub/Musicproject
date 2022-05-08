@@ -23,7 +23,7 @@
             <table class="table text-white">
                 <tbody>
                     <% artistsong.forEach(function(artistsong){ %>
-                          <tr>
+                          <tr class="shadows">
                             <th>
                                 <div class="d-flex">
                                     <span class="songorder d-block pt-4"><%= count %></span>
@@ -62,7 +62,7 @@
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
                 <% album.forEach(function(album){ %>
                   <div class="col">
-                    <div class="card shadow-lg">
+                    <div class="card shadows shadow-lg">
                       <div class="card-body">
                         <a class="text-decoration-none" href="/album/<%= album._id %>">
                           <img class="album--img" src="<%= album.image %>">

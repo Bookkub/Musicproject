@@ -62,20 +62,13 @@ router.put('/:id', upload.single('image'),function(req, res){
         image = '/upload/' + req.file.filename;
     }
     let newAlbuminfo = {name:name, artistname:artistname, image:image};
-    artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
-        if(err)
-        {
-            console.log(err)
+    album.findByIdAndUpdate(req.params.id, newAlbuminfo, function (err, updateAlbum) {
+        if (err) {
+            console.log(err);
         } else {
-            let readartist = {};
-            readartist.id = foundArtist._id;
-            readartist.name = foundArtist.name;
-            readartist.image = foundArtist.image;
-            newAlbuminfo.artist = readartist;
-            album.findByIdAndUpdate(req.params.id, newAlbuminfo, function(err, updatealbum){
-                if(err){
+            song.updateMany({$set: {album:{id:req.params.id, name: req.body.name}}}).where('album.id').equals(req.params.id).exec(function(err){
+                if(err) {
                     console.log(err);
-                    res.redirect('back');
                 } else {
                     req.flash('success', "Album had been edit.");
                     res.redirect('/album/remove');
@@ -91,8 +84,14 @@ router.delete('/:id', function(req,res){
             console.log(err);
             res.redirect('back');
         } else {
-            req.flash('success', "Album had been remove.");
-            res.redirect('/album/remove');
+            song.updateMany({$set: {album:{id:req.params.id, name: req.body.name}}}).where('album.id').equals(req.params.id).exec(function(err){
+                if(err) {
+                    console.log(err);
+                } else {
+                    req.flash('success', "Album had been remove.");
+                    res.redirect('/album/remove');
+                }
+            });
         }
     });
 });

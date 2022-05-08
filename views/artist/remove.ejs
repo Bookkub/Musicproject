@@ -23,11 +23,13 @@
               <th>#</th>
               <th>Name</th>
               <th>Number of Songs</th>
+              <th>Number of Albums</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <% allArtist.forEach(function(allArtist){ %>
-              <tr class="shadow-bg">
+              <tr class="shadows">
                 <th class="pt-4"><%= count %></th>
                 <% count++ %>
                 <td>
@@ -42,6 +44,17 @@
                   <p class="pt-4 text-white text-decoration-none">
                     <% allSong.forEach(function(allSong){ %>
                       <% if(allArtist.name === allSong.artist.name){ %>
+                        <% countsong++ %>
+                      <% }%>
+                    <% }) %>
+                      <%= countsong %>
+                      <% countsong=0 %>
+                  </p>
+                </td>
+                <td>
+                  <p class="pt-4 text-white text-decoration-none">
+                    <% allAlbum.forEach(function(allAlbum){ %>
+                      <% if(allArtist.name === allAlbum.artist.name){ %>
                         <% countsong++ %>
                       <% }%>
                     <% }) %>

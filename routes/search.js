@@ -13,27 +13,29 @@ router.get("/:keyword", function(req, res){
       if(err) {
          console.log(err);
       } else {
-         res.render("search.ejs",{searchsong:searchsong});
+         artist.find({name: {$regex : keyword,$options:"i"}}).exec(function(err, searchartist){
+            if(err) {
+               console.log(err);
+            } else {
+               album.find({name: {$regex : keyword,$options:"i"}}).exec(function(err, searchalbum){
+                  if(err) {
+                     console.log(err);
+                  } else {
+                     res.render('search.ejs',{keyword:keyword,searchsong:searchsong,searchartist:searchartist,searchalbum:searchalbum});
+                  }
+               });
+            }
+         });
       }
    });
 }); 
 
-router.post("/", function(req, res, next){
-   const keyword = req.body.keyword;
-   // res.redirect("/search/" + keyword);
-   console.log(keyword);
+
+router.post("/",function(req, res){
+   let keyword = req.body.keyword;
+   res.redirect("/search/" + keyword);
 });
 
-// router.post('/', function(req,res){
-//    let newUser = new user({username: req.body.username});
-//    user.register(newUser, req.body.password, function(err, user){
-//        if(err){
-//            console.log(err);
-//        } else {
-         
-//        }
-//    })
-// })
 
 
 

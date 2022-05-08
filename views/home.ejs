@@ -1,119 +1,21 @@
 <%- include("partials/header.ejs") %>
   <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
     <div class="col">
-
-
-      <div class="album py-4">
-    <div class="container-fluid">
-      <h1 class="category">RECOMMENDED</h1>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
-        <% recommend.slice(0,6).forEach(function(recommend){ %>
-          <div class="col">
-            <div class="card shadow-lg">
-              <div class="card-body">
-                <a class="text-decoration-none" href="/song/<%= recommend._id %>">
-                  <img class="song--img" src="<%= recommend.image %>">
-                  <p class="song--name text-white">
-                    <%= recommend.name %>
-                  </p>
-                  <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
-                    <%= recommend.artist.name %>
-                  </a>
-                </a>
-              </div>
-            </div>
-          </div>
-          <% }) %>
-      </div>
-    </div>
-      <!-- <h1 class="category pt-4 px-4">RECOMMENDED</h1>
-      <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner active">
-          <% recommend.slice(0,10).forEach(function(recommend){ %>
-          <div class="carousel-item active">
-            <div class="col">
-            <div class="card">
-              <div class="card-body">
-                <a class="text-decoration-none" href="/song/<%= recommend._id %>">
-                  <img class="song--img" src="<%= recommend.image %>">
-                  <p class="song--name text-white">
-                    <%= recommend.name %>
-                  </p>
-                  <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
-                    <%= recommend.artist.name %>
-                  </a>
-                </a>
-              </div>
-            </div>
-          </div>
-          </div>
-          <% }) %>
-          </div> 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div> -->
-  
-      <script>
-        // var multipleCardCarousel = document.querySelector(
-        //   "#carouselExampleControls"
-        // );
-        // if (window.matchMedia("(min-width: 768px)").matches) {
-        //   var carousel = new bootstrap.Carousel(multipleCardCarousel, {
-        //     interval: false,
-        //   });
-        //   var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-        //   var cardWidth = $(".carousel-item").width();
-        //   var scrollPosition = 0;
-        //   $("#carouselExampleControls .carousel-control-next").on("click", function () {
-        //     if (scrollPosition < carouselWidth - cardWidth * 4) {
-        //       scrollPosition += cardWidth;
-        //       $("#carouselExampleControls .carousel-inner").animate(
-        //         { scrollLeft: scrollPosition },
-        //         600
-        //       );
-        //     }
-        //   });
-        //   $("#carouselExampleControls .carousel-control-prev").on("click", function () {
-        //     if (scrollPosition > 0) {
-        //       scrollPosition -= cardWidth;
-        //       $("#carouselExampleControls .carousel-inner").animate(
-        //         { scrollLeft: scrollPosition },
-        //         600
-        //       );
-        //     }
-        //   });
-        // } else {
-        //   $(multipleCardCarousel).addClass("slide");
-        // }
-
-      </script> -->
-
       <div class="album py-4">
         <div class="container-fluid">
-          <div class="d-flex">
-            <h1 class="category">ALBUMS</h1>
-            <a class="seeall" href="/album">see all</a>
-          </div>
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
-            <% album.slice(0,6).forEach(function(album){ %>
+          <h1 class="category">RECOMMENDED</h1>
+          <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+            <% recommend.slice(0,6).forEach(function(recommend){ %>
               <div class="col">
-                <div class="card shadow-lg">
+                <div class="card shadows shadow-lg">
                   <div class="card-body">
-                    <a class="text-decoration-none" href="/album/<%= album._id %>">
-                      <img class="album--img" src="<%= album.image %>">
-                      <p class="album--name text-white">
-                        <%= album.name %>
+                    <a class="text-decoration-none" href="/song/<%= recommend._id %>">
+                      <img class="song--img" src="<%= recommend.image %>">
+                      <p class="song--name text-white">
+                        <%= recommend.name %>
                       </p>
-                      <a class="album--album d-inline" href="/artist/<%= album.artist.id %>">
-                        <%= album.artist.name %>
+                      <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
+                        <%= recommend.artist.name %>
                       </a>
                     </a>
                   </div>
@@ -122,25 +24,30 @@
               <% }) %>
           </div>
         </div>
+
+        <script>
+       
+        </script>
+
         <div class="album py-4">
           <div class="container-fluid">
             <div class="d-flex">
-              <h1 class="category">ARTISTS</h1>
-              <a class="seeall" href="/artist">see all</a>
+              <h1 class="category">ALBUMS</h1>
+              <a class="seeall" href="/album">see all</a>
             </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
-              <% artist.slice(0,6).forEach(function(artist){ %>
+            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+              <% album.slice(0,6).forEach(function(album){ %>
                 <div class="col">
-                  <div class="card shadow-lg">
+                  <div class="card shadows shadow-lg">
                     <div class="card-body">
-                      <a class="text-decoration-none" href="/artist/<%= artist._id %>">
-                        <img class="artist--img" src="<%= artist.image %>">
-                        <p class="artist--name text-white">
-                          <%= artist.name %>
+                      <a class="text-decoration-none" href="/album/<%= album._id %>">
+                        <img class="album--img" src="<%= album.image %>">
+                        <p class="album--name text-white">
+                          <%= album.name %>
                         </p>
-                        <p class="artist--artist d-inline">
-                          Artist
-                        </p>
+                        <a class="album--album d-inline" href="/artist/<%= album.artist.id %>">
+                          <%= album.artist.name %>
+                        </a>
                       </a>
                     </div>
                   </div>
@@ -149,65 +56,92 @@
             </div>
           </div>
         </div>
-      </div>
-      <% } %>
-        <% if(currentUser && currentUser.isAdmin){ %>
-          <div class="col pt-4">
+          <div class="album py-1">
             <div class="container-fluid">
-              <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Songs</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/artist/new">Artists</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/album/new">Albums</a>
-                </li>
-              </ul>
-              <h1 class="text-white pt-4">Add New Song</h1>
-              <form action="/" method="POST" enctype="multipart/form-data">
-                <div class="mb-3">
-                  <label class="form-label text-white">Song Name</label>
-                  <input type="text" class="form-control" name="name" placeholder="Song Name" required>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label text-white">Lyric</label>
-                  <textarea type="text" class="form-control" name="lyric" placeholder="Lyrics" required></textarea>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label text-white">Artist</label>
-                  <input type="text" list="artist" class="form-control" name="artist" placeholder="Artist Name"
-                    autocomplete="off" required>
-                  <datalist id="artist">
-                    <% artist.forEach(function(artist){ %>
-                      <option class="list-group-item">
-                        <%= artist.name %>
-                      </option>
-                      <% }) %>
-                  </datalist>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label text-white">Album</label>
-                  <input type="text" list="album" class="form-control" name="album" placeholder="Album Name"
-                    autocomplete="off">
-                  <datalist id="album">
-                    <% album.forEach(function(album){ %>
-                      <option class="list-group-item">
-                        <%= album.name %>
-                      </option>
-                      <% }) %>
-                  </datalist>
-                </div>
-                <div class="mb-3">
-                  <label class="form-label text-white">Image</label>
-                  <input type="file" class="form-control" name="image" accept='image/*' required>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+              <div class="d-flex">
+                <h1 class="category">ARTISTS</h1>
+                <a class="seeall" href="/artist">see all</a>
+              </div>
+              <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                <% artist.slice(0,6).forEach(function(artist){ %>
+                  <div class="col">
+                    <div class="card shadows shadow-lg">
+                      <div class="card-body">
+                        <a class="text-decoration-none" href="/artist/<%= artist._id %>">
+                          <img class="artist--img" src="<%= artist.image %>">
+                          <p class="artist--name text-white">
+                            <%= artist.name %>
+                          </p>
+                          <p class="artist--artist d-inline">
+                            Artist
+                          </p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <% }) %>
+              </div>
             </div>
           </div>
+        
+        <% } %>
+          <% if(currentUser && currentUser.isAdmin){ %>
+            <div class="col py-4">
+              <div class="container-fluid addbg py-4">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Songs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/artist/new">Artists</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/album/new">Albums</a>
+                  </li>
+                </ul>
+                <h1 class="text-white pt-4">Add New Song</h1>
+                <form action="/" method="POST" enctype="multipart/form-data">
+                  <div class="mb-3">
+                    <label class="form-label text-white">Song Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Song Name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label text-white">Lyric</label>
+                    <textarea type="text" class="form-control" name="lyric" placeholder="Lyrics" required></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label text-white">Artist</label>
+                    <input type="text" list="artist" class="form-control" name="artist" placeholder="Artist Name"
+                      autocomplete="off" required>
+                    <datalist id="artist">
+                      <% artist.forEach(function(artist){ %>
+                        <option class="list-group-item">
+                          <%= artist.name %>
+                        </option>
+                        <% }) %>
+                    </datalist>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label text-white">Album</label>
+                    <input type="text" list="album" class="form-control" name="album" placeholder="Album Name"
+                      autocomplete="off">
+                    <datalist id="album">
+                      <% album.forEach(function(album){ %>
+                        <option class="list-group-item">
+                          <%= album.name %>
+                        </option>
+                        <% }) %>
+                    </datalist>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label text-white">Image</label>
+                    <input type="file" class="form-control" name="image" accept='image/*' required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
 
-          <% } %>
+            <% } %>
 
-            <%- include("partials/footer.ejs") %>
+              <%- include("partials/footer.ejs") %>

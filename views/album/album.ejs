@@ -2,10 +2,10 @@
 <div class="col py-4">
     <div class="album">
         <div class="container-fluid">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 g-3">
+          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-4">
             <% album.forEach(function(album){ %>
               <div class="col">
-                <div class="card shadow-lg">
+                <div class="card shadows shadow-lg">
                   <div class="card-body">
                     <a class="text-decoration-none" href="/album/<%= album._id %>">
                       <img class="album--img" src="<%= album.image %>">

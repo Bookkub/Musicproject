@@ -28,7 +28,7 @@
           </thead>
           <tbody>
             <% allAlbum.forEach(function(allAlbum){ %>
-              <tr class="shadow-bg">
+              <tr class="shadows">
                 <th class="pt-4"><%= count %></th>
                 <% count++ %>
                 <td>
@@ -96,7 +96,7 @@
                              </div>
                              <div class="mb-3">
                                <label class="form-label">Image</label>
-                               <img src="<%= allAlbum.image %>" height="100px">
+                               <img src="<%= allAlbum.image %>" class="pb-3" height="100px">
                                <input type="file" class="form-control" name="image" accept='image/*'>
                              </div>
                              <div class="modal-footer">

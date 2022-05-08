@@ -49,13 +49,11 @@ router.get("/", function(req, res){
 });
 
 router.post("/", upload.single('image') ,function(req, res){
-    // req.body.song.image = '/upload' + req.file.filename;
     let name = req.body.name;
     let lyric = req.body.lyric;
     let artistname = req.body.artist;
     let albumname = req.body.album;
     let image = '/upload/' + req.file.filename;
-    // let image = req.body.image;
     let newSong = {name:name, lyric:lyric, image:image};
     artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
         if(err)
@@ -97,8 +95,14 @@ router.get("/register", function(req, res){
     res.render("register.ejs")
 });
 
-router.post('/register', function(req,res){
-    let newUser = new user({username: req.body.username});
+router.post('/register', upload.single('image'), function(req,res){
+    req.body.image = '/upload/'+req.file.filename;
+    let newUser = new user({username: req.body.username,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        image: req.body.image
+});
     if(req.body.adminCode === 'topsecret'){
         newUser.isAdmin = true;
     }
@@ -109,13 +113,6 @@ router.post('/register', function(req,res){
         } else {
             passport.authenticate('local')(req, res, function(){
                 req.flash('success', user.username + ', Welcome to new Life');
-                if(newUser.isAdmin === true)
-                {
-                   x = 1;
-                }
-                else {
-                    x = 0;
-                }
                 res.redirect('/');
             });
         }
@@ -142,6 +139,7 @@ router.get('/logout', function(req,res){
     req.flash('success','Log out successfully');
     res.redirect('/');
 });
+
 
 
 module.exports = router;

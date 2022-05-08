@@ -43,12 +43,6 @@ app.use(function(req,res,next){
     next();
 });
 
-
-// app.get("/profile", function(req, res){
-//     res.render("profile/user.ejs");
-// });
-
-
 app.use('/', indexRoutes); 
 app.use('/song', songRoutes);
 app.use('/artist', artistRoutes);
