@@ -17,20 +17,30 @@
                 <a class="nav-link" href="/user/remove">User</a>
             </li>
         </ul>
-        <table class="table text-white pt-4 text-center">
+        <table class="table text-white pt-4 text-center sortable">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Number of Songs</th>
-              <th>Number of Albums</th>
-              <th></th>
+              <th class="shadows">#</th>
+              <th class="shadows">
+                Name
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th class="shadows">
+                Number of Songs
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th class="shadows">
+                Number of Albums
+                <i class="fa-solid fa-sort"></i>
+              </th>
             </tr>
           </thead>
           <tbody>
             <% allArtist.forEach(function(allArtist){ %>
               <tr class="shadows">
-                <th class="pt-4"><%= count %></th>
+                <td class="pt-4">
+                  <%= count %>
+                </td>
                 <% count++ %>
                 <td>
                   <div class="d-flex">

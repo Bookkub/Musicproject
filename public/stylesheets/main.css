@@ -203,14 +203,15 @@
 }
 
 .songkit--up__artist,
-.artistkit--up__artist {
+.artistkit--up__artist,
+.albumkit--up__artist {
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
     color: #B6B6B6;
 }
 
-.songkit--up__artist:hover {
+.songkit--up__artist:hover, .albumkit--up__artist:hover{
     text-decoration: underline;
     font-size: 1rem;
     font-weight: bold;
@@ -320,11 +321,9 @@ tr {
 }
 
 .option {
-    padding-top: 7%;
-    padding-left: 20%;
+    /* padding-top: 7%; */
     display: inline-block;
 }
-
 .songlist {
     width: 100%;
 }
@@ -399,7 +398,7 @@ tr {
     color: #9fa8b9;
 }
 
-.form-control {
+/* .form-control {
     border: 1px solid #cfd1d8;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -407,7 +406,7 @@ tr {
     font-size: .825rem;
     background: #ffffff;
     color: #2e323c;
-}
+} */
 
 .fa-user{
     color: rgb(255, 255, 255);
@@ -422,6 +421,9 @@ tr {
 .addbg{
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 30px;
+}
+.x{
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .thinword{
     color: #A5A5A5;
@@ -448,6 +450,9 @@ div.squarebox .t {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%) }
+.fa-timer{
+    color: white;
+}
 @keyframes glow {
     from {
         text-shadow: 0 0 10px rgb(42, 226, 233), 0 0 20px rgb(42, 226, 233), 0 0 30px rgb(42, 226, 233), 0 0 40px rgb(42, 226, 233), 0 0 50px rgb(42, 226, 233);

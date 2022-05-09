@@ -7,7 +7,11 @@
             <div class="songkit">
                 <div class="artistkit--up">
                     <p class="artistkit--up__name text-white mb-0"><%= album.name %></p>
-                    <p class="artistkit--up__artist m-0">Album by <%= album.artist.name %></p>
+                    <p class="artistkit--up__artist m-0">Album by
+                        <a href="/artist/<%= album.artist.id %>" class="albumkit--up__artist">
+                            <%= album.artist.name %>
+                        </a>
+                    </p>
                     <p class="songcount m-0 p-0"><%= albumsong.length %> songs</p>
                 </div>
                 <div class="songkit--down mt-3">

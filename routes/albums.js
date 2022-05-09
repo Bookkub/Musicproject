@@ -115,7 +115,7 @@ router.post("/", upload.single('image') , function(req, res){
     let newalbum;
     let oldalbum;
     let newAlbum = {name:albumname, image:image};
-    album.find({}).sort({artistcode:1}).exec(function(err, allAlbum){
+    album.find({}).sort({albumcode:1}).exec(function(err, allAlbum){
         if(err) {
             console.log(err);
         } else {
@@ -140,6 +140,7 @@ router.post("/", upload.single('image') , function(req, res){
                     else if(x === 1){
                         arrlength = allAlbum.length - 1;
                         newAlbum.albumcode = (parseInt(allAlbum[arrlength].albumcode) + 1).toString();
+                        console.log(newAlbum.albumcode);
                         album.create(newAlbum, function(err, album){
                             if(err){
                                 console.log(err);

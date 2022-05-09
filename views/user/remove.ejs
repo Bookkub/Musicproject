@@ -16,27 +16,35 @@
                 <a class="nav-link active" aria-current="page" href="/user/remove">User</a>
             </li>
         </ul>
-        <table class="table text-white pt-4 text-center">
+        <table class="table text-white pt-4 text-center sortable">
           <thead>
             <tr>
-              <th>#</th>
-              <th>Username</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Status</th>
+              <th class="shadows">#</th>
+              <th class="shadows"></th>
+              <th class="shadows">
+                Name
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th class="shadows">
+                Email
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th class="shadows">
+                Status
+                <i class="fa-solid fa-sort"></i>
+              </th>
             </tr>
           </thead>
           <tbody>
             <% foundUser.forEach(function(foundUser){ %>
               <tr class="shadows">
-                <th class="pt-4"><%= count %></th>
+                <td class="pt-4">
+                  <%= count %>
+                </td>
                 <% count++ %>
                 <td>
-                  <div class="d-flex">
+                  <div class="d-flex justify-content-center">
                     <img class="artistimg-admin" src="<%= foundUser.image %>">
-                    <p class="pt-4 mx-4 text-white text-decoration-none">
-                      <%= foundUser.username %>
-                    </p>
                   </div>
                 </td>
                 <td>
