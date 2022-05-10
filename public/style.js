@@ -1,6 +1,6 @@
 let favbtn;
 let favbtnclick;
-let showmorebtn;
+
 function favbutton()
 {
     favbtn = document.querySelector('.favbtn');
@@ -19,6 +19,7 @@ function favlick()
     favbtn.classList.remove('hidden');
 }
 
+let showmorebtn;
 function showmore(){
     morerow = document.querySelectorAll('.morerow');
     showmorebtn = document.querySelector('.showmore');

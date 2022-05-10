@@ -1,3 +1,6 @@
+const e = require('connect-flash');
+const { redirect } = require('express/lib/response');
+
 const   express     =   require('express'),
         router      =   express.Router(),
         song        =   require('../models/song'),
@@ -40,4 +43,36 @@ router.delete('/:id', function(req,res){
     });
 });
 
+router.post('/favourite/:id', middlewareObj.isLoggedIn, function(req, res){
+    song.findById(req.params.id, function(err, foundSong){
+        if(err){
+            console.log(err);
+        } else {
+            user.findByIdAndUpdate(req.user._id, {$push:{song:foundSong}} ,function(err){
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.redirect('back');
+                }
+            });
+        }
+    });
+})
+router.post('/unfavourite/:id', middlewareObj.isLoggedIn, function(req, res){
+    song.findById(req.params.id, function(err, foundSong){
+        if(err){
+            console.log(err);
+        } else {
+            user.findById(req.user._id,function(err, foundUser){
+                if(err) {
+                    console.log(err);
+                } else {
+                    foundUser.song.pull(foundSong); 
+                    foundUser.save();
+                    res.redirect('back');
+                }
+            });
+        }
+    });
+})
 module.exports = router;

@@ -19,6 +19,7 @@ const express = require('express'),
     upload = multer({ storage: storage, fileFilter: imageFilter }),
     song = require('../models/song'),
     album = require('../models/album'),
+    user  =   require('../models/user'),
     artist = require('../models/artist'),
     middlewareObj = require('../middleware');
 
@@ -159,7 +160,17 @@ router.get("/:id", middlewareObj.isLoggedIn, function (req, res) {
                         if (err) {
                             console.log(err);
                         } else {
-                            res.render("artist/artist-id.ejs", { artist: artists, artistsong: artistsong, album: album });
+                            if(req.isAuthenticated()){
+                                user.findById(req.user._id, function(err, foundUser){
+                                   if(err){
+                                      console.log(err);
+                                   } else {
+                                    res.render("artist/artist-id.ejs", { artist: artists, artistsong: artistsong, album: album, usersong:foundUser.song });
+                                   }
+                                });
+                            } else {
+                                res.render("artist/artist-id.ejs", { artist: artists, artistsong: artistsong, album: album});
+                            }
                         }
                     });
                 }

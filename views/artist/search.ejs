@@ -1,0 +1,60 @@
+<%- include("../partials/header.ejs") %>
+<% let count = 1 %>
+<div class="col mb-5">
+    <div class="headbg mt-3">
+    <ul class="nav nav-pills justify-content-center pt-4">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search/song/<%= keyword %>">Songs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/search/artist/<%= keyword %>">Artists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search/album/<%= keyword %>">Albums</a>
+        </li>
+    </ul>
+    <% if(searchartist.length > 0){ %>
+        <div class="album mt-2">
+          <div class="container-fluid py-4">
+            <div class="d-flex">
+                <h1 class="category searchbg py-3 px-3">ARTISTS
+                  <span class="thinword">(<%= searchartist.length %>)</span>
+                </h1>
+            </div>
+            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+              <% searchartist.forEach(function(searchartist){ %>
+                <div class="col">
+                  <div class="card shadows shadow-lg">
+                    <div class="card-body">
+                      <a class="text-decoration-none" href="/artist/<%= searchartist._id %>">
+                        <img class="artist--img" src="<%= searchartist.image %>">
+                        <p class="artist--name text-white">
+                          <%= searchartist.name %>
+                        </p>
+                        <p class="artist--artist d-inline">
+                          Artist
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+        </div>
+        <% } %>
+        <% if(searchartist.length===0){ %>
+          <div class="squarebox text-center mt-3">
+              <div class="t text-white">
+                <img class="py-2" src="/image/icons/scope.png" width="30px">
+                <h2>0 Artist for " <%= keyword %> "</h2>
+              </div>
+          </div>
+      <% } %>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

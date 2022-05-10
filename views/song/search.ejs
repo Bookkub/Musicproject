@@ -1,0 +1,128 @@
+<%- include("../partials/header.ejs") %>
+<% let count = 1 %>
+<div class="col mb-5">
+    <div class="headbg mt-3">
+    <ul class="nav nav-pills justify-content-center pt-4">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/search/song/<%= keyword %>">Songs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search/artist/<%= keyword %>">Artists</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/search/album/<%= keyword %>">Albums</a>
+        </li>
+      </ul>
+      <% if(searchsong.length > 0){ %>
+        <div class="album mt-2">
+          <div class="container-fluid py-4">
+            <div class="d-flex">
+                <h1 class="category searchbg py-3 px-3">SONGS
+                  <span class="thinword">(<%= searchsong.length %>)</span>
+                </h1>
+            </div>
+            <table class="table searchbg text-white text-center mb-0 sortable">
+              <% if(searchsong.length > 0){ %>
+                <thead>
+                  <tr>
+                    <th scope="col" class="shadows">
+                      Title
+                      <i class="fa-solid fa-sort"></i>
+                    </th>
+                    <th scope="col" class="shadows">
+                      Artist
+                      <i class="fa-solid fa-sort"></i>
+                    </th>
+                    <th scope="col" class="shadows">
+                      Album
+                      <i class="fa-solid fa-sort"></i>
+                    </th>
+                    <th scope="col" class="shadows">
+                      <i class="fa-solid fa-clock"></i>
+                      <i class="fa-solid fa-sort"></i>
+                    </th>
+                  </tr>
+                </thead>
+                <% } %>
+                  <tbody>
+                    <% searchsong.forEach(function(searchsong){ %>
+                      <tr class="shadows">
+                        <% count++ %>
+                          <td>
+                            <div class="d-flex">
+                              <img class="songimg-admin" src="<%= searchsong.image %>">
+                              <a class="pt-4 mx-4 text-white text-decoration-none" href="/song/<%= searchsong._id %>">
+                                <%= searchsong.name %>
+                              </a>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="pt-4">
+                              <a class="text-white text-decoration-none" href="/artist/<%= searchsong.artist.id %>">
+                                <%= searchsong.artist.name %>
+                              </a>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="pt-4">
+                              <a class="text-white text-decoration-none" href="/album/<%= searchsong.album.id %>">
+                                <%= searchsong.album.name %>
+                              </a>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="pt-4">
+                              <span >
+                                6.00
+                              </span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="option my-4 mx-2">
+                              <i class="fa-solid fa-play"></i>
+                              <% if(currentUser) { %>
+                                <% if(usersong.includes(searchsong.id)){ %>
+                              <form action="/user/unfavourite/<%= searchsong.id %>" method="post" class="d-inline">
+                                  <button class="mx-3 bg-transparent border-0"> 
+                                    <i class="fa-solid fa-star mx-3 starbg"></i>
+                                  </button>
+                              </form>
+                              <% } else { %>
+                                <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
+                                  <button class="mx-3 bg-transparent border-0"> 
+                                    <i class="fa-solid fa-star mx-3"></i>
+                                  </button>
+                              </form>
+                              <% } %>
+                              <% } else { %>
+                                <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
+                                  <button class="mx-3 bg-transparent border-0"> 
+                                    <i class="fa-solid fa-star mx-3"></i>
+                                  </button>
+                              </form>
+                              <% } %>
+                              <i class="fa-solid fa-circle-plus"></i>
+                          </div>
+                          </td>
+                      </tr>
+                      <% }) %>
+                  </tbody>
+            </table>
+          </div>
+        </div>
+        <% } %>
+        <% if(searchsong.length===0){ %>
+            <div class="squarebox text-center mt-3">
+                <div class="t text-white">
+                  <img class="py-2" src="/image/icons/scope.png" width="30px">
+                  <h2>0 Song for " <%= keyword %> "</h2>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include("../partials/footer.ejs") %>

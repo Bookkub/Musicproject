@@ -12,11 +12,33 @@
                     <a href="#">
                         <img class="playbtn" src="/image/icons/play.png">
                     </a>
-                    <a href="#" onclick="favbutton()" class="mx-3"> 
-                        <img class="favbtn" src="/image/icons/fav.png">
-                        <!-- <i class="fa-regular fa-star"></i> -->
-                        <img class="favbtn-click hidden" src="/image/icons/fav-click.png">
-                    </a>
+                    <!-- <form action="/user/favourite/<%= songinfo.id %>" method="post">
+                        <button class="mx-3 bg-transparent border-0"> 
+                            <img class="favbtn" src="/image/icons/fav.png">
+                            <img class="favbtn-click" src="/image/icons/fav-click.png">
+                        </button>
+                    </form> -->
+                    <% if(currentUser) { %>
+                        <% if(usersong.includes(songinfo.id)){ %>
+                      <form action="/user/unfavourite/<%= songinfo.id %>" method="post" class="d-inline">
+                          <button class="mx-3 bg-transparent border-0"> 
+                            <img class="favbtn-click" src="/image/icons/fav-click2.png">
+                          </button>
+                      </form>
+                      <% } else { %>
+                        <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
+                          <button class="mx-3 bg-transparent border-0"> 
+                            <img class="favbtn" src="/image/icons/fav.png">
+                          </button>
+                      </form>
+                      <% } %>
+                      <% } else { %>
+                        <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
+                          <button class="mx-3 bg-transparent border-0"> 
+                            <img class="favbtn" src="/image/icons/fav.png">
+                          </button>
+                      </form>
+                      <% } %>
                     <a href="#">
                         <img class="addbtn" src="/image/icons/add.png">
                     </a>
@@ -93,39 +115,6 @@
         
   
     </div>
-
-
-
-        <!-- <div class="container-fluid row g-5 py-5">
-            <div class="col-md-8">
-                <table class="table text-white">
-                    <tbody>
-                <% //artistsong.forEach(function(artistsong){ %>
-                      <tr>
-                        <th>
-                            <div class="d-flex">
-                                <span class="songorder d-block pt-4"><%= //count %></span>
-                                <% //count++ %>
-                                <img class="songimg" src="<%= //artistsong.image %>">
-                                <div class="pt-4">
-                                    <%= //artistsong.name %>
-                                </div>
-                            </div>
-                        </th>
-                        <td>
-                            <div class="option">
-                                <img class="p-2" src="/image/icons/play-button.png"  width="40px">  
-                                <img class="p-2" src="/image/icons/fav.png"  width="40px">
-                                <img class="p-2" src="/image/icons/plus.png"  width="40px">
-                            </div>
-                        </td>
-                      </tr>
-                <% //}) %>
-                    </tbody>
-                  </table>
-            </div> -->
-        
-      
 
 
 <%- include("../partials/footer.ejs") %>

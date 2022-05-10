@@ -1,7 +1,7 @@
 <%- include("../partials/header.ejs") %>
 <% let count=1 %>
 <div class="col px-0">
-    <div class="container-fluid px-0 bg-dark">
+    <div class="container-fluid bg-dark">
         <div class="d-flex px-5 py-4">
             <img class="artistinfo--img" src="<%= artist.image %>">
             <div class="songkit">
@@ -35,10 +35,30 @@
                                 </div>
                             </th>
                             <td>
-                                <div class="option">
-                                    <img class="p-2" src="/image/icons/play-button.png"  width="40px">  
-                                    <img class="p-2" src="/image/icons/fav.png"  width="40px">
-                                    <img class="p-2" src="/image/icons/plus.png"  width="40px">
+                                <div class="option my-4 mx-2">
+                                    <i class="fa-solid fa-play"></i>
+                                    <% if(currentUser) { %>
+                                      <% if(usersong.includes(artistsong.id)){ %>
+                                    <form action="/user/unfavourite/<%= artistsong.id %>" method="post" class="d-inline">
+                                        <button class="mx-3 bg-transparent border-0"> 
+                                          <i class="fa-solid fa-star mx-3 starbg"></i>
+                                        </button>
+                                    </form>
+                                    <% } else { %>
+                                      <form action="/user/favourite/<%= artistsong.id %>" method="post" class="d-inline">
+                                        <button class="mx-3 bg-transparent border-0"> 
+                                          <i class="fa-solid fa-star mx-3"></i>
+                                        </button>
+                                    </form>
+                                    <% } %>
+                                    <% } else { %>
+                                      <form action="/user/favourite/<%= artistsong.id %>" method="post" class="d-inline">
+                                        <button class="mx-3 bg-transparent border-0"> 
+                                          <i class="fa-solid fa-star mx-3"></i>
+                                        </button>
+                                    </form>
+                                    <% } %>
+                                    <i class="fa-solid fa-circle-plus"></i>
                                 </div>
                             </td>
                           </tr>

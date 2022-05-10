@@ -9,10 +9,8 @@ const userSchema = new mongoose.Schema({
     email: String,
     image: String,
     song: [{
-        id:{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Song'
-        },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Song'
     }],
     isAdmin: {type: Boolean, default: false}
 });

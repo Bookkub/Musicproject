@@ -1,55 +1,82 @@
 <%- include("../partials/header.ejs") %>
-<% let count=1 %>
-<div class="col px-0">
-    <div class="container-fluid px-0 bg-dark">
-        <div class="d-flex px-5 py-4">
-            <img class="albuminfo--img" src="<%= album.image %>">
-            <div class="songkit">
-                <div class="artistkit--up">
-                    <p class="artistkit--up__name text-white mb-0"><%= album.name %></p>
-                    <p class="artistkit--up__artist m-0">Album by
-                        <a href="/artist/<%= album.artist.id %>" class="albumkit--up__artist">
-                            <%= album.artist.name %>
-                        </a>
-                    </p>
-                    <p class="songcount m-0 p-0"><%= albumsong.length %> songs</p>
-                </div>
-                <div class="songkit--down mt-3">
-                    <a href="#">
-                        <img class="playbtn" src="/image/icons/play.png">
-                    </a>
+    <% let count=1 %>
+        <div class="col px-0">
+            <div class="container-fluid px-0 bg-dark">
+                <div class="d-flex px-5 py-4">
+                    <img class="albuminfo--img" src="<%= album.image %>">
+                    <div class="songkit">
+                        <div class="artistkit--up">
+                            <p class="artistkit--up__name text-white mb-0">
+                                <%= album.name %>
+                            </p>
+                            <p class="artistkit--up__artist m-0">Album by
+                                <a href="/artist/<%= album.artist.id %>" class="albumkit--up__artist">
+                                    <%= album.artist.name %>
+                                </a>
+                            </p>
+                            <p class="songcount m-0 p-0">
+                                <%= albumsong.length %> songs
+                            </p>
+                        </div>
+                        <div class="songkit--down mt-3">
+                            <a href="#">
+                                <img class="playbtn" src="/image/icons/play.png">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
 
-    <div class="container-fluid my-3 px-5">
-        <table class="table text-white">
-            <tbody>
-                <% albumsong.forEach(function(albumsong){ %>
-                      <tr class="shadows">
-                        <th>
-                            <div class="d-flex">
-                                <span class="songorder d-block pt-4"><%= count %></span>
-                                <% count++ %>
-                                <img class="songimg" src="<%= albumsong.image %>">
-                                <a class="pt-4 text-white text-decoration-none" href="/song/<%= albumsong.id %>">
-                                    <%= albumsong.name %>
-                                </a>
-                            </div>
-                        </th>
-                        <td>
-                            <div class="option">
-                                <img class="p-2" src="/image/icons/play-button.png"  width="40px">  
-                                <img class="p-2" src="/image/icons/fav.png"  width="40px">
-                                <img class="p-2" src="/image/icons/plus.png"  width="40px">
-                            </div>
-                        </td>
-                      </tr>
-                <% }) %>
+            <div class="container-fluid my-3 px-5">
+                <table class="table text-white">
+                    <tbody>
+                        <% albumsong.forEach(function(albumsong){ %>
+                            <tr class="shadows">
+                                <th>
+                                    <div class="d-flex">
+                                        <span class="songorder d-block pt-4">
+                                            <%= count %>
+                                        </span>
+                                        <% count++ %>
+                                            <img class="songimg" src="<%= albumsong.image %>">
+                                            <a class="pt-4 text-white text-decoration-none"
+                                                href="/song/<%= albumsong.id %>">
+                                                <%= albumsong.name %>
+                                            </a>
+                                    </div>
+                                </th>
+                                <td>
+                                    <div class="option my-4 mx-2">
+                                        <i class="fa-solid fa-play"></i>
+                                        <% if(currentUser) { %>
+                                            <% if(usersong.includes(albumsong.id)){ %>
+                                          <form action="/user/unfavourite/<%= albumsong.id %>" method="post" class="d-inline">
+                                              <button class="mx-3 bg-transparent border-0"> 
+                                                <i class="fa-solid fa-star mx-3 starbg"></i>
+                                              </button>
+                                          </form>
+                                          <% } else { %>
+                                            <form action="/user/favourite/<%= albumsong.id %>" method="post" class="d-inline">
+                                              <button class="mx-3 bg-transparent border-0"> 
+                                                <i class="fa-solid fa-star mx-3"></i>
+                                              </button>
+                                          </form>
+                                          <% } %>
+                                          <% } else { %>
+                                            <form action="/user/favourite/<%= albumsong.id %>" method="post" class="d-inline">
+                                              <button class="mx-3 bg-transparent border-0"> 
+                                                <i class="fa-solid fa-star mx-3"></i>
+                                              </button>
+                                          </form>
+                                          <% } %>
+                                        <i class="fa-solid fa-circle-plus"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% }) %>
                     </tbody>
-          </table>
-    </div>
+                </table>
+            </div>
 
-<%- include("../partials/footer.ejs") %>
+            <%- include("../partials/footer.ejs") %>
