@@ -38,7 +38,7 @@ router.get("/", function(req, res){
                         if(err){
                             console.log(err);
                         } else {
-                             res.render("home.ejs",{recommend:allSong,artist:artist,album:album});
+                            res.render("home.ejs",{recommend:allSong,artist:artist,album:album});
                         }
                     });
                 }

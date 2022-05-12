@@ -26,7 +26,7 @@ const albumdatabase = [
     {
         artistcode:"3",
         albumcode:"3",
-        image:"http://38.media.tumblr.com/tumblr_luzq8wnCrR1qby38so1_1321845735_cover.jpg",
+        image:"https://upload.wikimedia.org/wikipedia/en/9/96/One_direction_up_all_night_albumcover.jpg",
         name:"Up All Night"
     },
     {
@@ -88,6 +88,7 @@ const songdatabase = [
         "These are the nights that never die"
         My father told me
         My father told me`,
+        source:"/songfile/The nights.mp3",
         favourite:"2"
     },
     {
@@ -103,6 +104,7 @@ const songdatabase = [
         Yeah
         Get a feeling that I never never never never had before
         I get a good feeling, yeah`,
+        source:"/songfile/Level.mp3",
         favourite:"13"
     },
     {   
@@ -144,6 +146,7 @@ const songdatabase = [
         Guess I won't be coming to church on Sunday
         I'll be waiting for love, waiting for love
         To come around`,
+        source:"/songfile/Waiting for love.mp3",
         favourite:"9"
     },
     {
@@ -187,6 +190,7 @@ const songdatabase = [
         I didn't know I was lost
         I didn't know I was lost
         I didn't know (didn't know, didn't know)`,
+        source:"/songfile/Wake me up.mp3",
         favourite:"5"
     },
     {
@@ -236,6 +240,7 @@ const songdatabase = [
         Out of control,
         What can I do?
         I'm addicted to you!`,
+        source:"/songfile/Addicted to you.mp3",
         favourite:"5"
     },
     {
@@ -279,6 +284,7 @@ const songdatabase = [
         
         We've come a long way since that day
         And we will never look back, look back, at the faded silhouette`,
+        source:"/songfile/Silhouettes.mp3",
         favourite:"7"
     },
     {
@@ -318,6 +324,7 @@ const songdatabase = [
         
         Can you hear me, S.O.S.?
         Help me put my mind to rest`,
+        source:"/songfile/SOS.mp3",
         favourite:"14"
     },
     {
@@ -339,6 +346,7 @@ const songdatabase = [
         The way to go
         Let's take a chance
         It's our last dance`,
+        source:"/songfile/Superlove.mp3",
         favourite:"8"
     },
     {
@@ -396,6 +404,7 @@ const songdatabase = [
         
         And these are the days (these are the days)
         And these are the days (these are the days)`,
+        source:"/songfile/The days.mp3",
         favourite:"1"
     },
     {
@@ -436,6 +445,7 @@ const songdatabase = [
         Fuck, I'm going out without you
         I'm gonna tear this city down without you
         I'm goin' Bonnie and Clyde without you`,
+        source:"/songfile/Without you.mp3",
         favourite:"13"
     },
     {
@@ -499,6 +509,7 @@ const songdatabase = [
         Oh, oh, oh
         She needs a wild heart [2x]
         I've got a wild heart`,
+        source:"/songfile/Wild heart.mp3",
         favourite:"17"
     },
     {
@@ -594,6 +605,7 @@ const songdatabase = [
         Think I might have kissed someone
         And if tomorrow never comes
         We had last night`,
+        source:"/songfile/Last night.mp3",
         favourite:"6"
     },
     {
@@ -686,6 +698,7 @@ const songdatabase = [
         (Yeah you!)
         
         Yeah you!`,
+        source:"/songfile/Somebody to you.mp3",
         favourite:"3"
     },
     {
@@ -762,6 +775,7 @@ const songdatabase = [
         I know I don't know you,
         But I'd like to skip the small talk and romance, girl.
         That's all I have to say so, baby, can we dance?`,
+        source:"/songfile/Can we dance.mp3",
         favourite:"14"
     },
     {
@@ -818,6 +832,7 @@ const songdatabase = [
         And they put me back in my cell
         All by myself, alone with my thoughts again
         Guess my mind is a prison and I'm never gonna get out`,
+        source:"/songfile/Mind is a prison.mp3",
         favourite:"22"
     },
     {
@@ -862,6 +877,7 @@ const songdatabase = [
         The only thing that keeps me from diving off the deep end
         Because I've got all these demons, demons, demons, hmm-hmm
         Because I've got all these demons, demons, demons, hmm-hmm`,
+        source:"/songfile/Demons.mp3",
         favourite:"10"
     },
     {
@@ -927,6 +943,7 @@ const songdatabase = [
         What have I done?
         Mmm, mmm
         Mmm, mmm`,
+        source:"/songfile/Oh my god.mp3",
         favourite:"16"
     },
     {
@@ -998,6 +1015,7 @@ const songdatabase = [
         I'm missing bits and pieces from the pages that you took
         You never gave a reason, I'll forever wonder why
         We never got to finish the book of you and I`,
+        source:"/songfile/The book of you & i.mp3",
         favourite:"14"
     },
     {
@@ -1058,6 +1076,7 @@ const songdatabase = [
         Even though my intuition tells me that it's the end
         That in these conditions tryna bring back the flame is like
         Tryna light a match in the rain`,
+        source:"/songfile/Match in a rain.mp3",
         favourite:"7"
     },
     {
@@ -1136,6 +1155,7 @@ const songdatabase = [
         'Cause I won't find Jesus in LA
         And it's a crying shame I came all this way
         'Cause I won't find Jesus in LA`,
+        source:"/songfile/Jesus in la.mp3",
         favourite:"6"
     },
     {
@@ -1235,6 +1255,7 @@ const songdatabase = [
         
         [Harry:]
         That's what makes you beautiful`,
+        source:"/songfile/What make you beautiful.mp3",
         favourite:"22"
     },
     {
@@ -1313,6 +1334,7 @@ const songdatabase = [
         I don't, I don't, don't know what it is
         But I need that one thing
         Yeah, you've got that one thing`,
+        source:"/songfile/One thing.mp3",
         favourite:"13"
     },
     {
@@ -1414,6 +1436,7 @@ const songdatabase = [
         Up all night
         Like this, all night, hey
         Up all night`,
+        source:"/songfile/Up all night.mp3",
         favourite:"10"
     },
     {
@@ -1488,6 +1511,7 @@ const songdatabase = [
         Tell me a lie!
         Tell me a lie!
         Tell me a lie!`,
+        source:"/songfile/Tell me a lie.mp3",
         favourite:"4"
     },
     {
@@ -1577,6 +1601,7 @@ const songdatabase = [
         Best song ever
         It was the best song ever
         It was the best song ever`,
+        source:"/songfile/Best song ever.mp3",
         favourite:"14"
     }
 ]

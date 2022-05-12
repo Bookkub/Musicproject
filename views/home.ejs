@@ -10,13 +10,29 @@
                 <div class="card shadows shadow-lg">
                   <div class="card-body">
                     <a class="text-decoration-none" href="/song/<%= recommend._id %>">
-                      <img class="song--img" src="<%= recommend.image %>">
+                      <div>
+                        <img class="song--img" src="<%= recommend.image %>">
+                        <% if(!currentUser){ %>
+                          <a href="/login">
+                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                          </a>
+                        <% } else { %>
+                        <a>
+                          <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="playicon">
+                          <audio id="mySong">
+                            <source src="<%= recommend.source %>" type="audio/mp3">
+                          </audio>
+                        </a>
+                        <% } %>
+                      </div>
+                     <div>
                       <p class="song--name text-white">
                         <%= recommend.name %>
                       </p>
                       <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
                         <%= recommend.artist.name %>
-                      </a>
+                      </a> 
+                     </div>
                     </a>
                   </div>
                 </div>
@@ -32,16 +48,30 @@
               <a class="seeall" href="/album">see all</a>
             </div>
             <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-              <% album.slice(0,6).forEach(function(album){ %>
+              <% album.slice(0,6).reverse().forEach(function(album){ %>
                 <div class="col">
                   <div class="card shadows shadow-lg">
                     <div class="card-body">
                       <a class="text-decoration-none" href="/album/<%= album._id %>">
-                        <img class="album--img" src="<%= album.image %>">
-                        <p class="album--name text-white">
+                        <div>
+                          <img class="album--img" src="<%= album.image %>">
+                          <% if(!currentUser){ %>
+                            <a href="/login">
+                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                            </a>
+                          <% } else { %>
+                          <a>
+                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="playicon">
+                            <audio id="mySong">
+                              <source src="<%= recommend.source %>" type="audio/mp3">
+                            </audio>
+                          </a>
+                          <% } %>
+                        </div>
+                        <p class="album--name text-white d-block">
                           <%= album.name %>
                         </p>
-                        <a class="album--album d-inline" href="/artist/<%= album.artist.id %>">
+                        <a class="album--album d-block" href="/artist/<%= album.artist.id %>">
                           <%= album.artist.name %>
                         </a>
                       </a>
@@ -52,34 +82,39 @@
             </div>
           </div>
         </div>
-          <div class="album py-1">
-            <div class="container-fluid">
-              <div class="d-flex">
-                <h1 class="category">ARTISTS</h1>
-                <a class="seeall" href="/artist">see all</a>
-              </div>
-              <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-                <% artist.slice(0,6).forEach(function(artist){ %>
-                  <div class="col">
-                    <div class="card shadows shadow-lg">
-                      <div class="card-body">
-                        <a class="text-decoration-none" href="/artist/<%= artist._id %>">
+        <div class="album py-1">
+          <div class="container-fluid">
+            <div class="d-flex">
+              <h1 class="category">ARTISTS</h1>
+              <a class="seeall" href="/artist">see all</a>
+            </div>
+            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+              <% artist.slice(0,6).reverse().forEach(function(artist){ %>
+                <div class="col">
+                  <div class="card shadows shadow-lg">
+                    <div class="card-body">
+                      <a class="text-decoration-none" href="/artist/<%= artist._id %>">
+                        <div>
                           <img class="artist--img" src="<%= artist.image %>">
-                          <p class="artist--name text-white">
-                            <%= artist.name %>
-                          </p>
-                          <p class="artist--artist d-inline">
-                            Artist
-                          </p>
-                        </a>
-                      </div>
+                          <a href="#">
+                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                          </a>
+                        </div>
+                        <p class="artist--name text-white">
+                          <%= artist.name %>
+                        </p>
+                        <p class="artist--artist d-inline">
+                          Artist
+                        </p>
+                      </a>
                     </div>
                   </div>
-                  <% }) %>
-              </div>
+                </div>
+                <% }) %>
             </div>
           </div>
-        
+        </div>
+
         <% } %>
           <% if(currentUser && currentUser.isAdmin){ %>
             <div class="col py-4">

@@ -82,7 +82,18 @@
                           </td>
                           <td>
                             <div class="option my-4 mx-2">
-                              <i class="fa-solid fa-play"></i>
+                              <% if(!currentUser){ %>
+                                <a href="/login" class="text-decoration-none star-color">
+                                  <i class="fa-solid fa-play"></i>
+                                </a>
+                              <% } else { %>
+                                <a>
+                                  <i class="fa-solid fa-play" id="playiconsearch"></i>
+                                  <audio id="mysearch">
+                                    <source src="<%= searchsong.source %>" type="audio/mp3">
+                                  </audio>
+                                </a>
+                              <% } %>
                               <% if(currentUser) { %>
                                 <% if(usersong.includes(searchsong.id)){ %>
                               <form action="/user/unfavourite/<%= searchsong.id %>" method="post" class="d-inline">

@@ -1,5 +1,5 @@
 <%- include("partials/header.ejs") %>
-  <% let count = 1 %>
+  <% let count=1 %>
     <div class="col mb-5">
       <div class="headbg mt-3">
         <ul class="nav nav-pills justify-content-center pt-4">
@@ -16,225 +16,286 @@
             <a class="nav-link" href="/search/album/<%= keyword %>">Albums</a>
           </li>
         </ul>
-      <% if(searchartist.length> 0){ %>
-      <div class="album mt-2">
-        <div class="container-fluid  py-4">
-          <div class="d-flex">
-              <h1 class="category searchbg py-3 px-3">ARTISTS
-                <span class="thinword">(<%= searchartist.length %>)</span>
-              </h1>
-          </div>
-          <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-            <% searchartist.slice(0,6).forEach(function(searchartist){ %>
-              <div class="col">
-                <div class="card shadows shadow-lg">
-                  <div class="card-body">
-                    <a class="text-decoration-none" href="/artist/<%= searchartist._id %>">
-                      <img class="artist--img" src="<%= searchartist.image %>">
-                      <p class="artist--name text-white">
-                        <%= searchartist.name %>
-                      </p>
-                      <p class="artist--artist d-inline">
-                        Artist
-                      </p>
-                    </a>
-                  </div>
-                </div>
+        <% if(searchartist.length> 0){ %>
+          <div class="album mt-2">
+            <div class="container-fluid  py-4">
+              <div class="d-flex">
+                <h1 class="category searchbg py-3 px-3">ARTISTS
+                  <span class="thinword">(<%= searchartist.length %>)</span>
+                </h1>
               </div>
-              <% }) %>
-          </div>
-        </div>
-      </div>
-      <% } %>
-      <% if(searchalbum.length> 0){ %>
-      <div class="album mt-2">
-        <div class="container-fluid">
-          <div class="d-flex">
-              <h1 class="category searchbg py-3 px-3">ALBUMS
-                <span class="thinword">(<%= searchalbum.length %>)</span>
-              </h1>
-          </div>
-          <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-            <% searchalbum.slice(0,6).forEach(function(searchalbum){ %>
-              <div class="col">
-                <div class="card shadows shadow-lg">
-                  <div class="card-body">
-                    <a class="text-decoration-none" href="/album/<%= searchalbum._id %>">
-                      <img class="album--img" src="<%= searchalbum.image %>">
-                      <p class="album--name text-white">
-                        <%= searchalbum.name %>
-                      </p>
-                      <a class="album--album d-inline" href="/artist/<%= searchalbum.artist.id %>">
-                        <%= searchalbum.artist.name %>
-                      </a>
-                    </a>
+              <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                <% searchartist.slice(0,6).forEach(function(searchartist){ %>
+                  <div class="col">
+                    <div class="card shadows shadow-lg">
+                      <div class="card-body">
+                        <a class="text-decoration-none" href="/artist/<%= searchartist._id %>">
+                          <div>
+                            <img class="artist--img" src="<%= searchartist.image %>">
+                            <a href="#">
+                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                            </a>
+                          </div>
+                          <p class="artist--name text-white d-block">
+                            <%= searchartist.name %>
+                          </p>
+                          <p class="artist--artist d-inline">
+                            Artist
+                          </p>
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                  <% }) %>
               </div>
-              <% }) %>
-          </div>
-        </div>
-      </div>
-      <% } %>
-      <% if(searchsong.length > 0){ %>
-      <div class="album mt-2">
-        <div class="container-fluid py-4">
-          <div class="d-flex">
-              <h1 class="category searchbg py-3 px-3">SONGS
-                <span class="thinword">(<%= searchsong.length %>)</span>
-              </h1>
-          </div>
-          <table class="table searchbg text-white text-center mb-0 sortable">
-            <% if(searchsong.length > 0){ %>
-              <thead>
-                <tr>
-                  <th scope="col" class="shadows">
-                    Title
-                    <i class="fa-solid fa-sort"></i>
-                  </th>
-                  <th scope="col" class="shadows">
-                    Artist
-                    <i class="fa-solid fa-sort"></i>
-                  </th>
-                  <th scope="col" class="shadows">
-                    Album
-                    <i class="fa-solid fa-sort"></i>
-                  </th>
-                  <th scope="col" class="shadows">
-                    <i class="fa-solid fa-clock"></i>
-                    <i class="fa-solid fa-sort"></i>
-                  </th>
-                </tr>
-              </thead>
-              <% } %>
-                <tbody>
-                  <% searchsong.slice(0,8).forEach(function(searchsong){ %>
-                    <tr class="shadows">
-                      <% count++ %>
-                        <td>
-                          <div class="d-flex">
-                            <img class="songimg-admin" src="<%= searchsong.image %>">
-                            <a class="pt-4 mx-4 text-white text-decoration-none" href="/song/<%= searchsong._id %>">
-                              <%= searchsong.name %>
-                            </a>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="pt-4">
-                            <a class="text-white text-decoration-none" href="/artist/<%= searchsong.artist.id %>">
-                              <%= searchsong.artist.name %>
-                            </a>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="pt-4">
-                            <a class="text-white text-decoration-none" href="/album/<%= searchsong.album.id %>">
-                              <%= searchsong.album.name %>
-                            </a>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="pt-4">
-                            <span >
-                              6.00
-                            </span>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="option my-4 mx-2">
-                            <i class="fa-solid fa-play"></i>
-                            <% if(currentUser) { %>
-                              <% if(usersong.includes(searchsong.id)){ %>
-                            <form action="/user/unfavourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                <button class="mx-3 bg-transparent border-0"> 
-                                  <i class="fa-solid fa-star mx-3 starbg"></i>
-                                </button>
-                            </form>
-                            <% } else { %>
-                              <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                <button class="mx-3 bg-transparent border-0"> 
-                                  <i class="fa-solid fa-star mx-3"></i>
-                                </button>
-                            </form>
-                            <% } %>
-                            <% } else { %>
-                              <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                <button class="mx-3 bg-transparent border-0"> 
-                                  <i class="fa-solid fa-star mx-3"></i>
-                                </button>
-                            </form>
-                            <% } %>
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </div>
-                        </td>
-                    </tr>
-                    <% }) %>
-                    <% searchsong.slice(8,searchsong.length).forEach(function(searchsong){ %>
-                      <tr class="shadows morerow hidden">
-                        <% count++ %>
-                          <td>
-                            <div class="d-flex">
-                              <img class="songimg-admin" src="<%= searchsong.image %>">
-                              <a class="pt-4 mx-4 text-white text-decoration-none" href="/song/<%= searchsong._id %>">
-                                <%= searchsong.name %>
-                              </a>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="pt-4">
-                              <a class="text-white text-decoration-none" href="/artist/<%= searchsong.artist.id %>">
-                                <%= searchsong.artist.name %>
-                              </a>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="pt-4">
-                              <a class="text-white text-decoration-none" href="/album/<%= searchsong.album.id %>">
-                                <%= searchsong.album.name %>
-                              </a>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="pt-4">
-                              <span >
-                                6.00
-                              </span>
-                            </div>
-                          </td>
-                          <td>
-                            <div class="option my-4 mx-2">
-                              <i class="fa-solid fa-play"></i>
-                              <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                  <button class="mx-3 bg-transparent border-0"> 
-                                      <i class="fa-solid fa-star mx-3"></i>
-                                  </button>
-                              </form>
-                              <i class="fa-solid fa-circle-plus"></i>
-                          </div>
-                          </td>
-                      </tr>
-                      <% }) %>
-                </tbody>
-          </table>
-          <% if(searchsong.length >= 10){ %>
-            <button onclick="showmore()" class="d-flex shadows mb-0 p-0 fullrow">
-                <span class="category showmore py-3 px-3 text-center">
-                  Show more...
-                </span>
-            </button>
-          <% } %>
-        </div>
-      </div>
-      <% } %>
-      <% if(searchsong.length===0 && searchartist.length===0 && searchalbum.length===0){ %>
-        <div class="squarebox text-center mt-3">
-            <div class="t text-white">
-              <img class="py-2" src="/image/icons/scope.png" width="30px">
-              <h2>0 Result for " <%= keyword %> "</h2>
             </div>
-        </div>
-        <% } %>
-    </div>
+          </div>
+          <% } %>
+            <% if(searchalbum.length> 0){ %>
+              <div class="album mt-2">
+                <div class="container-fluid">
+                  <div class="d-flex">
+                    <h1 class="category searchbg py-3 px-3">ALBUMS
+                      <span class="thinword">(<%= searchalbum.length %>)</span>
+                    </h1>
+                  </div>
+                  <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                    <% searchalbum.slice(0,6).forEach(function(searchalbum){ %>
+                      <div class="col">
+                        <div class="card shadows shadow-lg">
+                          <div class="card-body">
+                            <a class="text-decoration-none" href="/album/<%= searchalbum._id %>">
+                              <div>
+                                <img class="album--img" src="<%= searchalbum.image %>">
+                                <a href="#">
+                                  <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                                </a>
+                              </div>
+
+                              <p class="album--name text-white">
+                                <%= searchalbum.name %>
+                              </p>
+                              <a class="album--album d-block" href="/artist/<%= searchalbum.artist.id %>">
+                                <%= searchalbum.artist.name %>
+                              </a>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                  </div>
+                </div>
+              </div>
+              <% } %>
+                <% if(searchsong.length> 0){ %>
+                  <div class="album mt-2">
+                    <div class="container-fluid py-4">
+                      <div class="d-flex">
+                        <h1 class="category searchbg py-3 px-3">SONGS
+                          <span class="thinword">(<%= searchsong.length %>)</span>
+                        </h1>
+                      </div>
+                      <table class="table searchbg text-white text-center mb-0 sortable">
+                        <% if(searchsong.length> 0){ %>
+                          <thead>
+                            <tr>
+                              <th scope="col" class="shadows">
+                                Title
+                                <i class="fa-solid fa-sort"></i>
+                              </th>
+                              <th scope="col" class="shadows">
+                                Artist
+                                <i class="fa-solid fa-sort"></i>
+                              </th>
+                              <th scope="col" class="shadows">
+                                Album
+                                <i class="fa-solid fa-sort"></i>
+                              </th>
+                              <th scope="col" class="shadows">
+                                <i class="fa-solid fa-clock"></i>
+                                <i class="fa-solid fa-sort"></i>
+                              </th>
+                            </tr>
+                          </thead>
+                          <% } %>
+                            <tbody>
+                              <% searchsong.slice(0,8).forEach(function(searchsong){ %>
+                                <tr class="shadows">
+                                  <% count++ %>
+                                    <td>
+                                      <div class="d-flex">
+                                        <img class="songimg-admin" src="<%= searchsong.image %>">
+                                        <a class="pt-4 mx-4 text-white text-decoration-none"
+                                          href="/song/<%= searchsong._id %>">
+                                          <%= searchsong.name %>
+                                        </a>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="pt-4">
+                                        <a class="text-white text-decoration-none"
+                                          href="/artist/<%= searchsong.artist.id %>">
+                                          <%= searchsong.artist.name %>
+                                        </a>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="pt-4">
+                                        <a class="text-white text-decoration-none"
+                                          href="/album/<%= searchsong.album.id %>">
+                                          <%= searchsong.album.name %>
+                                        </a>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="pt-4">
+                                        <span>
+                                          6.00
+                                        </span>
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="option my-4 mx-2">
+                                        <% if(!currentUser){ %>
+                                          <a href="/login" class="text-decoration-none star-color">
+                                            <i class="fa-solid fa-play"></i>
+                                          </a>
+                                          <% } else { %>
+                                            <a>
+                                              <i class="fa-solid fa-play" id="playiconsearch"></i>
+                                              <audio id="mysearch">
+                                                <source src="<%= searchsong.source %>" type="audio/mp3">
+                                              </audio>
+                                            </a>
+                                            <% } %>
+                                              <% if(currentUser) { %>
+                                                <% if(usersong.includes(searchsong.id)){ %>
+                                                  <form action="/user/unfavourite/<%= searchsong.id %>" method="post"
+                                                    class="d-inline">
+                                                    <button class="mx-3 bg-transparent border-0">
+                                                      <i class="fa-solid fa-star mx-3 starbg"></i>
+                                                    </button>
+                                                  </form>
+                                                  <% } else { %>
+                                                    <form action="/user/favourite/<%= searchsong.id %>" method="post"
+                                                      class="d-inline">
+                                                      <button class="mx-3 bg-transparent border-0">
+                                                        <i class="fa-solid fa-star mx-3"></i>
+                                                      </button>
+                                                    </form>
+                                                    <% } %>
+                                                      <% } else { %>
+                                                        <form action="/user/favourite/<%= searchsong.id %>"
+                                                          method="post" class="d-inline">
+                                                          <button class="mx-3 bg-transparent border-0">
+                                                            <i class="fa-solid fa-star mx-3"></i>
+                                                          </button>
+                                                        </form>
+                                                        <% } %>
+                                                          <i class="fa-solid fa-circle-plus"></i>
+                                      </div>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                                  <% searchsong.slice(8,searchsong.length).forEach(function(searchsong){ %>
+                                    <tr class="shadows morerow hidden">
+                                      <% count++ %>
+                                        <td>
+                                          <div class="d-flex">
+                                            <img class="songimg-admin" src="<%= searchsong.image %>">
+                                            <a class="pt-4 mx-4 text-white text-decoration-none"
+                                              href="/song/<%= searchsong._id %>">
+                                              <%= searchsong.name %>
+                                            </a>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="pt-4">
+                                            <a class="text-white text-decoration-none"
+                                              href="/artist/<%= searchsong.artist.id %>">
+                                              <%= searchsong.artist.name %>
+                                            </a>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="pt-4">
+                                            <a class="text-white text-decoration-none"
+                                              href="/album/<%= searchsong.album.id %>">
+                                              <%= searchsong.album.name %>
+                                            </a>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="pt-4">
+                                            <span>
+                                              6.00
+                                            </span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="option my-4 mx-2">
+                                            <% if(!currentUser){ %>
+                                              <a href="/login" class="text-decoration-none star-color">
+                                                <i class="fa-solid fa-play"></i>
+                                              </a>
+                                              <% } else { %>
+                                                <a>
+                                                  <i class="fa-solid fa-play" id="playiconsearch"></i>
+                                                  <audio id="mysearch">
+                                                    <source src="<%= searchsong.source %>" type="audio/mp3">
+                                                  </audio>
+                                                </a>
+                                                <% } %>
+                                                  <% if(currentUser) { %>
+                                                    <% if(usersong.includes(searchsong.id)){ %>
+                                                      <form action="/user/unfavourite/<%= searchsong.id %>"
+                                                        method="post" class="d-inline">
+                                                        <button class="mx-3 bg-transparent border-0">
+                                                          <i class="fa-solid fa-star mx-3 starbg"></i>
+                                                        </button>
+                                                      </form>
+                                                      <% } else { %>
+                                                        <form action="/user/favourite/<%= searchsong.id %>"
+                                                          method="post" class="d-inline">
+                                                          <button class="mx-3 bg-transparent border-0">
+                                                            <i class="fa-solid fa-star mx-3"></i>
+                                                          </button>
+                                                        </form>
+                                                        <% } %>
+                                                          <% } else { %>
+                                                            <form action="/user/favourite/<%= searchsong.id %>"
+                                                              method="post" class="d-inline">
+                                                              <button class="mx-3 bg-transparent border-0">
+                                                                <i class="fa-solid fa-star mx-3"></i>
+                                                              </button>
+                                                            </form>
+                                                            <% } %>
+                                                              <i class="fa-solid fa-circle-plus"></i>
+                                          </div>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                      </table>
+                      <% if(searchsong.length>= 10){ %>
+                        <button onclick="showmore()" class="d-flex shadows mb-0 p-0 fullrow">
+                          <span class="category showmore py-3 px-3 text-center">
+                            Show more...
+                          </span>
+                        </button>
+                        <% } %>
+                    </div>
+                  </div>
+                  <% } %>
+                    <% if(searchsong.length===0 && searchartist.length===0 && searchalbum.length===0){ %>
+                      <div class="squarebox text-center mt-3">
+                        <div class="t text-white">
+                          <img class="py-2" src="/image/icons/scope.png" width="30px">
+                          <h2>0 Result for " <%= keyword %> "</h2>
+                        </div>
+                      </div>
+                      <% } %>
+      </div>
     </div>
 
     <%- include("partials/footer.ejs") %>

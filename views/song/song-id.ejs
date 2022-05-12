@@ -1,120 +1,127 @@
 <%- include("../partials/header.ejs") %>
-<div class="col px-0">
+  <div class="col px-0">
     <div class="container-fluid px-0 bg-dark">
-        <div class="d-flex px-5 py-5">
-            <img class="songinfo--img" src="<%= songinfo.image %>">
-            <div class="songkit">
-                <div class="songkit--up mt-2">
-                    <p class="songkit--up__name text-white mb-0"><%= songinfo.name %></p>
-                    <a class="songkit--up__artist" href="/artist/<%= songinfo.artist.id %>"><%= songinfo.artist.name %></a>
-                </div>
-                <div class="songkit--down mt-3 d-flex">
-                    <a href="#">
-                        <img class="playbtn" src="/image/icons/play.png">
-                    </a>
-                    <!-- <form action="/user/favourite/<%= songinfo.id %>" method="post">
-                        <button class="mx-3 bg-transparent border-0"> 
-                            <img class="favbtn" src="/image/icons/fav.png">
-                            <img class="favbtn-click" src="/image/icons/fav-click.png">
+      <div class="d-flex px-5 py-5">
+        <img class="songinfo--img" src="<%= songinfo.image %>">
+        <div class="songkit">
+          <div class="songkit--up mt-2">
+            <p class="songkit--up__name text-white mb-0">
+              <%= songinfo.name %>
+            </p>
+            <a class="songkit--up__artist" href="/artist/<%= songinfo.artist.id %>">
+              <%= songinfo.artist.name %>
+            </a>
+          </div>
+          <div class="songkit--down mt-3 d-flex">
+            <a>
+              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="playicon">
+              <audio id="mySong">
+                <source src="<%= songinfo.source %>" type="audio/mp3">
+              </audio>
+            </a>
+            <% if(currentUser) { %>
+              <% if(usersong.includes(songinfo.id)){ %>
+                <form action="/user/unfavourite/<%= songinfo.id %>" method="post" class="d-inline">
+                  <button class="mx-3 bg-transparent border-0">
+                    <img class="favbtn-click" src="/image/icons/fav-click2.png">
+                  </button>
+                </form>
+                <% } else { %>
+                  <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
+                    <button class="mx-3 bg-transparent border-0">
+                      <img class="favbtn" src="/image/icons/fav.png">
+                    </button>
+                  </form>
+                  <% } %>
+                    <% } else { %>
+                      <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
+                        <button class="mx-3 bg-transparent border-0">
+                          <img class="favbtn" src="/image/icons/fav.png">
                         </button>
-                    </form> -->
-                    <% if(currentUser) { %>
-                        <% if(usersong.includes(songinfo.id)){ %>
-                      <form action="/user/unfavourite/<%= songinfo.id %>" method="post" class="d-inline">
-                          <button class="mx-3 bg-transparent border-0"> 
-                            <img class="favbtn-click" src="/image/icons/fav-click2.png">
-                          </button>
-                      </form>
-                      <% } else { %>
-                        <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
-                          <button class="mx-3 bg-transparent border-0"> 
-                            <img class="favbtn" src="/image/icons/fav.png">
-                          </button>
                       </form>
                       <% } %>
-                      <% } else { %>
-                        <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
-                          <button class="mx-3 bg-transparent border-0"> 
-                            <img class="favbtn" src="/image/icons/fav.png">
-                          </button>
-                      </form>
-                      <% } %>
-                    <a href="#">
-                        <img class="addbtn" src="/image/icons/add.png">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid row g-5 py-3">
-        <div class="col-md-8">
-            <table class="table text-white">
-                <tbody>
-                  <tr>
-                    <th>
-                        <span class="lyric-head">Lyrics</span>
-                        <div class="lyric d-flex">
-                          <%= songinfo.lyric %>
-                        </div>
-                    </th>
-                  </tr> 
-                </tbody>
-              </table>
-        </div>
-        <div class="col-md-4">
-            <div class="position-sticky" style="top: 2rem;">
-              <div class="py-5 mb-3 rounded">
-                  <div class="d-flex justify-content-between">
-                      <h4 class="px-4 text-white">Other Song</h4>
-                  </div>
-                <table class="table text-white">
-                  <tbody>
-              <% othersong.forEach(function(othersong){ %>
-                    <tr>
-                      <th class="card shadows">
-                            <div class="d-flex">
-                                <a class=" text-decoration-none" href="/song/<%= othersong._id %>">
-                                    <img class="songimg" src="<%= othersong.image %>">
-                                    <div class="pt-2">
-                                        <span class="song--name d-block"><%= othersong.name %></span>
-                                        <a class="song--artist" href="/artist/<%= songinfo.artist.id %>"><%= othersong.artist.name %></a>
-                                    </div>
-                                </a>
-                            </div>
-                      </th>
-                    </tr>
-              <% }) %>
-                  </tbody>
-                </table>
-
-                <div class="d-flex justify-content-between">
-                    <h4 class="px-4 text-white">Other Artist</h4>
-                    <a class="seeall" href="/artist">see all</a>
-                </div>
-                <table class="table text-white">
-                    <tbody>
-                <% otherartist.forEach(function(otherartist){ %>
-                      <tr>
-                        <th  class="card shadows">
-                            <div class="d-flex">
-                                <a class=" text-decoration-none" href="/artist/<%= otherartist._id %>">
-                                    <img class="artistimg" src="<%= otherartist.image %>">
-                                    <span class="artist--name"><%= otherartist.name %></span>
-                                </a>
-                            </div>
-                        </th>
-                      </tr>
-                <% }) %>
-                    </tbody>
-                  </table>
-
-              </div>
-            </div>
+                        <a href="#">
+                          <img class="addbtn" src="/image/icons/add.png">
+                        </a>
           </div>
         </div>
-        
-  
+      </div>
+    </div>
+    <div class="container-fluid row g-5 py-3">
+      <div class="col-md-8">
+        <table class="table text-white">
+          <tbody>
+            <tr>
+              <th>
+                <span class="lyric-head">Lyrics</span>
+                <div class="lyric d-flex">
+                  <%= songinfo.lyric %>
+                </div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem;">
+          <div class="py-5 mb-3 rounded">
+            <div class="d-flex justify-content-between">
+              <h4 class="px-4 text-white">Other Song</h4>
+            </div>
+            <table class="table text-white">
+              <tbody>
+                <% othersong.forEach(function(othersong){ %>
+                  <tr>
+                    <th class="card shadows">
+                      <div class="d-flex">
+                        <a class=" text-decoration-none" href="/song/<%= othersong._id %>">
+                          <img class="songimg" src="<%= othersong.image %>">
+                          <div class="pt-2">
+                            <span class="song--name d-block">
+                              <%= othersong.name %>
+                            </span>
+                            <a class="song--artist" href="/artist/<%= songinfo.artist.id %>">
+                              <%= othersong.artist.name %>
+                            </a>
+                          </div>
+                        </a>
+                      </div>
+                    </th>
+                  </tr>
+                  <% }) %>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between">
+              <h4 class="px-4 text-white">Other Artist</h4>
+              <a class="seeall" href="/artist">see all</a>
+            </div>
+            <table class="table text-white">
+              <tbody>
+                <% otherartist.forEach(function(otherartist){ %>
+                  <tr>
+                    <th class="card shadows">
+                      <div class="d-flex">
+                        <a class=" text-decoration-none" href="/artist/<%= otherartist._id %>">
+                          <img class="artistimg" src="<%= otherartist.image %>">
+                          <span class="artist--name d-inline">
+                            <%= otherartist.name %>
+                          </span>
+                        </a>
+                      </div>
+                    </th>
+                  </tr>
+                  <% }) %>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
     </div>
 
 
-<%- include("../partials/footer.ejs") %>
+  </div>
+
+
+  <%- include("../partials/footer.ejs") %>

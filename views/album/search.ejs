@@ -1,60 +1,65 @@
 <%- include("../partials/header.ejs") %>
-<% let count = 1 %>
-<div class="col mb-5">
-    <div class="headbg mt-3">
-    <ul class="nav nav-pills justify-content-center pt-4">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/search/song/<%= keyword %>">Songs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/search/artist/<%= keyword %>">Artists</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/search/album/<%= keyword %>">Albums</a>
-        </li>
-    </ul>
-    <% if(searchalbum.length> 0){ %>
-        <div class="album mt-2">
-          <div class="container-fluid py-4">
-            <div class="d-flex">
+  <% let count=1 %>
+    <div class="col mb-5">
+      <div class="headbg mt-3">
+        <ul class="nav nav-pills justify-content-center pt-4">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/search/song/<%= keyword %>">Songs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/search/artist/<%= keyword %>">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/search/album/<%= keyword %>">Albums</a>
+          </li>
+        </ul>
+        <% if(searchalbum.length> 0){ %>
+          <div class="album mt-2">
+            <div class="container-fluid py-4">
+              <div class="d-flex">
                 <h1 class="category searchbg py-3 px-3">ALBUMS
                   <span class="thinword">(<%= searchalbum.length %>)</span>
                 </h1>
-            </div>
-            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-              <% searchalbum.forEach(function(searchalbum){ %>
-                <div class="col">
-                  <div class="card shadows shadow-lg">
-                    <div class="card-body">
-                      <a class="text-decoration-none" href="/album/<%= searchalbum._id %>">
-                        <img class="album--img" src="<%= searchalbum.image %>">
-                        <p class="album--name text-white">
-                          <%= searchalbum.name %>
-                        </p>
-                        <a class="album--album d-inline" href="/artist/<%= searchalbum.artist.id %>">
-                          <%= searchalbum.artist.name %>
+              </div>
+              <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                <% searchalbum.forEach(function(searchalbum){ %>
+                  <div class="col">
+                    <div class="card shadows shadow-lg">
+                      <div class="card-body">
+                        <a class="text-decoration-none" href="/album/<%= searchalbum._id %>">
+                          <div>
+                            <img class="album--img" src="<%= searchalbum.image %>">
+                            <a href="#">
+                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                            </a>
+                          </div>
+                          <p class="album--name text-white">
+                            <%= searchalbum.name %>
+                          </p>
+                          <a class="album--album d-block" href="/artist/<%= searchalbum.artist.id %>">
+                            <%= searchalbum.artist.name %>
+                          </a>
                         </a>
-                      </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <% }) %>
+                  <% }) %>
+              </div>
             </div>
           </div>
-        </div>
-        <% } %>
-        <% if(searchalbum.length===0){ %>
-            <div class="squarebox text-center mt-3">
+          <% } %>
+            <% if(searchalbum.length===0){ %>
+              <div class="squarebox text-center mt-3">
                 <div class="t text-white">
                   <img class="py-2" src="/image/icons/scope.png" width="30px">
                   <h2>0 Album for " <%= keyword %> "</h2>
                 </div>
-            </div>
-        <% } %>
+              </div>
+              <% } %>
+      </div>
     </div>
-</div>
 
-<%- include("../partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>

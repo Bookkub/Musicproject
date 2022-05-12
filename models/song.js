@@ -25,6 +25,11 @@ const songSchema = new mongoose.Schema({
     favourite: {
         type: Number,
         default:0
+    },
+    source: String,
+    isPlaying: {
+        type: Boolean,
+        default: false
     }
 });
 
