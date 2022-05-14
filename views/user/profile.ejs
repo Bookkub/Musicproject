@@ -1,5 +1,47 @@
 <%- include("../partials/header.ejs") %>
+    <div class="modal fade text-start" id="edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-info">
+                    <h5 class="modal-title text-black" id="exampleModalLabel">Edit Profile
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-black text-left">
+                    <form action="/user/<%= user._id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label">Firstname</label>
+                            <input type="text" class="form-control" name="firstname" placeholder="<%= user.firstname %>"
+                                value="<%= user.firstname %>">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Lastname</label>
+                            <input type="text" class="form-control" name="lastname" placeholder="<%= user.lastname %>"
+                                value="<%= user.lastname %>">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="<%= user.email %>"
+                                value="<%= user.email %>">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image</label>
+                            <img src="<%= user.image %>" height="100px" class="mb-3">
+                            <input type="file" class="form-control" name="image" accept='image/*'>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save
+                                changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   
     <div class="col py-4">
+        <% if(currentUser && !currentUser.isAdmin){ %>
         <div class="container">
             <div class="row gutters">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -19,50 +61,11 @@
                                             <%= user.email %>
                                         </a>
                                     </p>
-                                    <span>
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </span>
-
-                      <!-- <button type="button" class="btn btn-sm btn-outline-info" data-bs-toggle="modal"
-                      data-bs-target="#edit">
-                      Edit
-                    </button>
-                    <div class="modal fade text-start" id="edit" tabindex="-1"
-                      aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                          <div class="modal-header bg-info">
-                            <h5 class="modal-title text-black" id="exampleModalLabel">Edit Song</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                              aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body text-black text-left">
-                            <form action="/user/<%= user._id %>?_method=PUT" method="POST"
-                              enctype="multipart/form-data">
-                              <div class="mb-3">
-                                <label class="form-label">Firstname</label>
-                                <input type="text" class="form-control" name="name" placeholder="<%= user.firstname %>"
-                                  value="<%= user.firstname %>">
-                              </div>
-                              <div class="mb-3">
-                                <label class="form-label">Lastname</label>
-                                <input type="text" class="form-control" name="name" placeholder="<%= user.lastname %>"
-                                  value="<%= user.lastname %>">
-                              </div>
-                              <div class="mb-3">
-                                <label class="form-label">Image</label>
-                                <img src="<%= user.image %>" height="100px" class="mb-3">
-                                <input type="file" class="form-control" name="image" accept='image/*'>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
+                                    <button type="button" class="x" data-bs-toggle="modal" data-bs-target="#edit">
+                                        <span>
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </span>
+                                    </button>
                                 </div>
 
                             </div>
@@ -82,24 +85,25 @@
                                 <thead>
                                 </thead>
                                 <tbody>
-                                    <% user.song.forEach(function(user){ %>
+                                    <% usersong.forEach(function(usersong){ %>
                                         <tr>
                                             <td>
-                                                <img class="songimg-admin" src="<%= user.image %>">
-                                                <a class="py-2 mx-4 text-white text-decoration-none"
-                                                    href="/song/<%= user._id %>">
-                                                    <%= user.name %>
+                                                <img class="songimg-admin song--img__data" src="<%= usersong.image %>">
+                                                <a class="py-2 mx-4 text-white text-decoration-none song--name__data"
+                                                    href="/song/<%= usersong._id %>">
+                                                    <%= usersong.name %>
                                                 </a>
+                                                <span class="song--artist__data hidden"><%= usersong.artist.name %></span>
                                             </td>
                                             <td>
                                                 <div class="option my-4 mx-2">
                                                     <a>
-                                                        <i class="fa-solid fa-play" id="playiconsearch"></i>
-                                                        <audio id="mysearch">
-                                                            <source src="<%= user.source %>" type="audio/mp3">
+                                                        <i class="fa-solid fa-play" id="table--playicon"></i>
+                                                        <audio id="table--audio" preload="metadata">
+                                                            <source src="<%= usersong.source %>" type="audio/mp3">
                                                         </audio>
                                                     </a>
-                                                    <form action="/user/unfavourite/<%= user.id %>" method="post"
+                                                    <form action="/user/unfavourite/<%= usersong.id %>" method="post"
                                                         class="d-inline">
                                                         <button class="mx-3 bg-transparent border-0">
                                                             <i class="fa-solid fa-star mx-3 starbg"></i>
@@ -116,6 +120,50 @@
                     </div>
                 </div>
             </div>
+            <% } else { %>
+                <div class="container">
+                    <div class="row gutters">
+                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                            <div class="card profilebg text-white">
+                                <div class="card-body">
+                                    <div class="account-settings">
+                                        <div class="user-profile">
+                                            <div class="user-avatar">
+                                                <img src="<%= user.image %>">
+                                            </div>
+                                            <h5 class="user-name">
+                                                <%- user.firstname + ' ' + user.lastname %>
+                                            </h5>
+                                            <p class="username text-white">
+                                                <i class="fa-solid fa-envelope"></i>
+                                                <a class="email" href="mailto: <%= user.email %>">
+                                                    <%= user.email %>
+                                                </a>
+                                            </p>
+                                            <button type="button" class="x" data-bs-toggle="modal" data-bs-target="#edit">
+                                                <span>
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                            <div class="card profilebg text-white">
+                                <div class="card-body scrolladmin">
+                                    <div class="row gutters">
+                                        <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
+                                            
+                                      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <% } %>
         </div>
-
-        <%- include("../partials/footer.ejs") %>
+<%- include("../partials/footer.ejs") %>

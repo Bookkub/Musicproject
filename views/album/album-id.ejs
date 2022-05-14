@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs") %>
     <% let count=1 %>
-        <div class="col px-0">
+        <div class="col px-0  mbuttom">
             <div class="container-fluid px-0 bg-dark">
                 <div class="d-flex px-5 py-4">
                     <img class="albuminfo--img" src="<%= album.image %>">
@@ -48,7 +48,18 @@
                                 </th>
                                 <td>
                                     <div class="option my-4 mx-2">
-                                        <i class="fa-solid fa-play"></i>
+                                        <% if(!currentUser){ %>
+                                            <a href="/login" class="text-decoration-none star-color">
+                                              <i class="fa-solid fa-play"></i>
+                                            </a>
+                                            <% } else { %>
+                                              <a>
+                                                <i class="fa-solid fa-play" id="card--playicon"></i>
+                                                <audio id="card--audio">
+                                                  <source src="<%= albumsong.source %>" type="audio/mp3">
+                                                </audio>
+                                              </a>
+                                              <% } %>
                                         <% if(currentUser) { %>
                                             <% if(usersong.includes(albumsong.id)){ %>
                                           <form action="/user/unfavourite/<%= albumsong.id %>" method="post" class="d-inline">

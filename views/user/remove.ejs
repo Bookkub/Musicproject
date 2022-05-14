@@ -71,10 +71,12 @@
                 <td>
                   <div class="pt-4 text-black">
                     <!-- Button trigger modal -->
+                    <% if(foundUser.isAdmin !== true){ %>
                     <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
                       data-bs-target="#delete<%= count %>">
                       Delete
                     </button>
+                    <% } %>
                     <!-- Modal -->
                     <div class="modal fade" id="delete<%= count %>" tabindex="-1" aria-labelledby="exampleModalLabel"
                       aria-hidden="true">
@@ -102,4 +104,4 @@
     </div>
 </div>
 
-<%- include("../partials/footer.ejs") %>
+<%- include("../partials/LRfooter.ejs") %>

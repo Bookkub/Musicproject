@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
   <% let count=1 %>
-    <div class="col mb-5">
-      <div class="headbg mt-3">
+    <div class="col">
+      <div class="headbg mbuttom mt-3">
         <ul class="nav nav-pills justify-content-center pt-4">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/search/<%= keyword %>">All Results</a>
@@ -18,7 +18,7 @@
         </ul>
         <% if(searchartist.length> 0){ %>
           <div class="album mt-2">
-            <div class="container-fluid  py-4">
+            <div class="container-fluid py-4">
               <div class="d-flex">
                 <h1 class="category searchbg py-3 px-3">ARTISTS
                   <span class="thinword">(<%= searchartist.length %>)</span>
@@ -124,8 +124,8 @@
                                   <% count++ %>
                                     <td>
                                       <div class="d-flex">
-                                        <img class="songimg-admin" src="<%= searchsong.image %>">
-                                        <a class="pt-4 mx-4 text-white text-decoration-none"
+                                        <img class="songimg-admin song--img__data" src="<%= searchsong.image %>">
+                                        <a class="pt-4 mx-4 text-white text-decoration-none song--name__data"
                                           href="/song/<%= searchsong._id %>">
                                           <%= searchsong.name %>
                                         </a>
@@ -133,7 +133,7 @@
                                     </td>
                                     <td>
                                       <div class="pt-4">
-                                        <a class="text-white text-decoration-none"
+                                        <a class="text-white text-decoration-none song--artist__data"
                                           href="/artist/<%= searchsong.artist.id %>">
                                           <%= searchsong.artist.name %>
                                         </a>
@@ -149,8 +149,8 @@
                                     </td>
                                     <td>
                                       <div class="pt-4">
-                                        <span>
-                                          6.00
+                                        <span id="songduration">
+                                          
                                         </span>
                                       </div>
                                     </td>
@@ -160,10 +160,15 @@
                                           <a href="/login" class="text-decoration-none star-color">
                                             <i class="fa-solid fa-play"></i>
                                           </a>
+                                          <a  id="table--playicon">
+                                            <audio id="table--audio" preload="metadata">
+                                              <source src="<%= searchsong.source %>" type="audio/mp3">
+                                            </audio>
+                                          </a>
                                           <% } else { %>
                                             <a>
-                                              <i class="fa-solid fa-play" id="playiconsearch"></i>
-                                              <audio id="mysearch">
+                                              <i class="fa-solid fa-play" id="table--playicon"></i>
+                                              <audio id="table--audio"  preload="metadata">
                                                 <source src="<%= searchsong.source %>" type="audio/mp3">
                                               </audio>
                                             </a>
@@ -202,8 +207,8 @@
                                       <% count++ %>
                                         <td>
                                           <div class="d-flex">
-                                            <img class="songimg-admin" src="<%= searchsong.image %>">
-                                            <a class="pt-4 mx-4 text-white text-decoration-none"
+                                            <img class="songimg-admin song--img__data" src="<%= searchsong.image %>">
+                                            <a class="pt-4 mx-4 text-white text-decoration-none song--name__data"
                                               href="/song/<%= searchsong._id %>">
                                               <%= searchsong.name %>
                                             </a>
@@ -211,7 +216,7 @@
                                         </td>
                                         <td>
                                           <div class="pt-4">
-                                            <a class="text-white text-decoration-none"
+                                            <a class="text-white text-decoration-none song--artist__data"
                                               href="/artist/<%= searchsong.artist.id %>">
                                               <%= searchsong.artist.name %>
                                             </a>
@@ -227,8 +232,8 @@
                                         </td>
                                         <td>
                                           <div class="pt-4">
-                                            <span>
-                                              6.00
+                                            <span id="songduration">
+                                             
                                             </span>
                                           </div>
                                         </td>
@@ -238,10 +243,15 @@
                                               <a href="/login" class="text-decoration-none star-color">
                                                 <i class="fa-solid fa-play"></i>
                                               </a>
+                                              <a  id="table--playicon">
+                                                <audio id="table--audio" preload="metadata">
+                                                  <source src="<%= searchsong.source %>" type="audio/mp3">
+                                                </audio>
+                                              </a>
                                               <% } else { %>
                                                 <a>
-                                                  <i class="fa-solid fa-play" id="playiconsearch"></i>
-                                                  <audio id="mysearch">
+                                                  <i class="fa-solid fa-play" id="table--playicon"></i>
+                                                  <audio id="table--audio" preload="metadata">
                                                     <source src="<%= searchsong.source %>" type="audio/mp3">
                                                   </audio>
                                                 </a>

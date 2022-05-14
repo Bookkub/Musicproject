@@ -1,8 +1,22 @@
-const e = require('connect-flash');
-const { redirect } = require('express/lib/response');
-
 const   express     =   require('express'),
         router      =   express.Router(),
+        multer      =   require('multer'),
+        path        =   require('path'),
+        storage     =   multer.diskStorage({
+                        destination: function(req, file, callback){
+                            callback(null, './public/upload/');
+                        },
+                        filename: function(req, file, callback){
+                            callback(null, file.fieldname + '-' + Date.now()+ path.extname(file.originalname));
+                        }
+        }),
+        imageFilter = function(req, file, callback){
+            if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)){
+                return callback(new Error('Only jpg, jpeg, png and gif.'), false);
+            }
+            callback(null, true);
+        },
+        upload = multer({storage: storage, fileFilter: imageFilter}), 
         song        =   require('../models/song'),
         artist      =   require('../models/artist'),
         album      =   require('../models/album'),
@@ -20,6 +34,25 @@ router.get("/remove", function(req, res){
     });
 });
 
+router.put("/:id/edit", upload.single('image'), function (req, res) {
+    let firstname = req.body.firstname;
+    let lastname = req.body.lastname;
+    let email = req.body.email;
+    let image;
+    if (req.file) {
+        image = '/upload/' + req.file.filename;
+    }
+    let newUserinfo = { firstname: firstname, lastname:lastname, email:email , image: image };
+    user.findByIdAndUpdate(req.params.id, newUserinfo, function(err, updateUser){
+        if (err) {
+            console.log(err);
+        } else {
+            req.flash('success', "User had been edit.");
+            res.redirect('back');
+        }
+    });
+});
+
 router.get('/:id', function(req, res){
     user.findById(req.params.id).populate('song').exec(function(err, foundUser){
         if(err) {
@@ -27,11 +60,11 @@ router.get('/:id', function(req, res){
             return res.redirect('/');
         } else {
             if(req.isAuthenticated()){
-                user.findById(req.user._id).populate('song').exec(function(err, foundUser){
+                user.findById(req.user._id).populate('song').exec(function(err, foundUsersong){
                    if(err){
                       console.log(err);
                    } else {
-                    res.render('user/profile.ejs',{user: foundUser, usersong:foundUser.song});
+                    res.render('user/profile.ejs',{user: foundUser, usersong:foundUsersong.song});
                    }
                 });
             } else {

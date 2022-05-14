@@ -1,7 +1,7 @@
 <%- include("../partials/header.ejs") %>
 <% let count = 1 %>
-<div class="col mb-5">
-    <div class="headbg mt-3">
+<div class="col">
+    <div class="headbg  mbuttom mt-3">
     <ul class="nav nav-pills justify-content-center pt-4">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
@@ -53,15 +53,15 @@
                         <% count++ %>
                           <td>
                             <div class="d-flex">
-                              <img class="songimg-admin" src="<%= searchsong.image %>">
-                              <a class="pt-4 mx-4 text-white text-decoration-none" href="/song/<%= searchsong._id %>">
+                              <img class="songimg-admin song--img__data" src="<%= searchsong.image %>">
+                              <a class="pt-4 mx-4 text-white text-decoration-none song--name__data" href="/song/<%= searchsong._id %>">
                                 <%= searchsong.name %>
                               </a>
                             </div>
                           </td>
                           <td>
                             <div class="pt-4">
-                              <a class="text-white text-decoration-none" href="/artist/<%= searchsong.artist.id %>">
+                              <a class="text-white text-decoration-none song--artist__data" href="/artist/<%= searchsong.artist.id %>">
                                 <%= searchsong.artist.name %>
                               </a>
                             </div>
@@ -75,8 +75,8 @@
                           </td>
                           <td>
                             <div class="pt-4">
-                              <span >
-                                6.00
+                              <span id="songduration">
+                               
                               </span>
                             </div>
                           </td>
@@ -86,10 +86,15 @@
                                 <a href="/login" class="text-decoration-none star-color">
                                   <i class="fa-solid fa-play"></i>
                                 </a>
+                                <a  id="table--playicon">
+                                  <audio id="table--audio" preload="metadata">
+                                    <source src="<%= searchsong.source %>" type="audio/mp3">
+                                  </audio>
+                                </a>
                               <% } else { %>
                                 <a>
-                                  <i class="fa-solid fa-play" id="playiconsearch"></i>
-                                  <audio id="mysearch">
+                                  <i class="fa-solid fa-play" id="table--playicon"></i>
+                                  <audio id="table--audio">
                                     <source src="<%= searchsong.source %>" type="audio/mp3">
                                   </audio>
                                 </a>

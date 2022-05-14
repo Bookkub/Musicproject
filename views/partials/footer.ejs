@@ -1,4 +1,54 @@
+<div class="audio-player p-0">
+  <div class="audio gui interface d-flex flex-wrap align-items-center">
+    <div class="d-flex now-playing flex-item align-items-center">
+      <img class="track_img">
+      <div>
+        <div class="track-name text-decoration-none d-block">
+          Life
+        </div>
+        <div class="artist-name track-artist-name text-decoration-none d-block">
+          Best Music Website
+        </div>
       </div>
     </div>
+    <div class="player-controls flex-item">
+      <% if(!currentUser){ %>
+        <a href="/login" class="btn previous"><i class="fa fa-step-backward"></i></a>
+        <a href="/login" class="btn play"><i class="fa fa-play"></i></a>
+        <a href="/login" class="btn next"><i class="fa fa-step-forward"></i></a>
+        <% } else { %>
+          <button class="previous"><i class="fa fa-step-backward" id="slidebarbackward" ></i></button>
+          <button class="play"><i class="fa fa-play" id="slidebarplay"></i></button>
+          <button class="next"><i class="fa fa-step-forward" id="slidebarforward"></i></button>
+          <a>
+            <audio id="audiobtn">
+              <source type="audio/mp3">
+            </audio>
+          </a>
+          <% } %>
+    </div>
+    <span class="time-holder px-2" id="startTime">
+      
+    </span>
+    <input type="range" min="0" max="100" step="1" class="progress-container p-0 flex-item"></input>
+    <span class="time-holder px-2" id="endTime">
+      
+    </span>
+    <div class="toggles flex-item hide">
+      <button id="playlist-toggle" class="show-playlist"><i class="fa fa-music"></i></button>
+      <button class="shuffle">
+        <i class="fa fa-random"></i>
+      </button><button class="repeat"><i class="fa fa-exchange"></i></button>
+    </div>
+    <div class="volume-controls flex-item">
+      <button class="mute">
+        <i class="fa fa-volume-up"></i>
+        <input type="range" min="0" max="1" step="0.01" class="volume-container p-0 flex-item"></input>
+      </button>
+    </div>
+  </div>
+</div>
+</div>
 </body>
+
 </html>

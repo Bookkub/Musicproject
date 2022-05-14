@@ -1,6 +1,6 @@
 <%- include("partials/header.ejs") %>
   <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
-    <div class="col">
+    <div class="col mbuttom">
       <div class="album py-4">
         <div class="container-fluid">
           <h1 class="category">RECOMMENDED</h1>
@@ -11,25 +11,25 @@
                   <div class="card-body">
                     <a class="text-decoration-none" href="/song/<%= recommend._id %>">
                       <div>
-                        <img class="song--img" src="<%= recommend.image %>">
+                        <img class="song--img song--img__data" src="<%= recommend.image %>">
                         <% if(!currentUser){ %>
                           <a href="/login">
                             <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
                           </a>
                         <% } else { %>
                         <a>
-                          <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="playicon">
-                          <audio id="mySong">
+                          <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
+                          <audio id="card--audio" preload="metadata">
                             <source src="<%= recommend.source %>" type="audio/mp3">
                           </audio>
                         </a>
                         <% } %>
                       </div>
                      <div>
-                      <p class="song--name text-white">
+                      <p class="song--name text-white song--name__data">
                         <%= recommend.name %>
                       </p>
-                      <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
+                      <a class="song--artist song--artist__data" href="/artist/<%= recommend.artist.id %>">
                         <%= recommend.artist.name %>
                       </a> 
                      </div>
@@ -61,8 +61,8 @@
                             </a>
                           <% } else { %>
                           <a>
-                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="playicon">
-                            <audio id="mySong">
+                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
+                            <audio id="card--audio">
                               <source src="<%= recommend.source %>" type="audio/mp3">
                             </audio>
                           </a>
@@ -96,9 +96,20 @@
                       <a class="text-decoration-none" href="/artist/<%= artist._id %>">
                         <div>
                           <img class="artist--img" src="<%= artist.image %>">
-                          <a href="#">
-                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                          <!-- <% if(!currentUser){ %>
+                            <a href="/login">
+                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                            </a>
+                          <% } else { %>
+                          <a>
+                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
+                            <% artistSong.forEach(function(artistSong){ %>
+                            <audio id="card--audio" preload="metadata">
+                              <source src="<%= artistSong.source %>" type="audio/mp3">
+                            </audio>
+                            <% }) %>
                           </a>
+                          <% } %> -->
                         </div>
                         <p class="artist--name text-white">
                           <%= artist.name %>
@@ -168,6 +179,10 @@
                     <label class="form-label text-white">Image</label>
                     <input type="file" class="form-control" name="image" accept='image/*' required>
                   </div>
+                  <div class="mb-3">
+                    <label class="form-label text-white">Mp3 File</label>
+                    <input type="file" class="form-control" name="source" accept='audio/mp3' required>
+                  </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
               </div>
@@ -175,4 +190,10 @@
 
             <% } %>
 
-              <%- include("partials/footer.ejs") %>
+              
+
+              <% if(currentUser && currentUser.isAdmin){ %>
+                <%- include("partials/LRfooter.ejs") %>
+              <% } else { %>
+                <%- include("partials/footer.ejs") %>
+              <% } %>

@@ -34,6 +34,12 @@ const albumdatabase = [
         albumcode:"4",
         image:"https://s.isanook.com/jo/0/rp/r/w300/ya0xa0m1w0/aHR0cDovL2ltYWdlLmpvb3guY29tL0pPT1hjb3Zlci8wLzFmNDk3OTBjOTBhN2Y3ODgvNjQwLmpwZw==.jpg",
         name:"TRUE"
+    },
+    {
+        artistcode:"4",
+        albumcode:"5",
+        image:"https://s.isanook.com/jo/0/rp/r/w700/ya0xa0m1w0/aHR0cDovL2ltYWdlLmpvb3guY29tL0pPT1hjb3Zlci8wL2ZjMzMyM2EzMGJiNWY0OWEvMTAwMC5qcGc=.jpg",
+        name:"Perspective"
     }
 ]
 
@@ -1262,7 +1268,7 @@ const songdatabase = [
         artistcode:"3",
         albumcode:"3",
         name:"One Thing",
-        image:"https://images.genius.com/a08bf035cb649eeb4cd31aeb680741c6.600x600x1.jpg",
+        image:"http://4.bp.blogspot.com/-LXFz7FxoElY/Tu_S4d8WfnI/AAAAAAAABAU/GqAYy4tdYus/s1600/oned.jpg",
         lyric:`[Liam:]
         I've tried playing it cool
         But when I'm looking at you
@@ -1603,6 +1609,751 @@ const songdatabase = [
         It was the best song ever`,
         source:"/songfile/Best song ever.mp3",
         favourite:"14"
+    },
+    {
+        artistcode:"4",
+        albumcode:"5",
+        name:"Money",
+        image:"https://i.scdn.co/image/ab67616d0000b273ed677d408cec6537eb0ddeeb",
+        lyric:`Imagine if money just grew on trees
+        I would spend the whole day planting seeds
+        I wish that I could give you everything
+        And treat you to the world's most beautiful things
+        
+        I know you don't ask for nothing
+        You don't want material
+        But I want to show you heaven
+        And you know someday I will
+        
+        I'd give you every diamond ring
+        Get that beach house by the sea
+        We'd be living like kings and queens
+        If I had money, money, money
+        Give you every pair of shoes
+        Saint Tropez on a yacht we'll cruise
+        We'd have nothing in the world to lose
+        If I had money, money, money
+        
+        I know that being rich can't buy your love
+        Even if we're broke we won't give a fuck
+        You and me will always be enough
+        But you know I ain't giving up
+        
+        I know you don't ask for nothing
+        You don't want material
+        But I want to show you heaven
+        And you know someday I will
+        
+        I'll give you every diamond ring
+        Get that beach house by the sea
+        We'd be living like kings and queens
+        If I had money, money, money
+        Give you every pair of shoes
+        Saint Tropez on a yacht we'll cruise
+        We'd have nothing in the world to lose
+        If I had money, money, money
+        
+        Where's the money
+        Where's the money
+        Where's the money
+        Where's the money
+        
+        If I've got you (I've got you)
+        We'd have nothing in the world to lose
+        If I've got you (I've got you)
+        We'd have nothing in the world to lose
+        
+        I'd give you every diamond ring
+        Get that beach house by the sea
+        We'd be living like kings and queens
+        If I had money, money, money
+        Give you every pair of shoes
+        Saint Tropez on a yacht we'll cruise
+        We'd have nothing in the world to lose
+        If I had money, money, money
+        
+        Where's the money
+        Where's the money
+        Where's the money
+        Where's the money
+        Where's the money
+        Where's the money
+        Where's the money
+        Where's the money
+        
+        If I've got you
+        We'd have nothing in the world to lose`,
+        source:"/songfile/Money.mp3",
+        favourite:"7"
+    },
+    {
+        artistcode:"4",
+        albumcode:"5",
+        name:"Where My Love Goes",
+        image:"https://4.bp.blogspot.com/-5zdOPs6-w9s/Vz55G4oveZI/AAAAAAAACN4/kZq4tAqpLLU3Wu1gSn9_vZYnR6-p9Sx4ACLcB/s1600/Lawson1.jpg",
+        lyric:`My love goes out of my heart and into the wind
+        Out my guitar and under your skin
+        Into your house and out of your headphones
+        That's where my love goes
+        
+        Wherever you go, I'll follow
+        Don't worry about tomorrow
+        I will be in your shadow
+        Walking right beside you everyday
+        I'll be the one to save ya
+        When I put my pen to paper
+        Feels like it brings us closer
+        Even when you're so far away
+        
+        Bullet trains and aeroplanes
+        I can choose the easy way
+        So I'll send a signal just for you
+        
+        My love goes out of my heart and into the wind
+        Out my guitar and under your skin
+        Into your house and out of your headphones
+        
+        My love goes out of your door and into the street
+        Down through the floor and up through your feet
+        Into your car and out of your radio
+        That's where my love goes
+        
+        You will never be lonely
+        Just relax and listen to me
+        I'm in the air that you breathe
+        I am always with you in disguise
+        
+        Bullet trains and aeroplanes
+        I can choose the easy way
+        So I'll send a signal just for you
+        
+        My love goes out of my heart and into the wind
+        Out my guitar and under your skin
+        Into your house and out of your headphones
+        
+        My love goes out of your door and into the street
+        Down through the floor and up through your feet
+        Into your car and out of your radio
+        That's where my love goes
+        
+        That's where my love goes
+        Tell me, can you hear me now
+        I'm screaming out so loud
+        Oh, it goes out of my heart and into the wind
+        Out my guitar and under your skin
+        Into your house and out of your radio
+        
+        Out of my heart and into the wind
+        Out my guitar and under your skin
+        Into your house and out of your headphones
+        My love goes out of your door and into the street
+        Down through the floor and up through your feet
+        Into your car and out of your radio
+        That's where my love goes
+        Yeah, that's where my love goes
+        My love goes out of your door and into the street
+        Down through the floor and up through your feet
+        Into your car and out of your radio
+        That's where my love goes`,
+        source:"/songfile/Where my love goes.mp3",
+        favourite:"15"
+    },
+    {
+        artistcode:"4",
+        albumcode:"5",
+        name:"Rio",
+        image:"https://l-hit.com/img_id/146963.jpg?salt=06",
+        lyric:`Can you feel the fever in January river?
+        I can see graffiti in a Carnival city
+        
+        I wander down the backstreet, party on the beach, just living life like I can
+        Palm tree, sugar cane, sipping on champagne, everybody's great
+        
+        Gonna sleep all day and dance all night
+        Gonna watch the sunset in your eyes
+        Gonna lose myself in paradise
+        Gonna sleep all day and dance all night
+        
+        In Rio, in Rio, in Rio, in Rio
+        
+        Rio, Rio, Rio, Rio,
+        Dance away the night
+        Rio, Rio, Rio, Rio,
+        Lost in paradise
+        Rio, Rio, Rio, Rio,
+        Ain't no wrong or right
+        In Rio
+        Rio, Rio, Rio, Rio
+        Rio
+        
+        All the glitz and glamour at the Copacabana
+        Let's lie in white sand
+        I'll put your hand in my hand
+        
+        We'll wander down the backstreet, party on the beach, just living life like I can
+        Palm tree, sugar cane, sipping on champagne, everybody's great
+        
+        Gonna sleep all day and dance all night
+        Gonna watch the sunset in your eyes
+        Gonna lose myself in paradise
+        Gonna sleep all day and dance all night
+        
+        In Rio, in Rio, in Rio, in Rio
+        
+        Rio, Rio, Rio, Rio,
+        Dance away the night
+        Rio, Rio, Rio, Rio,
+        Lost in paradise
+        Rio, Rio, Rio, Rio,
+        Ain't no wrong or right
+        In Rio
+        Rio, Rio, Rio, Rio
+        Rio
+        
+        (Gonna think about, think about, think about you) [3x]
+        
+        In Rio, do it in Rio
+        
+        Gonna sleep all day and dance all night
+        Gonna watch the sunset in your eyes
+        Gonna lose myself in paradise
+        Gonna sleep all day and dance all night
+        
+        In Rio, in Rio, in Rio, in Rio
+        
+        Rio, Rio, Rio, Rio,
+        Dance away the night
+        Rio, Rio, Rio, Rio,
+        Lost in paradise
+        Rio, Rio, Rio, Rio,
+        'Cause there ain't no wrong or right
+        In Rio
+        Rio, Rio, Rio, Rio
+        Rio
+        
+        Come on
+        In Rio, in Rio
+        Do it in Rio
+        
+        Rio, Rio, Rio, Rio,
+        Dance away the night
+        Rio, Rio, Rio, Rio,
+        Lost in paradise
+        Rio, Rio, Rio, Rio,
+        Ain't no wrong or right
+        In Rio
+        Rio, Rio, Rio, Rio
+        Rio`,
+        source:"/songfile/Rio.mp3",
+        favourite:"10"
+    },
+    {
+        artistcode:"4",
+        albumcode:"5",
+        name:"Roads",
+        image:"https://i.ytimg.com/an/6ICtoejG3Yg/92b8ccb7-b278-4ed1-95c9-fdffa66e79b6_mq.jpg?v=555217b3",
+        lyric:`Hey! Forgive me father
+        Up all night
+        I'm going under
+        I don't wanna be like you
+        And you don't wanna be like me
+        
+        Hey! I play with matches
+        Roll that dice and hope for magic
+        I try to let the river flow
+        And take me somewhere I don't know
+        
+        Oh oh oh wild horses in the night
+        I'm running for my life, yeah
+        
+        I try to give myself away
+        To give into the chase
+        Night turns into day
+        I drive, drive into the moon
+        I pray for something new
+        No matter what I do
+        All roads lead to you
+        All roads lead to you
+        
+        Hey! Can you feel that thunder?
+        Get in line and take a number
+        'Cause we don't wanna be like them
+        And they don't wanna be like us
+        
+        Hey! I've crossed the ocean
+        Wiped my mind with a million potions
+        Tryna run away from you
+        It's a game I think I'll always lose
+        
+        Oh oh oh wild horses in the night
+        I'm running for my life, yeah
+        
+        I try to give myself away
+        To give into the chase
+        Night turns into day
+        I drive, drive into the moon
+        I pray for something new
+        No matter what I do
+        All roads lead to you
+        All roads lead to you
+        All roads lead to you
+        
+        No matter what I do every road leads right back to you
+        If I win or lose every road leads right back to you
+        No matter what I do every road leads right back to you
+        If I win or lose every road leads right back to you
+        
+        Oh oh oh wild horses in the night
+        I'm running for my life, yeah
+        
+        I try to give myself away
+        To give into the chase
+        Night turns into day
+        I drive, drive into the moon
+        I pray for something new
+        No matter what I do
+        All roads lead to you
+        All roads lead to you
+        All roads lead to you
+        
+        No matter what I do every road leads right back to you
+        If I win or lose every road leads right back to you
+        No matter what I do every road leads right back to you
+        If I win or lose all roads lead to you`,
+        source:"/songfile/Roads.mp3",
+        favourite:"18"
+    },
+    {
+        artistcode:"4",
+        albumcode:"5",
+        name:"I Look Anyway",
+        image:"https://i.ytimg.com/vi/X1H5S_-mv20/maxresdefault.jpg",
+        lyric:`I was walking down a long road
+        Lighted by the street lights
+        Drinking with the wrong girls
+        Acting like a monster
+        Staying out all night
+        
+        I was fighting all the wrong walls
+        Reading all the wrong signs
+        Travel back through your front doors
+        I know it's the long way
+        Hoping that see you light
+        
+        Now all I want is you
+        But the one thing I can't have is you
+        
+        Now you've left for someone new
+        I miss the boat and I lost you
+        And there is nothing I can do
+        
+        There are no words to explain
+        To search a picture of your face
+        I know it causes so much pain
+        
+        I look anyway
+        I look anyway
+        
+        I just can't look away
+        though it causes so much pain
+        
+        I look anyway
+        
+        Keeping putting on my heart change
+        It kill my only inside
+        Even know what's my choice
+        I just gone though un
+        How can't I look away
+        
+        Now all I want is you
+        But the one thing I can't have is you
+        
+        Now you've left for someone new
+        I miss the boat and I lost you
+        And there is nothing I can do
+        
+        There are no words to explain
+        To search a picture of your face
+        I know it causes so much pain
+        
+        I look anyway
+        I look anyway
+        
+        I just can't look away
+        yeah
+        though it causes so much pain
+        
+        I look anyway
+        
+        I want you so bad but I can't go back
+        I can't go back to the things we had
+        I want you so bad but I can't go back
+        I can't go back to the things we had
+        
+        Now you've left for someone new
+        I miss the boat and I lost you
+        And there is nothing I can do
+        
+        There are no words to explain
+        To search a picture of your face
+        I know it causes so much pain
+        
+        I look anyway
+        I look anyway
+        
+        I just can't look away
+        I say you'll never look again
+        though it causes so much pain
+        
+        I look anyway
+        
+        I want you so bad but I can't go back
+        I can't go back to the things we had
+        I want you so bad but I can't go back
+        I can't go back to the things we had`,
+        source:"/songfile/I look anyway.mp3",
+        favourite:"5"
+    },
+    {
+        artistcode:"5",
+        name:"I'm A Mess",
+        image:"https://media.teroradio.com/pix/single/30595.jpg",
+        lyric:`Everything's been so messed up here lately
+        Pretty sure he don't wanna be my baby
+        Oh, he don't love me, he don't love me, he don't love me, he don't love me
+        But that's OK
+        'Cause I love me, yeah, I love me, yeah, I love me, yeah, I love myself anyway (hey)
+        
+        Everything's gonna be alright
+        Everything's gonna be OK
+        It's gonna be a good, good life
+        That's what my therapist say
+        Everything's gonna be alright
+        Everything's gonna be just fine
+        It's gonna be a good, good life
+        
+        I'm a mess, I'm a loser
+        I'm a hater, I'm a user
+        I'm a mess for your love, it ain't new
+        I'm obsessed, I'm embarrassed
+        I don't trust no one around us
+        I'm a mess for your love, it ain't new
+        
+        Nobody shows up unless I'm paying
+        Have a drink on me cheers to the failing
+        Oh, he don't love me, he don't love me
+        He don't love me, he don't love me
+        But that's okay
+        Cause I love me, yeah, I love me
+        Yeah, I love me, yeah, I love myself anyway
+        Hey
+        
+        Everything's gonna be alright
+        Everything's gonna be okay
+        It's gonna be a good, good life
+        That's what my therapist say
+        Everything's gonna be alright
+        Everything's gonna be just fine
+        It's gonna be a good, good life
+        
+        I'm a mess, I'm a loser
+        I'm a hater, I'm a user
+        I'm a mess for your love, it ain't new
+        I'm obsessed, I'm embarrassed
+        I don't trust no one around us
+        I'm a mess for your love, it ain't new
+        
+        Everything's gonna be alright, alright
+        Everything's gonna be just fine, just fine
+        It's gonna be a good, good life
+        
+        I'm a mess, I'm a loser
+        I'm a hater, I'm a user
+        I'm a mess for your love, it ain't new
+        I'm obsessed, I'm embarrassed
+        I don't trust no one around us
+        I'm a mess for your love, it ain't new`,
+        source:"/songfile/Im a mess.mp3",
+        favourite:"21"
+    },
+    {
+        artistcode:"5",
+        name:"Meant To Be",
+        image:"https://thesource4ym.com/wp-content/uploads/2017/12/Meant-To-Be-Cover.jpg",
+        lyric:`[Florida Georgia Line:]
+        Baby, lay on back and relax
+        Kick your pretty feet up on my dash
+        No need to go nowhere fast, let's enjoy right here where we at
+        
+        Who knows where this road is supposed to lead?
+        We got nothing but time
+        As long as you're right here next to me, everything's gonna be alright
+        
+        If it's meant to be, it'll be, it'll be
+        Baby, just let it be
+        If it's meant to be, it'll be, it'll be
+        Baby, just let it be
+        So won't you ride with me, ride with me?
+        See where this thing goes
+        If it's meant to be, it'll be, it'll be
+        Baby, if it's meant to be
+        
+        [Bebe Rexha:]
+        I don't mean to be so uptight
+        But my heart's been hurt a couple times by a couple guys that didn't treat me right
+        I ain't gon' lie, ain't gon' lie
+        Cause I'm tired of the fake love, show me what you're made of
+        Boy, make me believe
+        
+        [Florida Georgia Line:]
+        Oh, hold up girl, don't you know you're beautiful?
+        And it's easy to see
+        
+        [Bebe Rexha & Florida Georgia Line:]
+        If it's meant to be, it'll be, it'll be
+        Baby, just let it be
+        If it's meant to be, it'll be, it'll be
+        Baby just let it be
+        So won't you ride with me, ride with me?
+        See where this thing goes
+        If it's meant to be, it'll be, it'll be
+        Baby, if it's meant to be
+        
+        So c'mon ride with me, ride with me
+        See where this thing goes
+        So c'mon ride with me, ride with me
+        Baby, if it's meant to be
+        
+        [Bebe Rexha (Florida Georgia Line) {Both}:]
+        (Maybe we do)
+        Maybe we don't
+        (Maybe we will)
+        {Maybe we won't}
+        
+        [Bebe Rexha & Florida Georgia Line:]
+        But if it's meant to be, it'll be, it'll be
+        Baby, just let it be
+        If it's meant to be, it'll be, it'll be (c'mon)
+        Baby, just let it be (let's go)
+        So won't you ride with me, ride with me?
+        See where this thing goes
+        If it's meant to be, it'll be, it'll be
+        Baby, if it's meant to be
+        
+        [Bebe Rexha (Florida Georgia Line) {Both}:]
+        (If it's meant to be, it'll be, it'll be)
+        {Baby, if it's meant to be}
+        (If it's meant to be, it'll be, it'll be)
+        {Baby, if it's meant to be}`,
+        source:"/songfile/Meant to be.mp3",
+        favourite:"12"
+    },
+    {
+        artistcode:"5",
+        name:"Chain My Heart",
+        image:"https://upload.wikimedia.org/wikipedia/en/6/6c/Chain_My_Heart.jpg",
+        lyric:`Boom boom dudu, boom boom dudududu
+        Boom boom dudu, boom boom dudududu
+        
+        You call my name, I feel better when you call my name
+        Let's just lay here together
+        
+        We'll never change, I keep wishing that we'll never change
+        Let's just stay here forever
+        
+        I've been in a high but I felt so low
+        Cut me like a knife, and I did not know
+        I've been in a high but I felt so low
+        Ain't it funny
+        
+        Never going back to the way I was
+        I wanna be trapped in the space of us
+        Never going back to the way I was
+        Now you got me
+        
+        And just like boom, boom, boom
+        Yeah, you chained my heart
+        Yeah, you chained my heart
+        To your love
+        
+        Whatchu gon' do do do
+        If it breaks apart
+        Yeah, you've chained my heart
+        To your love
+        
+        And just like
+        
+        Boom boom dudu, boom boom dudududu
+        Boom boom dudu, boom boom dudududu
+        Boom boom dudu, boom boom dudududu
+        
+        You've chained my heart
+        Yeah, you've chained my heart
+        To your love
+        
+        Was playing games, when I met you I was playing games
+        It all changed in a minute
+        Cause now my
+        Heart is chained, and I'm freer now my heart is chained
+        With your love living in it
+        
+        I've been in a high but I felt so low
+        Cut me like a knife, and I did not know
+        I've been in a high but I felt so low
+        Ain't it funny
+        
+        Never going back to the way I was
+        I wanna be trapped in the space of us
+        Never going back to the way I was
+        Now you got me
+        
+        And just like boom, boom, boom
+        Yeah, you chained my heart
+        Yeah, you chained my heart
+        To your love
+        
+        Whatchu gon' do do do
+        If it breaks apart
+        Yeah, you've chained my heart
+        To your love
+        
+        And just like
+        
+        Boom boom dudu, boom boom dudududu
+        Boom boom dudu, boom boom dudududu
+        Boom boom dudu, boom boom dudududu
+        Boom boom dudu, boom boom dudududu
+        
+        And just like boom, boom, boom
+        Yeah, you chained my heart
+        Yeah, you chained my heart
+        To your love
+        
+        Whatchu gon' do do do
+        If it breaks apart
+        Yeah, you've chained my heart
+        To your love`,
+        source:"/songfile/Chain my heart.mp3",
+        favourite:"6"
+    },
+    {
+        artistcode:"5",
+        name:"Sacrifice",
+        image:"https://cdns-images.dzcdn.net/images/cover/ce4d5b971ab03c1c1be6545c9243f7af/500x500.jpg",
+        lyric:`I'ma need those eyes focusing on me
+        Middle of the night, I'm the only star you'll see
+        I'ma need those hands runnin' over me
+        'Cause I ain't the type to let you go easy, so
+        
+        Say goodbye to every other girl in the night behind you
+        Now you're mine, tell me what you're willing to sacrifice, ooh
+        
+        Sacrifice
+        When it comes to me, don't want no compromise
+        This should be the only body on your mind
+        When it comes to me, I'm down for life
+        So tell me, would you sacrifice?
+        
+        Yeah
+        Sacrifice
+        Tell me, would you sacrifice?
+        Yeah
+        Sacrifice
+        Tell me, would you sacrifice?
+        
+        Wanna be the air every time you breathe
+        Running through your veins and the spaces in between
+        I wanna feel your heart every time it bleeds
+        Living in your brain, there's only room for me, so
+        
+        Say goodbye to every other girl in the night behind you
+        Now you're mine, tell me what you're willing to sacrifice, ooh
+        
+        Sacrifice
+        When it comes to me, don't want no compromise
+        This should be the only body on your mind
+        When it comes to me, I'm down for life
+        So tell me, would you sacrifice?
+        
+        Yeah
+        Sacrifice
+        Tell me, would you sacrifice?
+        Yeah
+        Sacrifice
+        Tell me, would you sacrifice?
+        
+        Sacrifice your body to the rhythm of mine
+        To the rhythm, to the rhythm of mine
+        Sacrifice your body to the rhythm of mine
+        To the rhythm, to the rhythm of mine
+        
+        Sacrifice your body to the rhythm of mine
+        To the rhythm, to the rhythm of mine
+        Sacrifice your body to the rhythm of mine
+        So tell me, would you sacrifice?`,
+        source:"/songfile/Sacrifice.mp3",
+        favourite:"3"
+    },
+    {
+        artistcode:"5",
+        name:"Girl In The Mirror",
+        image:"https://images-na.ssl-images-amazon.com/images/I/51cfY6kTI-L._SY445_SX342_QL70_ML2_.jpg",
+        lyric:`I'm tired of my thoughts
+        They weigh me down
+        Feels like I'm drowning
+        I'm tired of my flaws
+        They fill me with anxiety and doubt
+        Honestly, I'm done with hating pictures of myself
+        And tryna be like everybody else
+        
+        I wanna be like, look like
+        The girl in the mirror
+        Wanna act like, dance like
+        No one's watching her
+        I could try to
+        Be just like you
+        But I wanna be like me
+        The girl in the mirror
+        The girl in the mirror
+        The girl in the mirror
+        
+        I'm sick of the likes and followers everyone's counting
+        I'm sick of the lies
+        Smiling but I'm crying inside
+        Honestly, I'm done with hating pictures of myself
+        And tryna be like everybody else
+        
+        I wanna be like, look like
+        The girl in the mirror
+        Wanna act like, dance like
+        No one's watching her
+        I could try to
+        Be just like you
+        But I wanna be like me
+        The girl in the mirror
+        The girl in the mirror
+        
+        Wanna wake up, no make-up
+        And still think I'm beautiful
+        Wanna smile like I mean it
+        And finally be comfortable with me
+        Finally be comfortable with me
+        Oh
+        
+        I wanna be like, look like
+        The girl in the mirror
+        Wanna act like, dance like
+        No one's watching her
+        I could try to
+        Be just like you
+        But I wanna be like me
+        The girl in the mirror
+        The girl in the mirror
+        The girl in the mirror
+        (The girl in the mirror)
+        The girl in the mirror`,
+        source:"/songfile/Girl in the mirror.mp3",
+        favourite:"17"
     }
 ]
 const artistdatabase = [
@@ -1625,6 +2376,16 @@ const artistdatabase = [
         artistcode:"3",
         image:"https://files.vogue.co.th/uploads/IMG_20200415_090523_987.jpg",
         name:"One Direction"
+    },
+    {
+        artistcode:"4",
+        image:"http://musicstation.kapook.com/files_music2008/picture/2/10024.jpg",
+        name:"Lawson"
+    },
+    {
+        artistcode:"5",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMAmygs-KF3AdSN6LwAMRmp8S5cSU1ei4Q-A&usqp=CAU",
+        name:"Bebe Rexha"
     }
 ]
 
@@ -1723,6 +2484,8 @@ function seedDB(){
                         artisttosong('1','The Vamps');   
                         artisttosong('2','Alec Benjamin');    
                         artisttosong('3','One Direction');  
+                        artisttosong('4','Lawson');  
+                        artisttosong('5','Bebe Rexha');  
                     }
                 });
             });
@@ -1743,11 +2506,13 @@ function seedDB(){
                         artisttoalbum('2','Alec Benjamin');
                         artisttoalbum('3','One Direction');
                         artisttoalbum('4','AVICII');
+                        artisttoalbum('5','Lawson');
                         albumtosong('0','FOREVER');
                         albumtosong('1','Meet The Vamps');
                         albumtosong('2','These Two Windows');
                         albumtosong('3','Up All Night');
                         albumtosong('4','TRUE');
+                        albumtosong('5','Perspective');
                     }
                 });
             });

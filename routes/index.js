@@ -11,9 +11,9 @@ const   express     =   require('express'),
                         }
         }),
         imageFilter = function(req, file, callback){
-            if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)){
-                return callback(new Error('Only jpg, jpeg, png and gif.'), false);
-            }
+            if(!file.originalname.match(/\.(jpg|jpeg|png|gif|mp3)$/i)){
+                return callback(new Error('Only jpg, jpeg, png gif and mp3.'), false);
+            } 
             callback(null, true);
         },
         upload = multer({storage: storage, fileFilter: imageFilter}), 
@@ -38,7 +38,10 @@ router.get("/", function(req, res){
                         if(err){
                             console.log(err);
                         } else {
-                            res.render("home.ejs",{recommend:allSong,artist:artist,album:album});
+                            song.find({}).where('song.artist.id').equals(req.params.id).exec(function(err, artistSong){
+                                // console.log(artistSong);
+                                res.render("home.ejs",{recommend:allSong,artist:artist,album:album,artistSong:artistSong});
+                            });
                         }
                     });
                 }
@@ -48,13 +51,14 @@ router.get("/", function(req, res){
     });
 });
 
-router.post("/", upload.single('image') ,function(req, res){
+router.post("/", upload.fields([{name:'image'},{name: 'source'}]),function(req, res){
     let name = req.body.name;
     let lyric = req.body.lyric;
     let artistname = req.body.artist;
     let albumname = req.body.album;
-    let image = '/upload/' + req.file.filename;
-    let newSong = {name:name, lyric:lyric, image:image};
+    let image = '/upload/' + req.files['image'][0].filename;
+    let source = '/upload/' + req.files['source'][0].filename;
+    let newSong = {name:name, lyric:lyric, image:image, source:source};
     artist.findOne().where('name').equals(artistname).exec(function(err, foundArtist){
         if(err)
         {
@@ -92,7 +96,7 @@ router.post("/", upload.single('image') ,function(req, res){
 });
 
 router.get("/register", function(req, res){
-    res.render("register.ejs")
+    res.render("register.ejs");
 });
 
 router.post('/register', upload.single('image'), function(req,res){

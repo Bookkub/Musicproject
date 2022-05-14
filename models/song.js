@@ -26,11 +26,7 @@ const songSchema = new mongoose.Schema({
         type: Number,
         default:0
     },
-    source: String,
-    isPlaying: {
-        type: Boolean,
-        default: false
-    }
+    source: String
 });
 
 module.exports = mongoose.model('Song', songSchema);

@@ -1,7 +1,7 @@
 <%- include("../partials/header.ejs") %>
   <% let count=1 %>
-    <div class="col mb-5">
-      <div class="headbg mt-3">
+    <div class="col">
+      <div class="headbg mbuttom mt-3">
         <ul class="nav nav-pills justify-content-center pt-4">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
@@ -16,7 +16,7 @@
             <a class="nav-link active" href="/search/album/<%= keyword %>">Albums</a>
           </li>
         </ul>
-        <% if(searchalbum.length> 0){ %>
+        <% if(searchalbum.length > 0){ %>
           <div class="album mt-2">
             <div class="container-fluid py-4">
               <div class="d-flex">
@@ -52,7 +52,7 @@
           </div>
           <% } %>
             <% if(searchalbum.length===0){ %>
-              <div class="squarebox text-center mt-3">
+              <div class="squarebox text-center mt-3 mbuttom">
                 <div class="t text-white">
                   <img class="py-2" src="/image/icons/scope.png" width="30px">
                   <h2>0 Album for " <%= keyword %> "</h2>
