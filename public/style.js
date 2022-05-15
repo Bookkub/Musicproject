@@ -86,7 +86,7 @@ playslidebar.addEventListener('click', function () {
         playiconcard.classList.add('fa-pause');
     } else{
         currentSong.pause();
-        clearInterval();
+        clearInterval(interval);
         Songduration();
         playslidebar.classList.remove('fa-pause');
         playslidebar.classList.add('fa-play');
@@ -127,6 +127,7 @@ for (let i = 0; i < cardaudio.length; i++) {
                     cardaudio[i].play();
                     currentSong = cardaudio[i];
                     cardaudio[i].volume = 0.04;
+                    currentSong.volume = cardaudio[i].volume;
                     playiconcard = cardplayicon[i];
                     trackimg.src = Songimage[i].src;
                     trackname.textContent = Songname[i].textContent.trim();
@@ -169,6 +170,7 @@ for (let i = 0; i < tableaudio.length; i++) {
                     tableaudio[i].play();
                     currentSong = tableaudio[i];
                     tableaudio[i].volume = 0.04;
+                    currentSong.volume = tableaudio[i].volume;
                     playiconcard = tableplayicon[i];
                     trackimg.src = Songimage[i].src;
                     trackname.textContent = Songname[i].textContent.trim();

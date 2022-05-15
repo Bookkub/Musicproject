@@ -40,8 +40,9 @@
               <% }) %>
           </div>
         </div>
+      </div>
 
-        <div class="album py-4">
+        <div class="album pb-4">
           <div class="container-fluid">
             <div class="d-flex">
               <h1 class="category">ALBUMS</h1>
@@ -82,7 +83,7 @@
             </div>
           </div>
         </div>
-        <div class="album py-1">
+        <div class="album pb-3">
           <div class="container-fluid">
             <div class="d-flex">
               <h1 class="category">ARTISTS</h1>
@@ -96,20 +97,15 @@
                       <a class="text-decoration-none" href="/artist/<%= artist._id %>">
                         <div>
                           <img class="artist--img" src="<%= artist.image %>">
-                          <!-- <% if(!currentUser){ %>
+                          <% if(!currentUser){ %>
                             <a href="/login">
                               <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
                             </a>
                           <% } else { %>
-                          <a>
-                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
-                            <% artistSong.forEach(function(artistSong){ %>
-                            <audio id="card--audio" preload="metadata">
-                              <source src="<%= artistSong.source %>" type="audio/mp3">
-                            </audio>
-                            <% }) %>
-                          </a>
-                          <% } %> -->
+                            <a href="/login">
+                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                            </a>
+                          <% } %>
                         </div>
                         <p class="artist--name text-white">
                           <%= artist.name %>

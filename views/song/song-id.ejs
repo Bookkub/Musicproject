@@ -2,20 +2,20 @@
   <div class="col px-0">
     <div class="container-fluid px-0 bg-dark">
       <div class="d-flex px-5 py-5">
-        <img class="songinfo--img" src="<%= songinfo.image %>">
+        <img class="songinfo--img song--img__data" src="<%= songinfo.image %>">
         <div class="songkit">
           <div class="songkit--up mt-2">
-            <p class="songkit--up__name text-white mb-0">
+            <p class="songkit--up__name song--name__data text-white mb-0">
               <%= songinfo.name %>
             </p>
-            <a class="songkit--up__artist" href="/artist/<%= songinfo.artist.id %>">
+            <a class="songkit--up__artist song--artist__data" href="/artist/<%= songinfo.artist.id %>">
               <%= songinfo.artist.name %>
             </a>
           </div>
           <div class="songkit--down mt-3 d-flex">
             <a>
               <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
-              <audio id="card--audio">
+              <audio id="card--audio" preload="metadata">
                 <source src="<%= songinfo.source %>" type="audio/mp3">
               </audio>
             </a>
@@ -41,7 +41,7 @@
                       </form>
                       <% } %>
                         <a href="#">
-                          <img class="addbtn" src="/image/icons/add.png">
+                          <img class="addbtn mt-3" src="/image/icons/ellipsis.png">
                         </a>
           </div>
         </div>

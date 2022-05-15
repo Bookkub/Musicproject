@@ -39,11 +39,15 @@
                                             <%= count %>
                                         </span>
                                         <% count++ %>
-                                            <img class="songimg" src="<%= albumsong.image %>">
-                                            <a class="pt-4 text-white text-decoration-none"
+                                            <img class="songimg song--img__data" src="<%= albumsong.image %>">
+                                            <a class="pt-4 text-white text-decoration-none  song--name__data"
                                                 href="/song/<%= albumsong.id %>">
                                                 <%= albumsong.name %>
                                             </a>
+                                            <a class="pt-4 text-white text-decoration-none song--artist__data hidden"
+                                            href="/song/<%= albumsong.id %>">
+                                            <%= albumsong.artist.name %>
+                                        </a>
                                     </div>
                                 </th>
                                 <td>
@@ -54,8 +58,8 @@
                                             </a>
                                             <% } else { %>
                                               <a>
-                                                <i class="fa-solid fa-play" id="card--playicon"></i>
-                                                <audio id="card--audio">
+                                                <i class="fa-solid fa-play" id="table--playicon"></i>
+                                                <audio id="table--audio" preload="metadata">
                                                   <source src="<%= albumsong.source %>" type="audio/mp3">
                                                 </audio>
                                               </a>

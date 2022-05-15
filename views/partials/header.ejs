@@ -82,6 +82,24 @@
                                                     <span class="d-none d-sm-inline">HOME</span>
                                                 </li>
                                             </a>
+                                            <% if(currentUser){ %>
+                                            <a href="/favourite" class="choice nav-link align-middle">
+                                                <li>
+                                                    <img src="/image/icons/favourite.png" width="25rem">
+                                                    <span class="d-none d-sm-inline">Favourite</span>
+                                                </li>
+                                            </a>
+                                            <% } else { %>
+                                                <a href="/login" class="choice nav-link align-middle">
+                                                    <li>
+                                                        <img src="/image/icons/favourite.png" width="25rem">
+                                                        <span class="d-none d-sm-inline">Favourite</span>
+                                                    </li>
+                                                </a>
+                                            <% } %>
+                                            <a class="library">
+                                                Library
+                                            </a>
                                             <a href="/album" class="choice nav-link align-middle">
                                                 <li>
                                                     <img src="/image/icons/album.png" width="25rem">

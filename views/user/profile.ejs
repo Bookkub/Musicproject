@@ -39,131 +39,135 @@
             </div>
         </div>
     </div>
-   
+
     <div class="col py-4">
         <% if(currentUser && !currentUser.isAdmin){ %>
-        <div class="container">
-            <div class="row gutters">
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                    <div class="card profilebg text-white">
-                        <div class="card-body">
-                            <div class="account-settings">
-                                <div class="user-profile">
-                                    <div class="user-avatar">
-                                        <img src="<%= user.image %>">
+            <div class="container">
+                <div class="row gutters">
+                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                        <div class="card profilebg text-white">
+                            <div class="card-body">
+                                <div class="account-settings">
+                                    <div class="user-profile">
+                                        <div class="user-avatar">
+                                            <img src="<%= user.image %>">
+                                        </div>
+                                        <h5 class="user-name">
+                                            <%- user.firstname + ' ' + user.lastname %>
+                                        </h5>
+                                        <p class="username text-white">
+                                            <i class="fa-solid fa-envelope"></i>
+                                            <a class="email" href="mailto: <%= user.email %>">
+                                                <%= user.email %>
+                                            </a>
+                                        </p>
+                                        <button type="button" class="x" data-bs-toggle="modal" data-bs-target="#edit">
+                                            <span>
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </span>
+                                        </button>
                                     </div>
-                                    <h5 class="user-name">
-                                        <%- user.firstname + ' ' + user.lastname %>
-                                    </h5>
-                                    <p class="username text-white">
-                                        <i class="fa-solid fa-envelope"></i>
-                                        <a class="email" href="mailto: <%= user.email %>">
-                                            <%= user.email %>
-                                        </a>
-                                    </p>
-                                    <button type="button" class="x" data-bs-toggle="modal" data-bs-target="#edit">
-                                        <span>
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </span>
-                                    </button>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                    <div class="card profilebg text-white">
-                        <div class="card-body scrolluser">
-                            <div class="row gutters">
-                                <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
-                                    <h3 class="mb-2 text-white">Favourite Songs</h3>
-                                    <hr>
+                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="card profilebg text-white mbuttom">
+                            <div class="card-body scrolluser">
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
+                                        <h3 class="mb-2 text-white">Favourite Songs</h3>
+                                        <hr>
+                                    </div>
                                 </div>
-                            </div>
-                            <table class="table text-white">
-                                <thead>
-                                </thead>
-                                <tbody>
-                                    <% usersong.forEach(function(usersong){ %>
-                                        <tr>
-                                            <td>
-                                                <img class="songimg-admin song--img__data" src="<%= usersong.image %>">
-                                                <a class="py-2 mx-4 text-white text-decoration-none song--name__data"
-                                                    href="/song/<%= usersong._id %>">
-                                                    <%= usersong.name %>
-                                                </a>
-                                                <span class="song--artist__data hidden"><%= usersong.artist.name %></span>
-                                            </td>
-                                            <td>
-                                                <div class="option my-4 mx-2">
-                                                    <a>
-                                                        <i class="fa-solid fa-play" id="table--playicon"></i>
-                                                        <audio id="table--audio" preload="metadata">
-                                                            <source src="<%= usersong.source %>" type="audio/mp3">
-                                                        </audio>
-                                                    </a>
-                                                    <form action="/user/unfavourite/<%= usersong.id %>" method="post"
-                                                        class="d-inline">
-                                                        <button class="mx-3 bg-transparent border-0">
-                                                            <i class="fa-solid fa-star mx-3 starbg"></i>
-                                                        </button>
-                                                    </form>
-                                                    <i class="fa-solid fa-circle-plus"></i>
+                                <div class="album py-4">
+                                    <div class="container-fluid">
+                                        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-4">
+                                            <% usersong.forEach(function(usersong){ %>
+                                                <div class="col">
+                                                    <div class="card shadows shadow-lg">
+                                                        <div class="card-body">
+                                                            <a class="text-decoration-none"
+                                                                href="/song/<%= usersong._id %>">
+                                                                <div>
+                                                                </div>
+                                                                    <img class="song--img song--img__data"
+                                                                        src="<%= usersong.image %>">
+                                                                    <form action="/user/unfavourite/<%= usersong.id %>"
+                                                                        method="post" class="d-inline">
+                                                                        <button class="bg-transparent border-0 float-end mt-2">
+                                                                            <i class="fa-solid fa-star starbg "></i>
+                                                                        </button>
+                                                                    </form>
+                                                                
+                                                                <div>
+                                                                    <p class="song--name text-white song--name__data">
+                                                                        <%= usersong.name %>
+                                                                    </p>
+                                                                    <a class="song--artist song--artist__data"
+                                                                        href="/artist/<%= usersong.artist.id %>">
+                                                                        <%= usersong.artist.name %>
+                                                                    </a>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                        <% }) %>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <% } else { %>
-                <div class="container">
-                    <div class="row gutters">
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                            <div class="card profilebg text-white">
-                                <div class="card-body">
-                                    <div class="account-settings">
-                                        <div class="user-profile">
-                                            <div class="user-avatar">
-                                                <img src="<%= user.image %>">
-                                            </div>
-                                            <h5 class="user-name">
-                                                <%- user.firstname + ' ' + user.lastname %>
-                                            </h5>
-                                            <p class="username text-white">
-                                                <i class="fa-solid fa-envelope"></i>
-                                                <a class="email" href="mailto: <%= user.email %>">
-                                                    <%= user.email %>
-                                                </a>
-                                            </p>
-                                            <button type="button" class="x" data-bs-toggle="modal" data-bs-target="#edit">
-                                                <span>
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </span>
-                                            </button>
+                                                <% }) %>
                                         </div>
-        
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                            <div class="card profilebg text-white">
-                                <div class="card-body scrolladmin">
+                            <% } else { %>
+                                <div class="container">
                                     <div class="row gutters">
-                                        <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
-                                            
-                                      
+                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                                            <div class="card profilebg text-white">
+                                                <div class="card-body">
+                                                    <div class="account-settings">
+                                                        <div class="user-profile">
+                                                            <div class="user-avatar">
+                                                                <img src="<%= user.image %>">
+                                                            </div>
+                                                            <h5 class="user-name">
+                                                                <%- user.firstname + ' ' + user.lastname %>
+                                                            </h5>
+                                                            <p class="username text-white">
+                                                                <i class="fa-solid fa-envelope"></i>
+                                                                <a class="email" href="mailto: <%= user.email %>">
+                                                                    <%= user.email %>
+                                                                </a>
+                                                            </p>
+                                                            <button type="button" class="x" data-bs-toggle="modal"
+                                                                data-bs-target="#edit">
+                                                                <span>
+                                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                                </span>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                            <div class="card profilebg text-white">
+                                                <div class="card-body scrolladmin">
+                                                    <div class="row gutters">
+                                                        <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <% } %>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-            <% } %>
-        </div>
-<%- include("../partials/footer.ejs") %>
+<% if(currentUser && !currentUser.isAdmin){ %>
+    <%- include("../partials/footer.ejs") %>
+<% } else { %>
+    <%- include("../partials/LRfooter.ejs") %>
+<% } %>

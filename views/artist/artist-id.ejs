@@ -28,26 +28,23 @@
                                 <div class="d-flex">
                                     <span class="songorder d-block pt-4"><%= count %></span>
                                     <% count++ %>
-                                    <img class="songimg" src="<%= artistsong.image %>">
-                                    <a class="pt-4 text-white text-decoration-none" href="/song/<%= artistsong.id %>">
+                                    <img class="songimg song--img__data" src="<%= artistsong.image %>">
+                                    <a class="pt-4 text-white text-decoration-none  song--name__data" href="/song/<%= artistsong.id %>">
                                         <%= artistsong.name %>
                                     </a>
+                                    <a class="pt-4 text-white text-decoration-none song--artist__data hidden">
+                                      <%= artistsong.artist.name %>
+                                  </a>
                                 </div>
                             </th>
                             <td>
                                 <div class="option my-4 mx-2">
-                                  <% if(!currentUser){ %>
-                                    <a href="/login" class="text-decoration-none star-color">
-                                      <i class="fa-solid fa-play"></i>
-                                    </a>
-                                    <% } else { %>
                                       <a>
-                                        <i class="fa-solid fa-play" id="card--playicon"></i>
-                                        <audio id="card--audio">
+                                        <i class="fa-solid fa-play" id="table--playicon"></i>
+                                        <audio id="table--audio" preload="metadata">
                                           <source src="<%= artistsong.source %>" type="audio/mp3">
                                         </audio>
                                       </a>
-                                      <% } %>
                                     <% if(currentUser) { %>
                                       <% if(usersong.includes(artistsong.id)){ %>
                                     <form action="/user/unfavourite/<%= artistsong.id %>" method="post" class="d-inline">

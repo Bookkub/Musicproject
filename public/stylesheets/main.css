@@ -916,6 +916,17 @@ div.squarebox .t {
 .track_img{
   background-image: url(https://cdn.i-joox.com/static/di/default/default-playlist@300.png);
 }
+.library{
+  font-size: 14px;
+  text-decoration: none;
+  color: #9F9F9F;
+  font-weight: bold;
+}
+.bg-favourite{
+  background-color: #0d0a0b;
+  background-image: linear-gradient(180deg, #0d0a0b 0%, #009fc2 74%);
+  height: 100px;
+}
 @keyframes glow {
     from {
         text-shadow: 0 0 10px rgb(42, 226, 233), 0 0 20px rgb(42, 226, 233), 0 0 30px rgb(42, 226, 233), 0 0 40px rgb(42, 226, 233), 0 0 50px rgb(42, 226, 233);
