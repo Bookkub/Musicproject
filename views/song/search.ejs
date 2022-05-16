@@ -1,7 +1,7 @@
 <%- include("../partials/header.ejs") %>
 <% let count = 1 %>
 <div class="col">
-    <div class="headbg  mbuttom mt-3">
+    <div class="headbg mbuttom mt-3">
     <ul class="nav nav-pills justify-content-center pt-4">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/search/<%= keyword %>">All Results</a>
@@ -24,7 +24,7 @@
                   <span class="thinword">(<%= searchsong.length %>)</span>
                 </h1>
             </div>
-            <table class="table searchbg text-white text-center mb-0 sortable">
+            <table class="table searchbg text-white mb-0 sortable text-center">
               <% if(searchsong.length > 0){ %>
                 <thead>
                   <tr>
@@ -32,18 +32,20 @@
                       Title
                       <i class="fa-solid fa-sort"></i>
                     </th>
-                    <th scope="col" class="shadows">
+                    <th scope="col" class="shadows tohide">
                       Artist
                       <i class="fa-solid fa-sort"></i>
                     </th>
-                    <th scope="col" class="shadows">
+                    <th scope="col" class="shadows tohide">
                       Album
                       <i class="fa-solid fa-sort"></i>
                     </th>
-                    <th scope="col" class="shadows">
-                      <i class="fa-solid fa-clock"></i>
-                      <i class="fa-solid fa-sort"></i>
-                    </th>
+                    <% if(currentUser){ %>
+                      <th scope="col" class="shadows tohide">
+                        <i class="fa-solid fa-clock d-inline"></i>
+                        <i class="fa-solid fa-sort d-inline"></i>
+                      </th>
+                      <% } %>
                   </tr>
                 </thead>
                 <% } %>
@@ -52,39 +54,39 @@
                       <tr class="shadows">
                         <% count++ %>
                           <td>
-                            <div class="d-flex">
+                            <div class="pt-1 d-flex">
                               <img class="songimg-admin song--img__data" src="<%= searchsong.image %>">
-                              <a class="pt-4 mx-4 text-white text-decoration-none song--name__data" href="/song/<%= searchsong._id %>">
+                              <a class="pt-4 px-2 text-white text-decoration-none song--name__data" href="/song/<%= searchsong._id %>">
                                 <%= searchsong.name %>
                               </a>
                             </div>
                           </td>
                           <td>
-                            <div class="pt-4">
+                            <div class="pt-4 tohide">
                               <a class="text-white text-decoration-none song--artist__data" href="/artist/<%= searchsong.artist.id %>">
                                 <%= searchsong.artist.name %>
                               </a>
                             </div>
                           </td>
                           <td>
-                            <div class="pt-4">
+                            <div class="pt-4 tohide">
                               <a class="text-white text-decoration-none" href="/album/<%= searchsong.album.id %>">
                                 <%= searchsong.album.name %>
                               </a>
                             </div>
                           </td>
                           <td>
-                            <div class="pt-4">
+                            <div class="pt-4 tohide">
                               <span id="songduration">
                                
                               </span>
                             </div>
                           </td>
                           <td>
-                            <div class="option my-4 mx-2">
+                            <div class="option my-4 mx-2 d-block">
                               <% if(!currentUser){ %>
-                                <a href="/login" class="text-decoration-none star-color">
-                                  <i class="fa-solid fa-play"></i>
+                                <a href="/login" class="text-decoration-none star-color toblock d-inline">
+                                  <i class="fa-solid fa-play text-decoration-none"></i>
                                 </a>
                                 <a  id="table--playicon">
                                   <audio id="table--audio" preload="metadata">
@@ -92,41 +94,50 @@
                                   </audio>
                                 </a>
                               <% } else { %>
-                                <a>
-                                  <i class="fa-solid fa-play" id="table--playicon"></i>
+                                <button class="toblock d-inline bg-transparent border-0 star-color">
+                                  <i class="fa-solid fa-play text-decoration-none" id="table--playicon"></i>
                                   <audio id="table--audio">
                                     <source src="<%= searchsong.source %>" type="audio/mp3">
                                   </audio>
-                                </a>
+                                </button>
                               <% } %>
                               <% if(currentUser) { %>
                                 <% if(usersong.includes(searchsong.id)){ %>
                               <form action="/user/unfavourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                  <button class="mx-3 bg-transparent border-0"> 
-                                    <i class="fa-solid fa-star mx-3 starbg"></i>
+                                  <button class="bg-transparent border-0 toblock"> 
+                                    <i class="fa-solid fa-star starbg"></i>
                                   </button>
                               </form>
                               <% } else { %>
                                 <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                  <button class="mx-3 bg-transparent border-0"> 
-                                    <i class="fa-solid fa-star mx-3"></i>
+                                  <button class="bg-transparent border-0 toblock"> 
+                                    <i class="fa-solid fa-star"></i>
                                   </button>
                               </form>
                               <% } %>
                               <% } else { %>
                                 <form action="/user/favourite/<%= searchsong.id %>" method="post" class="d-inline">
-                                  <button class="mx-3 bg-transparent border-0"> 
-                                    <i class="fa-solid fa-star mx-3"></i>
+                                  <button class="bg-transparent border-0 toblock"> 
+                                    <i class="fa-solid fa-star"></i>
                                   </button>
                               </form>
                               <% } %>
-                              <i class="fa-solid fa-circle-plus"></i>
+                              <div class="dropdown d-inline">
+                                <button class="btn btn-secondary dropdown bg-transparent border-0 toblock" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fa-solid fa-ellipsis-vertical main-menu"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                  <li><a class="table--sub__menu dropdown-item">Add to queue</a></li>
+                                </ul>
+                              </div>
                           </div>
                           </td>
                       </tr>
                       <% }) %>
                   </tbody>
             </table>
+            </div>
+            </div>
           </div>
         </div>
         <% } %>

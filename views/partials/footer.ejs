@@ -17,9 +17,10 @@
         <a href="/login" class="btn play"><i class="fa fa-play"></i></a>
         <a href="/login" class="btn next"><i class="fa fa-step-forward"></i></a>
         <% } else { %>
-          <button class="previous"><i class="fa fa-step-backward" id="slidebarbackward" ></i></button>
-          <button class="play"><i class="fa fa-play" id="slidebarplay"></i></button>
-          <button class="next"><i class="fa fa-step-forward" id="slidebarforward"></i></button>
+          <button class="previous previousbtn"><i class="fa fa-step-backward" id="slidebarbackward" ></i></button>
+          <button class="play playbtn"><i class="fa fa-play" id="slidebarplay"></i></button>
+          <button class="next nextbtn"><i class="fa fa-step-forward" id="slidebarforward"></i>
+          </button>
           <a>
             <audio id="audiobtn">
               <source type="audio/mp3">
@@ -42,7 +43,7 @@
     </div>
     <div class="volume-controls flex-item">
       <button class="mute">
-        <i class="fa fa-volume-up"></i>
+        <i class="fa fa-volume-up volumeupicon"></i>
         <input type="range" min="0" max="0.1" step="0.001" value="0.04" class="volume-container p-0 flex-item"></input>
       </button>
     </div>

@@ -5,7 +5,7 @@
                 <h1 class="text-white text-reflect">FAVOURITE SONGS</h1>
             </div>
         </div>
-            <table class="table searchbg text-white text-center mb-0">
+            <!-- <table class="table searchbg text-white text-center mb-0">
                 <% if(usersong.length> 0){ %>
                     <thead>
                       <tr>
@@ -89,6 +89,101 @@
                         </tr>
                         <% }) %>
                 </tbody>
-            </table>
+            </table> -->
+            <table class="table searchbg text-white mb-0 sortable text-center">
+                <% if(usersong.length > 0){ %>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="shadows">
+                        Title
+                        <i class="fa-solid fa-sort"></i>
+                      </th>
+                      <th scope="col" class="shadows tohide">
+                        Artist
+                        <i class="fa-solid fa-sort"></i>
+                      </th>
+                      <th scope="col" class="shadows tohide">
+                        Album
+                        <i class="fa-solid fa-sort"></i>
+                      </th>
+                      <% if(currentUser){ %>
+                        <th scope="col" class="shadows tohide">
+                          <i class="fa-solid fa-clock d-inline"></i>
+                          <i class="fa-solid fa-sort d-inline"></i>
+                        </th>
+                        <% } %>
+                    </tr>
+                  </thead>
+                  <% } %>
+                    <tbody>
+                      <% usersong.forEach(function(usersong){ %>
+                        <tr class="shadows">
+                            <td>
+                              <div class="pt-1 d-flex">
+                                <img class="songimg-admin song--img__data" src="<%= usersong.image %>">
+                                <a class="pt-4 px-2 text-white text-decoration-none song--name__data" href="/song/<%= usersong._id %>">
+                                  <%= usersong.name %>
+                                </a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="pt-4 tohide">
+                                <a class="text-white text-decoration-none song--artist__data" href="/artist/<%= usersong.artist.id %>">
+                                  <%= usersong.artist.name %>
+                                </a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="pt-4 tohide">
+                                <a class="text-white text-decoration-none" href="/album/<%= usersong.album.id %>">
+                                  <%= usersong.album.name %>
+                                </a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="pt-4 tohide">
+                                <span id="songduration">
+                                 
+                                </span>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="option my-4 mx-2 d-block">
+                                <% if(!currentUser){ %>
+                                  <a href="/login" class="text-decoration-none star-color toblock d-inline">
+                                    <i class="fa-solid fa-play text-decoration-none"></i>
+                                  </a>
+                                  <a  id="table--playicon">
+                                    <audio id="table--audio" preload="metadata">
+                                      <source src="<%= usersong.source %>" type="audio/mp3">
+                                    </audio>
+                                  </a>
+                                <% } else { %>
+                                  <button class="toblock d-inline bg-transparent border-0 star-color">
+                                    <i class="fa-solid fa-play text-decoration-none" id="table--playicon"></i>
+                                    <audio id="table--audio">
+                                      <source src="<%= usersong.source %>" type="audio/mp3">
+                                    </audio>
+                                  </button>
+                                <% } %>
+                                <form action="/user/unfavourite/<%= usersong.id %>" method="post" class="d-inline">
+                                    <button class="bg-transparent border-0 toblock"> 
+                                      <i class="fa-solid fa-star starbg"></i>
+                                    </button>
+                                </form>
+                                <div class="dropdown d-inline">
+                                  <button class="btn btn-secondary dropdown bg-transparent border-0 toblock" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-ellipsis-vertical main-menu"></i>
+                                  </button>
+                                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                    <li><a class="table--sub__menu dropdown-item">Add to queue</a></li>
+                                  </ul>
+                                </div>
+                            </div>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+              </table>
     </div>
     <%- include("partials/footer.ejs") %>

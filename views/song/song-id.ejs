@@ -23,26 +23,31 @@
               <% if(usersong.includes(songinfo.id)){ %>
                 <form action="/user/unfavourite/<%= songinfo.id %>" method="post" class="d-inline">
                   <button class="mx-3 bg-transparent border-0">
-                    <img class="favbtn-click" src="/image/icons/fav-click2.png">
+                    <img class="favbtn-click my-1" src="/image/icons/fav-click2.png">
                   </button>
                 </form>
                 <% } else { %>
                   <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
                     <button class="mx-3 bg-transparent border-0">
-                      <img class="favbtn" src="/image/icons/fav.png">
+                      <img class="favbtn my-1" src="/image/icons/fav.png">
                     </button>
                   </form>
                   <% } %>
                     <% } else { %>
                       <form action="/user/favourite/<%= songinfo.id %>" method="post" class="d-inline">
                         <button class="mx-3 bg-transparent border-0">
-                          <img class="favbtn" src="/image/icons/fav.png">
+                          <img class="favbtn my-1" src="/image/icons/fav.png">
                         </button>
                       </form>
                       <% } %>
-                        <a href="#">
-                          <img class="addbtn mt-3" src="/image/icons/ellipsis.png">
-                        </a>
+                        <div class="dropdown d-inline">
+                          <button class="btn btn-secondary dropdown bg-transparent border-0" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-ellipsis-vertical main-menu ellipsis-songid my-1"></i>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                            <li><a class="card--sub__menu dropdown-item">Add to queue</a></li>
+                          </ul>
+                        </div>
           </div>
         </div>
       </div>

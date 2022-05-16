@@ -9,6 +9,13 @@
     text-decoration: none;
 }
 
+.navbar--brand:hover {
+  font-family: 'Concert One', cursive;
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
+}
+
 .navbar--btn__login {
     text-decoration: none;
     border-radius: 50px;
@@ -299,6 +306,15 @@
 .home:hover {
     animation: glow 20s ease-in-out infinite alternate;
 }
+.favourite:hover{
+  animation: glow 20s ease-in-out infinite alternate;
+}
+.albums:hover{
+  animation: glow 20s ease-in-out infinite alternate;
+}
+.artist:hover{
+  animation: glow 20s ease-in-out infinite alternate;
+}
 
 tbody,
 td,
@@ -506,6 +522,7 @@ div.squarebox .t {
 }
 .star-color{
     color: white;
+    text-decoration: none;
 }
 .fa-star:hover{
     color: rgb(56, 244, 250);
@@ -835,7 +852,14 @@ div.squarebox .t {
 .playlist li a span {
   color: #6d6d6d;
 }
-
+.fav-page{
+  text-decoration: none;
+  color:#A5A5A5;
+}
+.fav-page:hover{
+  text-decoration: underline;
+  color:#A5A5A5;
+}
 /* ==================== Media Query ==================== */
 
 @media (max-width: 992px) {
@@ -922,11 +946,30 @@ div.squarebox .t {
   color: #9F9F9F;
   font-weight: bold;
 }
+.library:hover{
+  font-size: 14px;
+  text-decoration: none;
+  color: #9F9F9F;
+  font-weight: bold;
+}
 .bg-favourite{
   background-color: #0d0a0b;
   background-image: linear-gradient(180deg, #0d0a0b 0%, #009fc2 74%);
   height: 100px;
 }
+.ellipsis-songid{
+  font-size: 20px;
+}
+
+.hidder { width: 100%; }
+@media screen and (max-width:768px) {
+  .tohide { display: none; }
+  .toblock {display: block;}
+}
+@media screen and (max-width:1024px) {
+  .toblock {display: block;}
+}
+
 @keyframes glow {
     from {
         text-shadow: 0 0 10px rgb(42, 226, 233), 0 0 20px rgb(42, 226, 233), 0 0 30px rgb(42, 226, 233), 0 0 40px rgb(42, 226, 233), 0 0 50px rgb(42, 226, 233);
@@ -936,7 +979,6 @@ div.squarebox .t {
         text-shadow: 0 0 60px rgb(42, 226, 233), 0 0 70px rgb(42, 226, 233), ;
     }
 }
-
 body {
     background-image: linear-gradient(90deg, #283048 0%, rgb(71, 97, 107) 100%);
     height: 100%;

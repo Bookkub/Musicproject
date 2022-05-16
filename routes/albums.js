@@ -176,7 +176,7 @@ router.get("/:id", middlewareObj.isLoggedIn, function(req, res){
                            if(err){
                               console.log(err);
                            } else {
-                            res.render("album/album-id.ejs",{album:album,albumsong:albumsong,usersong:foundUser.song});
+                                res.render("album/album-id.ejs",{album:album,albumsong:albumsong,usersong:foundUser.song});
                            }
                         });
                     } else {
