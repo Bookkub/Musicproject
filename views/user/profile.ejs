@@ -40,7 +40,23 @@
         </div>
     </div>
 
-    <div class="col py-4">
+    <% let countadmin = 0 %>
+    <% allUser.forEach(function(allUser){ %>
+        <% if(allUser.isAdmin === true){ %>
+            <% countadmin++ %>
+        <% } %>
+    <% }) %>
+    <div class="col my-4">
+    <% if(error && error.length>0){ %>
+        <div class='alert alert-danger' role='alert'>
+            <%= error %>
+        </div>
+        <% } %>
+            <% if(success && success.length>0){ %>
+                <div class='alert alert-success' role='alert'>
+                    <%= success %>
+                </div>
+                <% } %>
         <% if(currentUser && !currentUser.isAdmin){ %>
             <div class="container">
                 <div class="row gutters">
@@ -78,10 +94,20 @@
                                 <div class="row gutters">
                                     <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
                                         <h3 class="mb-2 text-white d-inline">Favourite Songs</h3>
-                                        <a href="/favourite" class="float-end mt-2 fav-page">Favourite page --></a>
+                                        <a href="/favourite" class="float-end mt-2 fav-page">Full Page --></a>
                                         <hr>
                                     </div>
                                 </div>
+                                <% if(usersong.length <= 0){ %>
+                                    <h3 class="text-center no-fav">
+                                        No Favourite Song Here!
+                                    </h3>
+                                    <div class="find-song d-block mt-5">
+                                      <a class="text-white text-center click-here text-decoration-none" href="/">
+                                        FIND YOUR SONG!
+                                        </a>   
+                                    </div>
+                                <% } else { %>
                                 <div class="album py-4">
                                     <div class="container-fluid">
                                         <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-4">
@@ -115,15 +141,16 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <% }) %>
+                                                <% }) %> 
                                         </div>
                                     </div>
                                 </div>
+                                <% } %>
                             </div>
                             <% } else { %>
                                 <div class="container">
                                     <div class="row gutters">
-                                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="card profilebg text-white">
                                                 <div class="card-body">
                                                     <div class="account-settings">
@@ -152,17 +179,90 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-                                            <div class="card profilebg text-white">
-                                                <div class="card-body scrolladmin">
-                                                    <div class="row gutters">
-                                                        <div class="col-xl-12 col-lg-6 col-md-12 col-sm-12 col-12">
-
-
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <div class="card profilebg">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                            <div class="container-fluid">
+                                                                <section>
+                                                                  <div class="row">
+                                                                    <div class="col-xl-6 col-sm-12 col-12 my-2">
+                                                                    <a href="/user/remove" class="text-black text-decoration-none">
+                                                                      <div class="card">
+                                                                        <div class="card-body">
+                                                                          <div class="d-flex justify-content-between">
+                                                                            <div class="align-self-center">
+                                                                              <i class="fa-solid fa-users text-warning fa-3x"></i>
+                                                                            </div>
+                                                                            <div class="text-end">
+                                                                              <h3><%= allUser.length - countadmin %></h3>
+                                                                              <p class="mb-0">Users</p>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </a>
+                                                                    </div>
+                                                                    <div class="col-xl-6 col-sm-12 col-12 my-2">
+                                                                        <a href="/song/remove" class="text-black text-decoration-none">
+                                                                            <div class="card">
+                                                                                <div class="card-body">
+                                                                                  <div class="d-flex justify-content-between px-md-1">
+                                                                                    <div class="align-self-center">
+                                                                                        <i class="fa-brands fa-soundcloud text-info fa-3x"></i>
+                                                                                      </div>
+                                                                                    <div class="text-end">
+                                                                                      <h3><%= allSong.length %></h3>
+                                                                                      <p class="mb-0">Songs</p>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </a>
+                                                                      </div>
+                                                                      <div class="col-xl-6 col-sm-12 col-12  my-2">
+                                                                        <a href="/artist/remove" class="text-black text-decoration-none">
+                                                                        <div class="card">
+                                                                          <div class="card-body">
+                                                                            <div class="d-flex justify-content-between">
+                                                                              <div class="align-self-center">
+                                                                                <i class="fa-brands fa-napster text-success fa-3x"></i>
+                                                                              </div>
+                                                                              <div class="text-end">
+                                                                                <h3><%= allArtist.length %></h3>
+                                                                                <p class="mb-0">Artists</p>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                        </a>
+                                                                      </div>
+                                                                    <div class="col-xl-6 col-sm-12 col-12  my-2">
+                                                                    <a href="/album/remove" class="text-black text-decoration-none">
+                                                                      <div class="card">
+                                                                        <div class="card-body">
+                                                                          <div class="d-flex justify-content-between">
+                                                                            <div class="align-self-center">
+                                                                                <i class="fa-brands fa-algolia text-danger fa-3x"></i>
+                                                                            </div>
+                                                                            <div class="text-end">
+                                                                              <h3><%= allAlbum.length %></h3>
+                                                                              <p class="mb-0">Albums</p>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </a>
+                                                                    </div> 
+                                                                </section>
+                                                              </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                           
                                         </div>
                                     </div>
                                     <% } %>

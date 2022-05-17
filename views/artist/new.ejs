@@ -1,5 +1,15 @@
 <%- include("../partials/header.ejs") %>
-<div class="col pt-4">
+<div class="col py-4">
+  <% if(error && error.length>0){ %>
+    <div class='alert alert-danger' role='alert'>
+        <%= error %>
+    </div>
+    <% } %>
+        <% if(success && success.length>0){ %>
+            <div class='alert alert-success' role='alert'>
+                <%= success %>
+            </div>
+            <% } %>
     <div class="container-fluid addbg py-4">
         <ul class="nav nav-tabs">
             <li class="nav-item">

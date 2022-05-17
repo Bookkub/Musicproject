@@ -1,195 +1,223 @@
 <%- include("partials/header.ejs") %>
   <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
     <div class="col mbuttom">
-      <div class="album py-4">
-        <div class="container-fluid">
-          <h1 class="category">RECOMMENDED</h1>
-          <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-            <% recommend.slice(0,6).forEach(function(recommend){ %>
-              <div class="col">
-                <div class="card shadows shadow-lg">
-                  <div class="card-body">
-                    <a class="text-decoration-none" href="/song/<%= recommend._id %>">
-                      <div>
-                        <img class="song--img song--img__data" src="<%= recommend.image %>">
-                        <% if(!currentUser){ %>
-                          <a href="/login">
-                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
-                          </a>
-                        <% } else { %>
-                        <a>
-                          <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
-                          <audio id="card--audio" preload="metadata">
-                            <source src="<%= recommend.source %>" type="audio/mp3">
-                          </audio>
-                        </a>
-                        <% } %>
-                      </div>
-                     <div>
-                      <p class="song--name text-white song--name__data">
-                        <%= recommend.name %>
-                      </p>
-                      <a class="song--artist song--artist__data" href="/artist/<%= recommend.artist.id %>">
-                        <%= recommend.artist.name %>
-                      </a> 
-                     </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <% }) %>
-          </div>
-        </div>
-      </div>
 
-        <div class="album pb-4">
-          <div class="container-fluid">
-            <div class="d-flex">
-              <h1 class="category">ALBUMS</h1>
-              <a class="seeall" href="/album">see all</a>
-            </div>
-            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-              <% album.slice(0,6).reverse().forEach(function(album){ %>
-                <div class="col">
-                  <div class="card shadows shadow-lg">
-                    <div class="card-body">
-                      <a class="text-decoration-none" href="/album/<%= album._id %>">
-                        <div>
-                          <img class="album--img" src="<%= album.image %>">
-                          <% if(!currentUser){ %>
-                            <a href="/login">
-                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
-                            </a>
-                          <% } else { %>
-                          <a>
-                            <img class="icon--img float-end mt-1" src="/image/icons/play-button.png" id="card--playicon">
-                            <audio id="card--audio">
-                              <source src="<%= recommend.source %>" type="audio/mp3">
-                            </audio>
-                          </a>
-                          <% } %>
-                        </div>
-                        <p class="album--name text-white d-block">
-                          <%= album.name %>
-                        </p>
-                        <a class="album--album d-block" href="/artist/<%= album.artist.id %>">
-                          <%= album.artist.name %>
-                        </a>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <% }) %>
-            </div>
-          </div>
+      <% if(error && error.length>0){ %>
+        <div class='alert alert-danger' role='alert'>
+          <%= error %>
         </div>
-        <div class="album pb-3">
-          <div class="container-fluid">
-            <div class="d-flex">
-              <h1 class="category">ARTISTS</h1>
-              <a class="seeall" href="/artist">see all</a>
-            </div>
-            <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
-              <% artist.slice(0,6).reverse().forEach(function(artist){ %>
-                <div class="col">
-                  <div class="card shadows shadow-lg">
-                    <div class="card-body">
-                      <a class="text-decoration-none" href="/artist/<%= artist._id %>">
-                        <div>
-                          <img class="artist--img" src="<%= artist.image %>">
-                          <% if(!currentUser){ %>
-                            <a href="/login">
-                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
-                            </a>
-                          <% } else { %>
-                            <a href="/login">
-                              <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
-                            </a>
-                          <% } %>
-                        </div>
-                        <p class="artist--name text-white">
-                          <%= artist.name %>
-                        </p>
-                        <p class="artist--artist d-inline">
-                          Artist
-                        </p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <% }) %>
-            </div>
-          </div>
-        </div>
-
         <% } %>
-          <% if(currentUser && currentUser.isAdmin){ %>
-            <div class="col py-4">
-              <div class="container-fluid addbg py-4">
-                <ul class="nav nav-tabs">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Songs</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/artist/new">Artists</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/album/new">Albums</a>
-                  </li>
-                </ul>
-                <h1 class="text-white pt-4">Add New Song</h1>
-                <form action="/" method="POST" enctype="multipart/form-data">
-                  <div class="mb-3">
-                    <label class="form-label text-white">Song Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Song Name" required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label text-white">Lyric</label>
-                    <textarea type="text" class="form-control" name="lyric" placeholder="Lyrics" required></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label text-white">Artist</label>
-                    <input type="text" list="artist" class="form-control" name="artist" placeholder="Artist Name"
-                      autocomplete="off" required>
-                    <datalist id="artist">
-                      <% artist.forEach(function(artist){ %>
-                        <option class="list-group-item">
-                          <%= artist.name %>
-                        </option>
-                        <% }) %>
-                    </datalist>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label text-white">Album</label>
-                    <input type="text" list="album" class="form-control" name="album" placeholder="Album Name"
-                      autocomplete="off">
-                    <datalist id="album">
-                      <% album.forEach(function(album){ %>
-                        <option class="list-group-item">
-                          <%= album.name %>
-                        </option>
-                        <% }) %>
-                    </datalist>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label text-white">Image</label>
-                    <input type="file" class="form-control" name="image" accept='image/*' required>
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label text-white">Mp3 File</label>
-                    <input type="file" class="form-control" name="source" accept='audio/mp3' required>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-              </div>
+          <% if(success && success.length>0){ %>
+            <div class='alert alert-success' role='alert'>
+              <%= success %>
             </div>
-
             <% } %>
+              <div class="album py-4">
+                <div class="container-fluid">
+                  <h1 class="category">RECOMMENDED</h1>
+                  <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                    <% recommend.slice(0,6).forEach(function(recommend){ %>
+                      <div class="col">
+                        <div class="card shadows shadow-lg">
+                          <div class="card-body">
+                            <a class="text-decoration-none" href="/song/<%= recommend._id %>">
+                              <div>
+                                <img class="song--img song--img__data" src="<%= recommend.image %>">
+                                <% if(!currentUser){ %>
+                                  <a href="/login">
+                                    <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                                  </a>
+                                  <% } else { %>
+                                    <a>
+                                      <img class="icon--img float-end mt-1" src="/image/icons/play-button.png"
+                                        id="card--playicon">
+                                      <audio id="card--audio" preload="metadata">
+                                        <source src="<%= recommend.source %>" type="audio/mp3">
+                                      </audio>
+                                    </a>
+                                    <% } %>
+                              </div>
+                              <div>
+                                <p class="song--name text-white song--name__data">
+                                  <%= recommend.name %>
+                                </p>
+                                <a class="song--artist song--artist__data" href="/artist/<%= recommend.artist.id %>">
+                                  <%= recommend.artist.name %>
+                                </a>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                  </div>
+                </div>
+              </div>
 
-              
+              <div class="album pb-4">
+                <div class="container-fluid">
+                  <div class="d-flex">
+                    <h1 class="category">ALBUMS</h1>
+                    <a class="seeall" href="/album">see all</a>
+                  </div>
+                  <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                    <% album.reverse().slice(0,6).forEach(function(album){ %>
+                      <div class="col">
+                        <div class="card shadows shadow-lg">
+                          <div class="card-body">
+                            <a class="text-decoration-none" href="/album/<%= album._id %>">
+                              <div>
+                                <img class="album--img" src="<%= album.image %>">
+                                <% if(!currentUser){ %>
+                                  <a href="/login">
+                                    <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                                  </a>
+                                  <% } else { %>
+                                    <a>
+                                      <img class="icon--img float-end mt-1" src="/image/icons/play-button.png"
+                                        id="card--playicon">
+                                      <audio id="card--audio">
+                                        <source src="<%= recommend.source %>" type="audio/mp3">
+                                      </audio>
+                                    </a>
+                                    <% } %>
+                              </div>
+                              <p class="album--name text-white d-block">
+                                <%= album.name %>
+                              </p>
+                              <a class="album--album d-block" href="/artist/<%= album.artist.id %>">
+                                <%= album.artist.name %>
+                              </a>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                  </div>
+                </div>
+              </div>
+              <div class="album pb-3">
+                <div class="container-fluid">
+                  <div class="d-flex">
+                    <h1 class="category">ARTISTS</h1>
+                    <a class="seeall" href="/artist">see all</a>
+                  </div>
+                  <div class="row row-cols-3 row-cols-sm-3 row-cols-md-6 g-4">
+                    <% artist.reverse().slice(0,6).forEach(function(artist){ %>
+                      <div class="col">
+                        <div class="card shadows shadow-lg">
+                          <div class="card-body">
+                            <a class="text-decoration-none" href="/artist/<%= artist._id %>">
+                              <div>
+                                <img class="artist--img" src="<%= artist.image %>">
+                                <% if(!currentUser){ %>
+                                  <a href="/login">
+                                    <img class="icon--img float-end mt-1" src="/image/icons/play-button.png">
+                                  </a>
+                                  <% } else { %>
+                                    <a>
+                                      <img class="icon--img float-end mt-1" src="/image/icons/play-button.png"
+                                        id="card--playicon">
+                                      <audio id="card--audio">
+                                        <source src="<%= recommend.source %>" type="audio/mp3">
+                                      </audio>
+                                    </a>
+                                    <% } %>
+                              </div>
+                              <p class="artist--name text-white">
+                                <%= artist.name %>
+                              </p>
+                              <p class="artist--artist d-inline">
+                                Artist
+                              </p>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <% }) %>
+                  </div>
+                </div>
+              </div>
 
-              <% if(currentUser && currentUser.isAdmin){ %>
-                <%- include("partials/LRfooter.ejs") %>
-              <% } else { %>
-                <%- include("partials/footer.ejs") %>
               <% } %>
+                <% if(currentUser && currentUser.isAdmin){ %>
+                  <div class="col py-4">
+                    <% if(error && error.length>0){ %>
+                      <div class='alert alert-danger' role='alert'>
+                        <%= error %>
+                      </div>
+                      <% } %>
+                        <% if(success && success.length>0){ %>
+                          <div class='alert alert-success' role='alert'>
+                            <%= success %>
+                          </div>
+                          <% } %>
+                            <div class="container-fluid addbg py-4">
+                              <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                  <a class="nav-link active" aria-current="page" href="/">Songs</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/artist/new">Artists</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/album/new">Albums</a>
+                                </li>
+                              </ul>
+                              <h1 class="text-white pt-4">Add New Song</h1>
+                              <form action="/" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                  <label class="form-label text-white">Song Name</label>
+                                  <input type="text" class="form-control" name="name" placeholder="Song Name" required>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label text-white">Lyric</label>
+                                  <textarea type="text" class="form-control" name="lyric" placeholder="Lyrics"
+                                    required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label text-white">Artist</label>
+                                  <input type="text" list="artist" class="form-control" name="artist"
+                                    placeholder="Artist Name" autocomplete="off" required>
+                                  <datalist id="artist">
+                                    <% artist.forEach(function(artist){ %>
+                                      <option class="list-group-item">
+                                        <%= artist.name %>
+                                      </option>
+                                      <% }) %>
+                                  </datalist>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label text-white">Album</label>
+                                  <input type="text" list="album" class="form-control" name="album"
+                                    placeholder="Album Name" autocomplete="off">
+                                  <datalist id="album">
+                                    <% album.forEach(function(album){ %>
+                                      <option class="list-group-item">
+                                        <%= album.name %>
+                                      </option>
+                                      <% }) %>
+                                  </datalist>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label text-white">Image</label>
+                                  <input type="file" class="form-control" name="image" accept='image/*' required>
+                                </div>
+                                <div class="mb-3">
+                                  <label class="form-label text-white">Mp3 File</label>
+                                  <input type="file" class="form-control" name="source" accept='audio/mp3' required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                            </div>
+                  </div>
+
+                  <% } %>
+
+
+
+                    <% if(currentUser && currentUser.isAdmin){ %>
+                      <%- include("partials/LRfooter.ejs") %>
+                        <% } else { %>
+                          <%- include("partials/footer.ejs") %>
+                            <% } %>

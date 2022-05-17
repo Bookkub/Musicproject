@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs") %>
     <% let count=1 %>
-        <div class="col px-0  mbuttom">
+        <div class="col px-0 mbuttom">
             <div class="container-fluid px-0 bg-dark">
                 <div class="d-flex px-5 py-4">
                     <img class="albuminfo--img" src="<%= album.image %>">
@@ -19,8 +19,8 @@
                             </p>
                         </div>
                         <div class="songkit--down mt-3">
-                            <a href="#">
-                                <img class="playbtn" src="/image/icons/play.png">
+                            <a>
+                                <img class="icon--img mt-1" src="/image/icons/play-button.png" id="card--playicon">
                             </a>
                         </div>
                     </div>
@@ -99,6 +99,11 @@
                             <% }) %>
                     </tbody>
                 </table>
+                <h1 class="text-white text-center">
+                    <% if(count === 1){ %>
+                      Album has no song record
+                    <% } %>
+                </h1>
             </div>
 
             <%- include("../partials/footer.ejs") %>

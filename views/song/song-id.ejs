@@ -1,5 +1,15 @@
 <%- include("../partials/header.ejs") %>
   <div class="col px-0">
+    <% if(error && error.length>0){ %>
+      <div class='alert alert-danger' role='alert'>
+          <%= error %>
+      </div>
+      <% } %>
+          <% if(success && success.length>0){ %>
+              <div class='alert alert-success' role='alert'>
+                  <%= success %>
+              </div>
+              <% } %>
     <div class="container-fluid px-0 bg-dark">
       <div class="d-flex px-5 py-5">
         <img class="songinfo--img song--img__data" src="<%= songinfo.image %>">
