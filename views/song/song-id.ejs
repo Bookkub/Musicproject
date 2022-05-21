@@ -18,6 +18,9 @@
             <p class="songkit--up__name song--name__data text-white mb-0">
               <%= songinfo.name %>
             </p>
+            <a class="songkit--up__name song--name__data text-white mb-0 hidden Songlinkcard" href="/song/<%= songinfo.id %>">
+              <%= songinfo.name %>
+            </a>
             <a class="songkit--up__artist song--artist__data" href="/artist/<%= songinfo.artist.id %>">
               <%= songinfo.artist.name %>
             </a>

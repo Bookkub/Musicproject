@@ -767,6 +767,14 @@ div.squarebox .t {
   text-overflow: ellipsis;
   max-width: 140px;
 }
+.artist-name:hover {
+  color: #6d6d6d;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
 
 /* Toggles */
 
@@ -995,7 +1003,9 @@ div.squarebox .t {
   text-align: center;
   font-weight:600;
 }
-
+.track-name:hover{
+  color: white;
+}
 .hidder { width: 100%; }
 @media screen and (max-width:768px) {
   .tohide { display: none; }

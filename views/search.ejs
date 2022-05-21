@@ -39,7 +39,7 @@
                   <div class="col">
                     <div class="card shadows shadow-lg">
                       <div class="card-body">
-                        <a class="text-decoration-none" href="/artist/<%= searchartist._id %>">
+                        <a class="text-decoration-none song--link" href="/artist/<%= searchartist._id %>">
                           <div>
                             <img class="artist--img" src="<%= searchartist.image %>">
                             <a href="#">
@@ -137,7 +137,7 @@
                                     <td>
                                       <div class="pt-1 d-flex">
                                         <img class="songimg-admin song--img__data" src="<%= searchsong.image %>">
-                                        <a class="pt-4 px-2 text-white text-decoration-none song--name__data" href="/song/<%= searchsong._id %>">
+                                        <a class="pt-4 px-2 text-white text-decoration-none song--name__data song--link__table" href="/song/<%= searchsong._id %>">
                                           <%= searchsong.name %>
                                         </a>
                                       </div>
@@ -221,7 +221,7 @@
                                       <td>
                                         <div class="pt-1 d-flex">
                                           <img class="songimg-admin song--img__data" src="<%= searchsong.image %>">
-                                          <a class="pt-4 px-2 text-white text-decoration-none song--name__data" href="/song/<%= searchsong._id %>">
+                                          <a class="pt-4 px-2 text-white text-decoration-none song--name__data song--link__table" href="/song/<%= searchsong._id %>">
                                             <%= searchsong.name %>
                                           </a>
                                         </div>

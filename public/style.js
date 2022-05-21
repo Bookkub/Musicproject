@@ -27,6 +27,8 @@ let playicontable; //ปุ่ม play บน card
 let Songimage = document.querySelectorAll('.song--img__data');
 let Songname = document.querySelectorAll('.song--name__data');
 let Songartist = document.querySelectorAll('.song--artist__data');
+let Songlinkcard = document.querySelectorAll('.song--link__card');
+let Songlinktable = document.querySelectorAll('.song--link__table');
 
 let trackimg = document.querySelector('.track_img');
 let trackname = document.querySelector('.track-name');
@@ -248,6 +250,7 @@ for (let i = 0; i < cardaudio.length; i++) {
                     playslidebar.classList.remove('fa-play');
                     playslidebar.classList.add('fa-pause');
                     cardplayicon[i].src = "/image/icons/pause-button.png";
+                    trackname.href = Songlinkcard[i].href;
                     interval = setInterval(Songduration, 1000);
                 }
             }
@@ -294,6 +297,7 @@ for (let i = 0; i < tableaudio.length; i++) {
                     playslidebar.classList.add('fa-pause');
                     tableplayicon[i].classList.add('fa-pause');
                     tableplayicon[i].classList.remove('fa-play');
+                    trackname.href = Songlinktable[i].href;
                     interval = setInterval(Songduration, 1000);
                 }
             }
