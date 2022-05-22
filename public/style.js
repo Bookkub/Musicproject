@@ -251,6 +251,7 @@ for (let i = 0; i < cardaudio.length; i++) {
                     playslidebar.classList.add('fa-pause');
                     cardplayicon[i].src = "/image/icons/pause-button.png";
                     trackname.href = Songlinkcard[i].href;
+                    Songduration();
                     interval = setInterval(Songduration, 1000);
                 }
             }
@@ -298,6 +299,7 @@ for (let i = 0; i < tableaudio.length; i++) {
                     tableplayicon[i].classList.add('fa-pause');
                     tableplayicon[i].classList.remove('fa-play');
                     trackname.href = Songlinktable[i].href;
+                    Songduration();
                     interval = setInterval(Songduration, 1000);
                 }
             }
@@ -343,6 +345,7 @@ forwardbtn.addEventListener('click', function () {
         playslidebar.classList.remove('fa-play');
         playslidebar.classList.add('fa-pause');
         indexallsong = queueindex;
+        Songduration();
         currentSong.play();
     } else if(queue.length <= 0) {
         indexallsong++;
@@ -363,6 +366,7 @@ forwardbtn.addEventListener('click', function () {
         playicontable = tableplayicon[indexallsong];
         playslidebar.classList.remove('fa-play');
         playslidebar.classList.add('fa-pause');
+        Songduration();
         currentSong.play();
     }
 });
@@ -393,6 +397,7 @@ backwardbtn.addEventListener('click', function(){
         playslidebar.classList.remove('fa-play');
         playslidebar.classList.add('fa-pause');
         indexallsong = recentindex;
+        Songduration();
         currentSong.play();
     }
 });
