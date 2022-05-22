@@ -141,16 +141,17 @@ router.get("/:id", middlewareObj.isLoggedIn, function(req, res){
                                 if(err){
                                     console.log(err);
                                 } else {
+                                    allSong.sort((x, y) => (x.favourite > y.favourite) ? -1 : ((y.favourite > x.favourite) ? 1 : 0))
                                     if(req.isAuthenticated()){
                                         user.findById(req.user._id, function(err, foundUser){
                                            if(err){
                                               console.log(err);
                                            } else {
-                                            res.render("song/song-id.ejs",{songinfo:foundsong,othersong:othersong,otherartist:otherartist,usersong:foundUser.song});
+                                            res.render("song/song-id.ejs",{recommend:allSong,songinfo:foundsong,othersong:othersong,otherartist:otherartist,usersong:foundUser.song});
                                            }
                                         });
                                     } else {
-                                        res.render("song/song-id.ejs",{songinfo:foundsong,othersong:othersong,otherartist:otherartist});
+                                        res.render("song/song-id.ejs",{recommend:allSong,songinfo:foundsong,othersong:othersong,otherartist:otherartist});
                                     }
                                 }
                             });

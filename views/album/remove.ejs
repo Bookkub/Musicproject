@@ -20,25 +20,25 @@
         <table class="table text-white pt-4 text-center sortable">
           <thead>
             <tr>
-              <th class="shadows">#</th>
+              <th class="shadows tohide">#</th>
               <th class="shadows">
                 Name
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Artist
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Number of songs
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
             </tr>
           </thead>
           <tbody>
             <% allAlbum.forEach(function(allAlbum){ %>
               <tr class="shadows">
-                <td class="pt-4">
+                <td class="pt-4 tohide">
                   <%= count %>
                 </td>
                 <% count++ %>
@@ -51,13 +51,13 @@
                   </div>
                 </td>
                 <td>
-                  <p class="pt-4 mx-4 text-white text-decoration-none">
+                  <p class="pt-4 mx-4 text-white text-decoration-none tohide">
                     <%= allAlbum.artist.name %>
                   </p>
                 </td>
                 
                 <td>
-                  <p class="pt-4 mx-4 text-white text-decoration-none">
+                  <p class="pt-4 mx-4 text-white text-decoration-none tohide">
                     <% allSong.forEach(function(allSong){ %>
                   <% if(allAlbum.name === allSong.album.name){ %>
                     <% countsong++ %>

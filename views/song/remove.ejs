@@ -19,31 +19,31 @@
         <table class="table text-white pt-4 sortable">
           <thead class="text-center">
             <tr>
-              <th class="shadows">
+              <th class="shadows tohide">
                 #
               </th>
               <th class="shadows">
                 Name
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Artist
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Album
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Like
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
             </tr>
           </thead>
           <tbody>
             <% allSong.forEach(function(allSong){ %>
               <tr class="shadows text-center">
-                <td class="pt-4">
+                <td class="pt-4 tohide">
                   <%= count %>
                 </td>
                 <% count++ %>
@@ -56,17 +56,17 @@
                     </div>
                   </td>
                   <td>
-                    <p class="pt-4 text-white text-decoration-none">
+                    <p class="pt-4 text-white text-decoration-none tohide">
                       <%= allSong.artist.name %>
                     </p>
                   </td>
                   <td>
-                    <p class="pt-4 text-white text-decoration-none">
+                    <p class="pt-4 text-white text-decoration-none tohide">
                       <%= allSong.album.name %>
                     </p>
                   </td>
                   <td>
-                    <p class="pt-4 text-white text-decoration-none">
+                    <p class="pt-4 text-white text-decoration-none tohide">
                       <%= allSong.favourite %>
                     </p>
                   </td>

@@ -19,26 +19,26 @@
         <table class="table text-white pt-4 text-center sortable">
           <thead>
             <tr>
-              <th class="shadows">#</th>
+              <th class="shadows tohide">#</th>
               <th class="shadows"></th>
               <th class="shadows">
                 Name
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Email
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
-              <th class="shadows">
+              <th class="shadows tohide">
                 Status
-                <i class="fa-solid fa-sort"></i>
+                <i class="fa-solid fa-sort tohide"></i>
               </th>
             </tr>
           </thead>
           <tbody>
             <% foundUser.forEach(function(foundUser){ %>
               <tr class="shadows">
-                <td class="pt-4">
+                <td class="pt-4 tohide">
                   <%= count %>
                 </td>
                 <% count++ %>
@@ -53,12 +53,12 @@
                   </p>
                 </td>
                 <td>
-                  <p class="pt-4 text-white text-decoration-none">
+                  <p class="pt-4 text-white text-decoration-none tohide">
                     <%= foundUser.email %>
                   </p>
                 </td>
                 <td>
-                  <p class="pt-4 text-white text-decoration-none">
+                  <p class="pt-4 text-white text-decoration-none tohide">
                     
                     <% if(foundUser.isAdmin === true){ %>
                        Admin 

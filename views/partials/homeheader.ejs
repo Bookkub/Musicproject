@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/akjpro/form-anticlear/base.js"></script>
+    <script src="https://kit.fontawesome.com/d47180477f.js" crossorigin="anonymous"></script>
+    <script src="https://drvic10k.github.io/bootstrap-sortable/Scripts/bootstrap-sortable.js"></script>
+    <script src="/style.js" defer></script>
+</head>
+
+<body>
+    <nav class="sticky-top navbar navbar-expand-lg navbar-black bg-black">
+        <div class="container-fluid">
+            <a class="navbar--brand" href="/">
+                <img src="/image/icons/webicon.png" alt="icons" width="25">
+                Life
+            </a>
+            <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
+                <form action="/search" method="post" class="form-anticlear">
+                    <input class="form-control me-2 search navbar--search__size"
+                        type="search" name="keyword" placeholder="Search for Songs, Artists and Albums" required>
+                </form>
+                <% } %>
+                    <% if(!currentUser) { %>
+                        <div class="navbar--btn">
+                            <a href="/login" class="navbar--btn__login">Login</a>
+                            <a href="/register" class="navbar--btn__register">Register</a>
+                        </div>
+                        <% } else { %>
+
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle text-white fw-bold"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="/image/icons/user.png" alt="usericons" width="30">
+                                    <%= currentUser.username %>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end bg-black">
+                                    <li><a class="dropdown-item text-white" href="/user/<%= currentUser._id %>">Your Profile</a></li>
+                                    <li><a class="dropdown-item text-white" href="/logout">Log Out</a></li>
+                                </ul>
+                            </div>
+                            <% } %>
+        </div>
+    </nav>
+
+                    <div class="container-fluid">
+                        <div class="row flex-nowrap">
+                            <div class="col-auto bg-black p-0">
+                                <div class="text-white min-vh-100">
+                                    <ul class="nav flex-column mb-0 align-items-sm-start">
+                                        <% if(!currentUser || currentUser && !currentUser.isAdmin){ %>
+                                            <a href="/" class="choice home nav-link align-middle sidebar--click">
+                                                <li>
+                                                    <img src="/image/icons/home.png" width="25rem">
+                                                    <span class="d-none d-sm-inline">HOME</span>
+                                                </li>
+                                            </a>
+                                            <% if(currentUser){ %>
+                                            <a href="/favourite" class="choice favourite nav-link align-middle">
+                                                <li>
+                                                    <img src="/image/icons/favourite.png" width="25rem">
+                                                    <span class="d-none d-sm-inline">FAVOURITE</span>
+                                                </li>
+                                            </a>
+                                            <% } else { %>
+                                                <a href="/login" class="choice favourite nav-link align-middle">
+                                                    <li>
+                                                        <img src="/image/icons/favourite.png" width="25rem">
+                                                        <span class="d-none d-sm-inline">FAVOURITE</span>
+                                                    </li>
+                                                </a>
+                                            <% } %>
+                                            <a class="library tocenter">
+                                                Library
+                                            </a>
+                                            <a href="/album" class="choice albums nav-link align-middle">
+                                                <li>
+                                                    <img src="/image/icons/album.png" width="25rem">
+                                                    <span class="d-none d-sm-inline">ALBUMS</span>
+                                                </li>
+                                            </a>
+                                            <a href="/artist" class="choice artist nav-link align-middle">
+                                                <li>
+                                                    <img src="/image/icons/artist.png" width="25rem">
+                                                    <span class="d-none d-sm-inline">ARTISTS</span>
+                                                </li>
+                                            </a>
+                                            <% } %>
+                                                <% if(currentUser && currentUser.isAdmin){ %>
+                                                    <a href="/" class="choice nav-link align-middle">
+                                                        <li>
+                                                            <img src="/image/icons/addmin.png" width="25rem">
+                                                            <span class="d-none d-sm-inline">ADD</span>
+                                                        </li>
+                                                    </a>
+                                                    <a href="/song/remove" class="choice nav-link align-middle">
+                                                        <li>
+                                                            <img src="/image/icons/remove.png" width="25rem">
+                                                            <span class="d-none d-sm-inline">REMOVE</span>
+                                                        </li>
+                                                    </a>
+                                                    <% } %>
+                                    </ul>
+                                </div>
+                            </div>

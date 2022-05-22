@@ -303,17 +303,21 @@
     font-size: 3vh;
 }
 
-.home:hover {
-    animation: glow 20s ease-in-out infinite alternate;
+.sidebar--click{
+  background-color: rgba(151, 151, 151, 0.741);
+}
+
+.home:hover{
+  background-color: rgb(128, 128, 128);
 }
 .favourite:hover{
-  animation: glow 20s ease-in-out infinite alternate;
+  background-color: rgb(128, 128, 128);
 }
 .albums:hover{
-  animation: glow 20s ease-in-out infinite alternate;
+  background-color: rgb(128, 128, 128);
 }
 .artist:hover{
-  animation: glow 20s ease-in-out infinite alternate;
+  background-color: rgb(128, 128, 128);
 }
 
 tbody,
@@ -952,7 +956,7 @@ div.squarebox .t {
   background-image: url(https://cdn.i-joox.com/static/di/default/default-playlist@300.png);
 }
 .library{
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   color: #9F9F9F;
   font-weight: bold;
@@ -1003,6 +1007,7 @@ div.squarebox .t {
   text-align: center;
   font-weight:600;
 }
+
 .track-name:hover{
   color: white;
 }
@@ -1010,20 +1015,12 @@ div.squarebox .t {
 @media screen and (max-width:768px) {
   .tohide { display: none; }
   .toblock {display: block;}
+  .tocenter{text-align: center;}
 }
 @media screen and (max-width:1024px) {
   .toblock {display: block;}
 }
 
-@keyframes glow {
-    from {
-        text-shadow: 0 0 10px rgb(42, 226, 233), 0 0 20px rgb(42, 226, 233), 0 0 30px rgb(42, 226, 233), 0 0 40px rgb(42, 226, 233), 0 0 50px rgb(42, 226, 233);
-    }
-
-    to {
-        text-shadow: 0 0 60px rgb(42, 226, 233), 0 0 70px rgb(42, 226, 233), ;
-    }
-}
 body {
     background-image: linear-gradient(90deg, #283048 0%, rgb(71, 97, 107) 100%);
     height: 100%;

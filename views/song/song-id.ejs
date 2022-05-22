@@ -84,6 +84,33 @@
         <div class="" style="top: 2rem;">
           <div class="py-5 mb-3 rounded">
             <div class="d-flex justify-content-between">
+              <h4 class="px-4 text-white">Recommended</h4>
+            </div>
+            <table class="table text-white">
+              <tbody>
+                <% recommend.slice(0,3).forEach(function(recommend){ %>
+                  <tr>
+                    <th class="card shadows">
+                      <div class="d-flex">
+                        <a class=" text-decoration-none" href="/song/<%= recommend._id %>">
+                          <img class="songimg" src="<%= recommend.image %>">
+                          <div class="pt-2">
+                            <span class="song--name d-block">
+                              <%= recommend.name %>
+                            </span>
+                            <a class="song--artist" href="/artist/<%= recommend.artist.id %>">
+                              <%= recommend.artist.name %>
+                            </a>
+                          </div>
+                        </a>
+                      </div>
+                    </th>
+                  </tr>
+                  <% }) %>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between">
               <h4 class="px-4 text-white">Other Song</h4>
             </div>
             <table class="table text-white">
