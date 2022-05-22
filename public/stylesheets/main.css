@@ -304,7 +304,7 @@
 }
 
 .sidebar--click{
-  background-color: rgba(151, 151, 151, 0.741);
+  background-color: rgb(128, 128, 128);
 }
 
 .home:hover{
@@ -319,6 +319,13 @@
 .artist:hover{
   background-color: rgb(128, 128, 128);
 }
+.add:hover{
+  background-color: rgb(128, 128, 128);
+}
+.remove:hover{
+  background-color: rgb(128, 128, 128);
+}
+
 
 tbody,
 td,
@@ -962,7 +969,7 @@ div.squarebox .t {
   font-weight: bold;
 }
 .library:hover{
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
   color: #9F9F9F;
   font-weight: bold;
