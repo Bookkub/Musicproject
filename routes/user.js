@@ -47,7 +47,7 @@ router.put("/:id/edit", upload.single('image'), function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            req.flash('success', "User had been edit.");
+            req.flash('success', "Profile had been edit.");
             res.redirect('back');
         }
     });

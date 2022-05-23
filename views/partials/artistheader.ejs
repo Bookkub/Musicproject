@@ -48,7 +48,7 @@
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn dropdown-toggle text-white fw-bold"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="/image/icons/user.png" alt="usericons" width="30">
+                                    <img class="user--img" src="<%= currentUser.image %>" alt="usericons" width="30">
                                     <%= currentUser.username %>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end bg-black">
@@ -104,13 +104,13 @@
                                             </a>
                                             <% } %>
                                                 <% if(currentUser && currentUser.isAdmin){ %>
-                                                    <a href="/" class="choice nav-link align-middle">
+                                                    <a href="/" class="choice add nav-link align-middle">
                                                         <li>
                                                             <img src="/image/icons/addmin.png" width="25rem">
                                                             <span class="d-none d-sm-inline">ADD</span>
                                                         </li>
                                                     </a>
-                                                    <a href="/song/remove" class="choice nav-link align-middle">
+                                                    <a href="/song/remove" class="choice remove nav-link align-middle">
                                                         <li>
                                                             <img src="/image/icons/remove.png" width="25rem">
                                                             <span class="d-none d-sm-inline">REMOVE</span>
