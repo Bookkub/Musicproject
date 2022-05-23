@@ -28,7 +28,7 @@
             </div>
 
 
-            <div class="container-fluid my-3 px-5">
+            <div class="container-fluid my-3">
                 <table class="table text-white">
                     <tbody>
                         <% albumsong.forEach(function(albumsong){ %>
@@ -53,12 +53,12 @@
                                 <td>
                                     <div class="option my-4 mx-2">
                                         <% if(!currentUser){ %>
-                                            <a href="/login" class="text-decoration-none star-color">
+                                            <a href="/login" class="text-decoration-none star-color toblock">
                                               <i class="fa-solid fa-play"></i>
                                             </a>
                                             <% } else { %>
                                               <a>
-                                                <i class="fa-solid fa-play" id="table--playicon"></i>
+                                                <i class="fa-solid fa-play toblock" id="table--playicon"></i>
                                                 <audio id="table--audio" preload="metadata">
                                                   <source src="<%= albumsong.source %>" type="audio/mp3">
                                                 </audio>
@@ -67,26 +67,26 @@
                                         <% if(currentUser) { %>
                                             <% if(usersong.includes(albumsong.id)){ %>
                                           <form action="/user/unfavourite/<%= albumsong.id %>" method="post" class="d-inline">
-                                              <button class="mx-3 bg-transparent border-0"> 
-                                                <i class="fa-solid fa-star mx-3 starbg"></i>
+                                              <button class="mx-3 bg-transparent border-0 toblock"> 
+                                                <i class="fa-solid fa-star starbg"></i>
                                               </button>
                                           </form>
                                           <% } else { %>
                                             <form action="/user/favourite/<%= albumsong.id %>" method="post" class="d-inline">
-                                              <button class="mx-3 bg-transparent border-0"> 
-                                                <i class="fa-solid fa-star mx-3"></i>
+                                              <button class="mx-3 bg-transparent border-0 toblock"> 
+                                                <i class="fa-solid fa-star"></i>
                                               </button>
                                           </form>
                                           <% } %>
                                           <% } else { %>
                                             <form action="/user/favourite/<%= albumsong.id %>" method="post" class="d-inline">
-                                              <button class="mx-3 bg-transparent border-0"> 
-                                                <i class="fa-solid fa-star mx-3"></i>
+                                              <button class="mx-3 bg-transparent border-0 toblock"> 
+                                                <i class="fa-solid fa-star"></i>
                                               </button>
                                           </form>
                                           <% } %>
                                           <div class="dropdown d-inline">
-                                            <button class="btn btn-secondary dropdown bg-transparent border-0 toblock" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn btn-secondary dropdown bg-transparent border-0 toblock d-inline" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                               <i class="fa-solid fa-ellipsis-vertical main-menu"></i>
                                             </button>
                                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">

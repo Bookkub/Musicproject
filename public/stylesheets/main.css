@@ -666,14 +666,14 @@ div.squarebox .t {
 .interface .player-controls .play i,
 .interface .player-controls .previous i,
 .interface .player-controls .next i {
-  font-size: 23px;
+  font-size: 3vh;
   color: #fff;
 }
 
 .interface .player-controls .play:hover i,
 .interface .player-controls .previous:hover i,
 .interface .player-controls .next:hover i {
-  font-size: 23px;
+  font-size: 3vh;
   color:#00FFFF;
 }
 
@@ -926,7 +926,7 @@ div.squarebox .t {
   .interface .player-controls .play i,
   .interface .player-controls .previous i,
   .interface .player-controls .next i {
-    font-size: 16px;
+    font-size: 3vh;
   }
   .interface .player-controls .play,
   .interface .player-controls .pause {

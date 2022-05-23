@@ -330,6 +330,7 @@ forwardbtn.addEventListener('click', function () {
         for (let i = 0; i < tableaudio.length; i++) {
             if (i != queueindex) {
                 tableaudio[i].pause();
+                tableaudio[i].currentTime = 0;
                 tableplayicon[i].classList.add('fa-play');
                 tableplayicon[i].classList.remove('fa-pause');
             }
@@ -357,6 +358,7 @@ forwardbtn.addEventListener('click', function () {
                 tableplayicon[i].classList.remove('fa-pause');
             }
         }
+        tableaudio[indexallsong].currentTime = 0;
         currentSong = tableaudio[indexallsong];
         trackimg.src = Songimage[indexallsong].src;
         trackname.textContent = Songname[indexallsong].textContent.trim();
@@ -382,10 +384,12 @@ backwardbtn.addEventListener('click', function(){
         for (let i = 0; i < tableaudio.length; i++) {
             if (i != recentindex) {
                 tableaudio[i].pause();
+                tableaudio[i].currentTime = 0;
                 tableplayicon[i].classList.add('fa-play');
                 tableplayicon[i].classList.remove('fa-pause');
             }
         }
+        tableaudio[recentindex].currentTime = 0;
         currentSong.volume = 0.04;
         currentSong = tableaudio[recentindex];
         trackimg.src = Songimage[recentindex].src;
